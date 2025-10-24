@@ -1,0 +1,78 @@
+---
+import ScheduleCard from "./ScheduleCard.astro"
+
+const scheduleData = [
+    {
+        date: "February 6th",
+        day: "Friday",
+        events: [
+            {
+                "title": "Event One",
+                "time": "5:00pm - 6:00pm",
+                "description": "asdas;dasldkasl;d",
+                "tags": ["snacks", "ARC 137"]
+            },
+            {
+                "title": "Event Two",
+                "time": "5:00pm - 6:00pm",
+                "description": "asdas;dasldkasl;d",
+                "tags": ["snacks", "ARC 137"]
+            },
+            {
+                "title": "Event Three",
+                "time": "5:00pm - 6:00pm",
+                "description": "asdas;dasldkasl;d",
+                "tags": ["snacks", "ARC 137"]
+            }
+        ],
+    },
+    {
+        date: "February 7th",
+        day: "Saturday",
+        events: [
+            {
+                "title": "Event SatOne",
+                "time": "5:00pm - 6:00pm",
+                "description": "asdas;dasldkasl;d",
+                "tags": ["snacks", "ARC 137"]
+            },
+            {
+                "title": "Event SatTwo",
+                "time": "5:00pm - 6:00pm",
+                "description": "asdas;dasldkasl;d",
+                "tags": ["snacks", "ARC 137"]
+            },
+            {
+                "title": "Event SatThree",
+                "time": "5:00pm - 6:00pm",
+                "description": "asdas;dasldkasl;d",
+                "tags": ["snacks", "ARC 137"]
+            }
+        ]
+    }
+]
+---
+
+<section id="schedule">
+    <div class="flex flex-col place-content-center items-center bg-[#48090a] text-white pb-30">
+        <h1 class="text-2xl text-center leading-relaxed w-[50%] md:w-[35%] ">The Short List</h1>
+        <h1 class="text-2xl font-bold text-center leading-relaxed w-[50%] md:w-[35%]">Schedule</h1>
+        <br />
+        <div class="flex flex-row grid-flow-col place-content-center items-center bg-[#48090a] text-white gap-20 pb-30">
+            {
+                scheduleData.map((d) => (
+                    <div>
+                        <h1> <span class="text-2xl font-bold text-center leading-relaxed w-[50%] md:w-[35%]">{d.day} -- </span> {d.date}</h1>
+                        <div class="flex flex-col gap-5">
+                            {
+                                d.events.map((event) => (
+                                    <ScheduleCard eventData={event} />
+                                )
+                            )}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
