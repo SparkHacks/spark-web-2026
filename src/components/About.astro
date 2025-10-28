@@ -1,36 +1,23 @@
 ---
-import MedalImg from "../assets/about/medal.svg";
-import SpotlightImg from "../assets/about/spotlight.svg";
-import CrowdImg from "../assets/about/crowd.svg";
-import SquiggleImg from "../assets/about/squiggle.svg";
-import AboutText from "../assets/about/aboutText.svg";
+import medalImg from '../assets/medal.svg';
+import spotlightImg from '../assets/spotlight.svg';
 ---
 
-<div
-	class="flex flex-col place-content-center items-center bg-[#48090a] text-white gap-20 pb-30"
-	id="about">
-	<div class="w-full">
-		<!-- <div
-			class="flex flex-col place-items-center items-center gap-12 pt-20 md:pt-60 pb-30 bg-position-[bottom_left_10%,bottom_right] bg-size-[115px,contain] bg-no-repeat"
-			style=``> -->
-			<svg height="100%" width="100%"viewBox="0 0 100 125">
-                <svg x="-8%" viewBox="0 0 1750 1750" transform="scale(1.25)">
-                    <CrowdImg x="10%" y="36%" />
-                    <SpotlightImg x="30%" y="0.5%" style="opacity: 80%"  />
-                    <ellipse cx="53.25%" cy="82%" rx="407" ry="15" fill="#FFF0D2" />
-                    <SquiggleImg x="5%" y="0%" transform="scale(1.05)" />
-                    <AboutText x="32%" y="20%" transform="scale(1.05)"/>
-                    <MedalImg x="55%" y="44.25%" />
-                </svg>
-			</svg>
-		<!-- </div> -->
-	</div>
+<div class="flex flex-col place-content-center items-center bg-[#48090a] text-white gap-20 pb-30" id="about">
+    <div class="w-full">
+        <div class="flex flex-col place-items-center items-center gap-12 pt-20 md:pt-60 pb-30 bg-position-[bottom_left_10%,bottom_right] bg-size-[115px,contain] bg-no-repeat"
+                style=`background-image: url('${medalImg.src}'), url('${spotlightImg.src}');`>
+            <h1 class="text-5xl font-bold">About</h1>
+            <h2 class="text-2xl font-bold">"The Event of the Year"</h2>
+            <h2 class="text-2xl font-bold">Chicago's Largest Hackathon</h2>
+            <h2 class="text-2xl font-bold">1000+ Participants</h2>
+            <h2 class="text-2xl font-bold">$30k+ in Prizes</h2>
+        </div>
+    </div>
 
-	<p class="text-2xl text-center leading-relaxed w-[50%] md:w-[35%] ">
-		SparkHacks is a 24-hour hackathon hosted by the Department of Computer Science at the
-		University of Illinois Chicago along with several different CS-based student organizations.
-		This is the fourth iteration of SparkHacks and aims to provide an environment to learn,
-		collaborate with peers, and build a project that tackles our problem statements for a chance
-		to win prizes!
-	</p>
+    <p class="text-xl w-[80%] md:w-[60%]">SparkHacks is a 24-hour hackathon hosted by the Department of Computer Science at the 
+        University of Illinois Chicago along with several different CS-based student organizations. 
+        This is the third iteration of SparkHacks and aims to provide an environment to learn, 
+        collaborate with peers, and build a project that tackles our problem statements for a 
+        chance to win prizes!</p>
 </div>
