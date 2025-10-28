@@ -1,0 +1,9 @@
+---
+const { name } = Astro.props;
+import Star from '/src/assets/sponsors/star.svg';
+---
+
+<div class="flex gap-5 items-center">
+    <Star class="w-20 h-fit" />
+    <h2 class="text-xl font-bold">{name}</h2>
+</div>

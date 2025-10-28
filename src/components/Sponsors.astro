@@ -1,0 +1,30 @@
+---
+import Carpet from '/src/assets/sponsors/carpet.svg';
+import VipRibbon from '/src/assets/sponsors/vipRibbon.svg';
+import SideRibbon from '/src/assets/sponsors/sideRibbon.svg';
+import BigSponsor from './sponsors/BigSponsor.astro';
+import SmallSponsor from './sponsors/SmallSponsor.astro';
+---
+
+<div
+    class="relative w-full h-fit bg-linear-to-b from-[#a1123a] via-[#f79733] via-70% to-[#a81b21] text-white pt-20"
+>
+    <SideRibbon class="absolute left-0 top-40 w-[40%] h-fit" />
+    <SideRibbon class="absolute right-0 top-40 w-[40%] h-fit rotate-y-180" />
+    <Carpet class="absolute bottom-0 w-[60%] left-[20%] h-fit" />
+
+    <div class="flex flex-col items-center pb-100">
+        <span class="text-3xl text-center z-1">Thanks to Our <h1 class="font-bold">Sponsors</h1></span>
+        <VipRibbon class="w-[60%] h-fit z-1" />
+
+        <div class="flex flex-col items-center gap-5 z-1">
+            <BigSponsor name="UIC CS Department"/>
+            <BigSponsor name="UIC CS Department"/>
+            <BigSponsor name="UIC CS Department"/>
+            <BigSponsor name="UIC CS Department"/>
+            <SmallSponsor name="UIC CS Department"/>
+            <SmallSponsor name="UIC CS Department"/>
+            <SmallSponsor name="UIC CS Department"/>
+        </div>
+    </div>
+</div>
