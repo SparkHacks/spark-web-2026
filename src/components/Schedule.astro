@@ -7,23 +7,58 @@ const scheduleData = [
         day: "Friday",
         events: [
             {
-                "title": "Event One",
+                "title": "Check-In",
                 "time": "5:00pm - 6:00pm",
-                "description": "asdas;dasldkasl;d",
+                "description": "Have your QR code ready for scanning!",
                 "tags": ["snacks", "ARC 137"]
             },
             {
-                "title": "Event Two",
-                "time": "5:00pm - 6:00pm",
-                "description": "asdas;dasldkasl;d",
-                "tags": ["snacks", "ARC 137"]
+                "title": "Team Building",
+                "time": "5:00pm - 6:30pm",
+                "description": "Build your film team!",
+                "tags": ["team", "ARC 137"]
             },
             {
-                "title": "Event Three",
-                "time": "5:00pm - 6:00pm",
-                "description": "asdas;dasldkasl;d",
+                "title": "Networking",
+                "time": "5:00pm - 6:30pm",
+                "description": "Network with SparkHacks sponsors!",
+                "tags": ["networking", "ARC 137"]
+            },
+            {
+                "title": "Opening Ceremony",
+                "time": "7:00pm - 6:30pm",
+                "description": "Join us for the opening ceremony!",
+                "tags": ["important", "ARC 137"]
+            },
+            {
+                "title": "Workshop One",
+                "time": "6:30pm - 7:30pm",
+                "description": "Workshop One!",
+                "tags": ["workshop", "ARC 137"]
+            },
+            {
+                "title": "Workshop Two",
+                "time": "7:30pm - 8:30pm",
+                "description": "Workshop TWO!",
+                "tags": ["workshop", "ARC 137"]
+            },{
+                "title": "DINNER",
+                "time": "8:30pm - 9:30pm",
+                "description": "Enjoy some top tier food!",
+                "tags": ["food", "ARC 137"]
+            },
+            {
+                "title": "Game Night",
+                "time": "9:30pm - 10:30pm",
+                "description": "Take a break and play some video games with the SparkHacks team!",
+                "tags": ["game", "ARC 137"]
+            },
+            {
+                "title": "Midnight Snacks",
+                "time": "11:30pm - 12:00am",
+                "description": "Enjoy some insomia cookies!",
                 "tags": ["snacks", "ARC 137"]
-            }
+            },
         ],
     },
     {
@@ -31,23 +66,59 @@ const scheduleData = [
         day: "Saturday",
         events: [
             {
-                "title": "Event SatOne",
-                "time": "5:00pm - 6:00pm",
-                "description": "asdas;dasldkasl;d",
-                "tags": ["snacks", "ARC 137"]
+                "title": "Check-In & Breakfast",
+                "time": "9:00am - 10:30am",
+                "description": "Check in for day 2 and get ready with breakfast!",
+                "tags": ["food", "ARC 137"]
             },
             {
-                "title": "Event SatTwo",
-                "time": "5:00pm - 6:00pm",
-                "description": "asdas;dasldkasl;d",
-                "tags": ["snacks", "ARC 137"]
+                "title": "Game Break",
+                "time": "11:00am - 12:00pm",
+                "description": "Destress with a game break!",
+                "tags": ["game", "ARC 137"]
             },
             {
-                "title": "Event SatThree",
-                "time": "5:00pm - 6:00pm",
-                "description": "asdas;dasldkasl;d",
-                "tags": ["snacks", "ARC 137"]
-            }
+                "title": "DevPost Drafts Due!",
+                "time": "2:00pm",
+                "description": "Make sure drafts for DevPosts have been made! Submit team forms as well!",
+                "tags": ["important", "ARC 137"]
+            },
+            {
+                "title": "Lunch",
+                "time": "2:00pm - 3:00pm",
+                "description": "Lunch!!",
+                "tags": ["food", "ARC 137"]
+            },
+            {
+                "title": "Hacking Over!",
+                "time": "6:30pm",
+                "description": "SUBMIT THOSE DEVPOSTS!!",
+                "tags": ["important", "ARC 137"]
+            },
+            {
+                "title": "Workshop One",
+                "time": "6:30pm - 7:30pm",
+                "description": "Workshop One!",
+                "tags": ["workshop", "ARC 137"]
+            },
+            {
+                "title": "Project Expo",
+                "time": "7:30pm - 8:30pm",
+                "description": "Present your projects and get ready for judging!",
+                "tags": ["expo", "ARC 137"]
+            },
+            {
+                "title": "Closing Ceremony",
+                "time": "7:30pm - 8:30pm",
+                "description": "Winner Announcements!",
+                "tags": ["important", "ARC 137"]
+            },
+            {
+                "title": "DINNER & Meet the Team!",
+                "time": "8:30pm - 9:30pm",
+                "description": "Enjoy some well-earned dinner and meet the SparkHacks team!",
+                "tags": ["food", "ARC 137"]
+            },
         ]
     }
 ]
@@ -58,7 +129,7 @@ const scheduleData = [
         <h1 class="text-3xl text-center leading-relaxed">The Short List</h1>
         <h1 class="text-3xl font-bold text-center leading-relaxed">Schedule</h1>
         <br />
-        <div class="flex flex-row flex-wrap place-content-center items-center bg-[#48090a] text-white gap-15 pb-30"> 
+        <div class="flex flex-row flex-wrap place-content-center items-start bg-[#48090a] text-white gap-15 pb-30"> 
             {
                 scheduleData.map((d) => (
                     <div>
