@@ -1,0 +1,91 @@
+---
+import HillBG from "../assets/footer/hill.svg";
+import BuildingsBG from "../assets/footer/buildings.svg";
+import Spotlight1 from "../assets/footer/spotlight1.svg";
+import Spotlight2 from "../assets/footer/spotlight2.svg";
+import Spotlight3 from "../assets/footer/spotlight3.svg";
+import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
+---
+
+<div class="w-full">
+    <svg height="100%" width="100%"viewBox="0 0 100 55">
+        <svg viewBox="0 0 1750 500" y="5%" transform="scale(1)" xmlns="http://www.w3.org/2000/svg">
+            <HillBG x="-2%" y="11%" transform="scale(1.3)" />
+            <SparkHacksLetters x="75%" y="20%" />
+
+            <Spotlight1 id="spotlight1" x="40%" y="-20%" style="mix-blend-mode: plus-lighter;" />
+            <Spotlight2 id="spotlight2" x="35%" y="25%" style="mix-blend-mode: plus-lighter;" />
+            <Spotlight3 id="spotlight3" x="45%" y="80%" style="mix-blend-mode: plus-lighter;" />
+            
+
+            <BuildingsBG x="5%" y="-20%" transform="scale(1)"/>
+            
+        </svg>
+    </svg>
+</div>
+
+<style>
+	@keyframes spotlight1-animation
+	{
+        0%
+        {}
+
+        50%
+        {
+            transform: rotate(-15deg);
+        }
+
+        100%
+        {}
+	}
+
+    @keyframes spotlight2-animation
+	{
+        0%
+        {}
+
+        50%
+        {
+            transform: rotate(-25deg);
+        }
+
+        100%
+        {}
+	}
+
+    @keyframes spotlight3-animation
+	{
+        0%
+        {}
+
+        50%
+        {
+            transform: rotate(15deg);
+        }
+
+        100%
+        {}
+	}
+
+
+	#spotlight1, #spotlight2, #spotlight3 
+	{
+		transform-origin: center;
+	}
+
+    #spotlight1
+	{
+		animation: spotlight1-animation 6s ease-in-out infinite;
+	}
+
+    #spotlight2
+	{
+		animation: spotlight2-animation 7s ease-in-out infinite;
+	}
+
+    #spotlight3
+	{
+		animation: spotlight3-animation 9s ease-in-out infinite;
+	}
+	
+</style>
