@@ -1,0 +1,24 @@
+---
+const { title, date, time, description, link } = Astro.props;
+---
+
+<div class="text-white">
+  <!-- Title -->
+  <div class="text-3xl font-bold mb-2">
+    {title} | {date} @ {time}
+  </div>
+
+  <!-- Description -->
+  <div class="mb-4 text-lg">
+    {description}
+  </div>
+
+  <!-- Button -->
+  <a href={link} class="inline-block bg-[#FCA129] w-80 rounded-lg overflow-hidden hover:scale-101 transition-all duration-500 hover:shadow-[0_0_20px_rgba(252,161,41,0.8)]">
+    <div class="w-full h-12 text-black flex items-center justify-center font-semibold relative font-thin">
+      <div class="absolute inset-0 bg-[#FFC77E80]" 
+           style="clip-path: polygon(25% 0, 55% 0, 75% 100%, 45% 100%);"></div>
+      <span class="relative z-10">Reserve Your Seat Now!</span>
+    </div>
+  </a>
+</div>
