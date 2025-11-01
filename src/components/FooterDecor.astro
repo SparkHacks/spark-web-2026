@@ -10,6 +10,14 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 <div class="w-full">
     <svg height="100%" width="100%"viewBox="0 0 100 55">
         <svg viewBox="0 0 1750 500" y="5%" transform="scale(1)" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient id="billboard-bg" x1="0" x2="0" y1="0" y2="1">
+                    <stop style="stop-color:#FFC77E" offset="0%" />
+                    <stop style="stop-color:#FCA129" offset="100%" />
+                </radialGradient>
+            </defs>
+            
+
             <HillBG x="-2%" y="11%" transform="scale(1.3)" />
             <SparkHacksLetters x="75%" y="20%" />
 
@@ -19,6 +27,14 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
             
 
             <BuildingsBG x="5%" y="-20%" transform="scale(1)"/>
+            <rect width="10" height="116" x="30%" y="-42%" fill="white" /> 
+            <rect width="10" height="191" x="28%" y="-57%" fill="white" />
+
+            <rect width="258" height="115" x="12%" y="115%" fill-opacity="0" stroke="white" stroke-width="5" />
+            <rect width="328" height="134.45" x="10%" y="90%" fill="url(#billboard-bg)" stroke="#48090A" stroke-width="25" /> 
+            <rect id="billboard" width="328" height="134.45" x="10%" y="90%" fill="url(#billboard-bg)" /> 
+            <text class="billboard-txt" x="19.5%" y="100%">Coming to a</text>
+            <text class="billboard-txt" x="19.5%" y="110%">Campus By You!</text>
             
         </svg>
     </svg>
@@ -32,7 +48,7 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 
         50%
         {
-            transform: rotate(-15deg);
+            transform: rotate(-5deg);
         }
 
         100%
@@ -46,7 +62,7 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 
         50%
         {
-            transform: rotate(-25deg);
+            transform: rotate(3deg);
         }
 
         100%
@@ -60,7 +76,7 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 
         50%
         {
-            transform: rotate(15deg);
+            transform: rotate(-5deg);
         }
 
         100%
@@ -70,7 +86,7 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 
 	#spotlight1, #spotlight2, #spotlight3 
 	{
-		transform-origin: center;
+		transform-origin: bottom left;
 	}
 
     #spotlight1
@@ -87,5 +103,16 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 	{
 		animation: spotlight3-animation 9s ease-in-out infinite;
 	}
+
+    .billboard-txt
+    {
+        font: bold 36px sans-serif;
+        fill: #48090A;
+        text-anchor: middle;
+    }
 	
+    #billboard:hover {
+        filter: brightness(1.25);
+    }
+
 </style>
