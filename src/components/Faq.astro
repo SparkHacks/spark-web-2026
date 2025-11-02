@@ -78,34 +78,26 @@ const iconPairsList = faqData.map(() => getIconPair());
 </div>
 
 <script>
-  document.querySelectorAll(".faq-item").forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const index = (e.currentTarget as HTMLElement).getAttribute(
-        "data-index"
-      );
-      const answer = document.querySelector(
-        `.faq-answer[data-index="${index}"]`
-      );
-      const closedIcon = document.querySelector(
-        `.faq-icon-closed[data-index="${index}"]`
-      );
-      const openIcon = document.querySelector(
-        `.faq-icon-open[data-index="${index}"]`
-      );
-      const arrow = document.querySelector(
-        `.faq-arrow[data-index="${index}"]`
-      );
+  function initFaq() {
+    document.querySelectorAll(".faq-item").forEach((button) => {
+      button.addEventListener("click", function(this: HTMLElement) {
+        const index = this.getAttribute("data-index");
+        if (!index) return;
+        
+        const answer = this.querySelector(`.faq-answer[data-index="${index}"]`);
+        const closedIcon = this.querySelector(`.faq-icon-closed[data-index="${index}"]`);
+        const openIcon = this.querySelector(`.faq-icon-open[data-index="${index}"]`);
+        const arrow = this.querySelector(`.faq-arrow[data-index="${index}"]`);
 
-      if (answer) {
-        answer.classList.toggle("hidden");
-      }
-      if (closedIcon && openIcon) {
-        closedIcon.classList.toggle("hidden");
-        openIcon.classList.toggle("hidden");
-      }
-      if (arrow) {
-        arrow.classList.toggle("rotate-180");
-      }
+        answer?.classList.toggle("hidden");
+        closedIcon?.classList.toggle("hidden");
+        openIcon?.classList.toggle("hidden");
+        arrow?.classList.toggle("rotate-180");
+      });
     });
-  });
+  }
+
+  initFaq();
+  
+  document.addEventListener('astro:page-load', initFaq);
 </script>
