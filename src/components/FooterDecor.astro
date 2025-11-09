@@ -30,15 +30,36 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
             <rect width="10" height="116" x="30%" y="-42%" fill="white" /> 
             <rect width="10" height="191" x="28%" y="-57%" fill="white" />
 
-            <rect width="258" height="115" x="12%" y="115%" fill-opacity="0" stroke="white" stroke-width="5" />
-            <rect width="328" height="134.45" x="10%" y="90%" fill="url(#billboard-bg)" stroke="#48090A" stroke-width="25" /> 
-            <rect id="billboard" width="328" height="134.45" x="10%" y="90%" fill="url(#billboard-bg)" /> 
-            <text class="billboard-txt" x="19.5%" y="100%">Coming to a</text>
-            <text class="billboard-txt" x="19.5%" y="110%">Campus By You!</text>
-            
+            <g id="billboard-group">
+                <rect width="258" height="115" x="12%" y="115%" fill-opacity="0" stroke="white" stroke-width="5" />
+                <rect width="328" height="134.45" x="10%" y="90%" fill="url(#billboard-bg)" stroke="#48090A" stroke-width="25" /> 
+                <rect id="billboard" width="328" height="134.45" x="10%" y="90%" fill="url(#billboard-bg)" /> 
+                <text class="billboard-txt" x="19.5%" y="100%">Coming to a</text>
+                <text class="billboard-txt" x="19.5%" y="110%">Campus By You!</text>
+
+                <g id="top-lights">
+                    {Array.from({length: 12}).map((e, i) => (
+                        <ellipse fill="#FFF0D2"  rx="12" cx={`${9.75 + i * 1.75}%`} cy="89%" />
+                    ))}
+                </g>
+
+                <g id="bottom-lights">
+                    {Array.from({length: 12}).map((e, i) => (
+                        <ellipse fill="#FFF0D2"  rx="12" cx={`${9.75 + i * 1.75}%`} cy="118%" />
+                    ))}
+                </g>
+            </g>
+
+            <g id="building-lights">
+                <!-- TODO -->
+            </g>
         </svg>
     </svg>
 </div>
+
+<script>
+    
+</script>
 
 <style>
 	@keyframes spotlight1-animation
@@ -106,12 +127,13 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 
     .billboard-txt
     {
+        user-select: none;
         font: bold 36px sans-serif;
         fill: #48090A;
         text-anchor: middle;
     }
 	
-    #billboard:hover {
+    #billboard-group:hover #billboard {
         filter: brightness(1.25);
     }
 
