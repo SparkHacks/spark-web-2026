@@ -52,6 +52,19 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 
             <g id="building-lights">
                 <!-- TODO -->
+                {Array.from({length: 6}).map((e, i) => (
+                    <rect fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="55%" />
+                    <rect fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="62%" />
+                    <rect fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="69%" />
+                ))}
+
+                {Array.from({length: 3}).map((e, i) => (
+                    <rect fill="#FFF0D2"  width="40" height="25" x={`${35.75 + i * 3}%`} y="97%" />
+                    <rect fill="#FFF0D2"  width="40" height="25" x={`${35.75 + i * 3}%`} y="105%" />
+                ))}
+
+                <rect fill="#FFF0D2"  width="55" height="25" x="52.5%" y="110%" />
+
             </g>
         </svg>
     </svg>
