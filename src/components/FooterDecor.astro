@@ -16,6 +16,10 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
                     <stop style="stop-color:#FCA129" offset="100%" />
                 </radialGradient>
             </defs>
+
+            <filter id="blur">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+            </filter>
             
 
             <HillBG x="-2%" y="11%" transform="scale(1.3)" />
@@ -32,26 +36,26 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 
             <g id="billboard-group">
                 <rect width="258" height="115" x="12%" y="115%" fill-opacity="0" stroke="white" stroke-width="5" />
-                <rect width="328" height="134.45" x="10%" y="90%" fill="url(#billboard-bg)" stroke="#48090A" stroke-width="25" /> 
-                <rect id="billboard" width="328" height="134.45" x="10%" y="90%" fill="url(#billboard-bg)" /> 
-                <text class="billboard-txt" x="19.5%" y="100%">Coming to a</text>
-                <text class="billboard-txt" x="19.5%" y="110%">Campus By You!</text>
+                <rect width="328" height="134.45" x="10%" y="90%" fill="url(#billboard-bg)" stroke="#48090A" stroke-width="15" />     
+                <text class="billboard-txt" x="19.25%" y="100%">Coming to a</text>
+                <text class="billboard-txt" x="19.25%" y="110%">Campus By You!</text>
+                <rect id="billboard-overlay" width="328" height="134.45" x="10%" y="90%" fill="#FCA129" style="mix-blend-mode: lighten;" />
 
                 <g id="top-lights">
                     {Array.from({length: 12}).map((e, i) => (
-                        <ellipse fill="#FFF0D2"  rx="12" cx={`${9.75 + i * 1.75}%`} cy="89%" />
+                        <ellipse class="board-bulb-top" fill="#FFF0D2"  rx="12" cx={`${9.75 + i * 1.75}%`} cy="89%" />
                     ))}
                 </g>
 
                 <g id="bottom-lights">
                     {Array.from({length: 12}).map((e, i) => (
-                        <ellipse fill="#FFF0D2"  rx="12" cx={`${9.75 + i * 1.75}%`} cy="118%" />
+                        <ellipse class="board-bulb-bottom" fill="#FFF0D2"  rx="12" cx={`${9.75 + i * 1.75}%`} cy="118%" />
                     ))}
                 </g>
-            </g>
+            </g> 
+
 
             <g id="building-lights">
-                <!-- TODO -->
                 {Array.from({length: 6}).map((e, i) => (
                     <rect fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="55%" />
                     <rect fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="62%" />
@@ -71,6 +75,37 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 </div>
 
 <script>
+import { build } from "astro";
+
+    // billboard lights
+    const billboard_top = document.querySelectorAll("top-lights");
+    const billboard_bottom = document.querySelectorAll("board-bulb-bottom");
+
+    if (!billboard_top || !billboard_bottom) 
+    {
+        console.error("Footer billboard not found");
+    }
+    else 
+    {
+        billboard_top.forEach((bulb, i) => {
+            (bulb as HTMLElement).style.animationDelay = `${i/6 + 1}s`;
+        });
+
+        billboard_bottom.forEach((bulb, i) => {
+            (bulb as HTMLElement).style.animationDelay = `${i/6 + 1}s`;
+        });
+    }
+
+    // buildings lights
+    const building_lights = document.getElementById("building-lights");
+    if (!building_lights) 
+    {
+        console.error("Footer building lights not found");
+    }
+    else
+    {
+
+    }
     
 </script>
 
@@ -117,6 +152,36 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
         {}
 	}
 
+    @keyframes billboard-animation
+	{
+        0%
+        {
+            opacity: 0%;
+        }
+
+        50%
+        {
+            opacity: 50%;
+        }
+
+        100%
+        {
+            opacity: 0%;
+        }
+	}
+
+    @keyframes board-bulb-animation
+    {
+        10%, 35% 
+        {
+            opacity: 1;
+        }
+        45% 
+        {
+            opacity: 0.5;
+        }
+    }
+
 
 	#spotlight1, #spotlight2, #spotlight3 
 	{
@@ -146,8 +211,15 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
         text-anchor: middle;
     }
 	
-    #billboard-group:hover #billboard {
-        filter: brightness(1.25);
+    #billboard-overlay 
+    {
+        filter: brightness(1.5) blur(50px);
+        animation: billboard-animation 3s ease infinite;
+    }
+
+    .board-bulb-top, .board-bulb-bottom 
+    {
+        animation: board-bulb-animation 2s infinite;
     }
 
 </style>
