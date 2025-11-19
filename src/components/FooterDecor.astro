@@ -55,30 +55,29 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
             </g> 
 
 
-            <g id="building-lights">
+            <g id="building-lights-group">
                 {Array.from({length: 6}).map((e, i) => (
-                    <rect fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="55%" />
-                    <rect fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="62%" />
-                    <rect fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="69%" />
+                    <rect class="building-light" fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="55%" />
+                    <rect class="building-light" fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="62%" />
+                    <rect class="building-light" fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="69%" />
                 ))}
 
                 {Array.from({length: 3}).map((e, i) => (
-                    <rect fill="#FFF0D2"  width="40" height="25" x={`${35.75 + i * 3}%`} y="97%" />
-                    <rect fill="#FFF0D2"  width="40" height="25" x={`${35.75 + i * 3}%`} y="105%" />
+                    <rect class="building-light" fill="#FFF0D2"  width="40" height="25" x={`${35.75 + i * 3}%`} y="97%" />
+                    <rect class="building-light" fill="#FFF0D2"  width="40" height="25" x={`${35.75 + i * 3}%`} y="105%" />
                 ))}
 
-                <rect fill="#FFF0D2"  width="55" height="25" x="52.5%" y="110%" />
-
+                <rect class="building-light" fill="#FFF0D2"  width="55" height="25" x="52.5%" y="110%" />
+                <rect class="building-light" fill="#FFF0D2"  width="55" height="25" x="26%" y="25%" />
+                <rect class="building-light" fill="#FFF0D2"  width="55" height="25" x="29%" y="55%" />
             </g>
         </svg>
     </svg>
 </div>
 
 <script>
-import { build } from "astro";
-
     // billboard lights
-    const billboard_top = document.querySelectorAll("top-lights");
+    const billboard_top = document.querySelectorAll("board-bulb-top");
     const billboard_bottom = document.querySelectorAll("board-bulb-bottom");
 
     if (!billboard_top || !billboard_bottom) 
@@ -97,14 +96,17 @@ import { build } from "astro";
     }
 
     // buildings lights
-    const building_lights = document.getElementById("building-lights");
+    const building_lights = document.querySelectorAll("building-light");
     if (!building_lights) 
     {
         console.error("Footer building lights not found");
     }
     else
     {
-
+        building_lights.forEach((light, i) => {
+            var rng = Math.random() * i;
+            (light as HTMLElement).style.animationDelay = `${rng}s`;
+        });
     }
     
 </script>
@@ -181,6 +183,22 @@ import { build } from "astro";
             opacity: 0.5;
         }
     }
+    
+    @keyframes building-light-animation
+    {
+        10%, 50% 
+        {
+            opacity: 1;
+        }
+        55% 
+        {
+            opacity: 0;
+        }
+        60%
+        {
+            opacity: 1;
+        }
+    }
 
 
 	#spotlight1, #spotlight2, #spotlight3 
@@ -222,4 +240,8 @@ import { build } from "astro";
         animation: board-bulb-animation 2s infinite;
     }
 
+    .building-light
+    {
+        /* animation: building-light-animation 3s ease infinite; */
+    }
 </style>
