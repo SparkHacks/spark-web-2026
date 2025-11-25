@@ -13,7 +13,7 @@ import SparkleImg from "../assets/about/sparkle.svg";
 		<svg height="100%" width="100%"viewBox="0 0 100 75">
 			<svg x="-8%" y="-10%" viewBox="0 0 1750 500" transform="scale(1.25)" xmlns="http://www.w3.org/2000/svg">
 				<filter id="gaussianBlur1">
-					<feGaussianBlur stdDeviation="20" />
+					<feGaussianBlur stdDeviation="30" />
 				</filter>
 
 				<!-- <defs>
@@ -26,9 +26,9 @@ import SparkleImg from "../assets/about/sparkle.svg";
 				
 				<CrowdImg x="5%" y="40%" />
                 
-                <SparkleImg id="sparkle1" x="45%" y="60%" />
-                <SparkleImg id="sparkle2" x="10%" y="5%" />
-                <SparkleImg id="sparkle3" x="75%" y="100%" />
+                <SparkleImg class="sparkle" x="45%" y="70%" />
+                <SparkleImg class="sparkle" x="10%" y="55%" />
+                <SparkleImg class="sparkle" x="75%" y="100%" />
                 
                 <ellipse id="bottom" cx="54.60%" cy="139.5%" rx="345" ry="15" fill="#FFF0D2" />
 				<SquiggleImg x="5%" y="0%" transform="scale(1.05)" />
@@ -51,6 +51,22 @@ import SparkleImg from "../assets/about/sparkle.svg";
 	</p>
 </div>
 
+<script>
+	var sparkles = document.querySelectorAll(".sparkle")
+
+	if (!sparkles)
+	{
+		console.error("Sparkles not found");	
+	}
+	else
+	{
+		sparkles.forEach((s, i) => {
+			var rng = Math.random() * 3;
+			(s as HTMLElement).style.animationDelay = `${rng}s`;
+		})
+	}
+
+</script>
 
 <style>
 	#about
@@ -86,11 +102,15 @@ import SparkleImg from "../assets/about/sparkle.svg";
 		}
 		50% 
 		{
-			opacity: 75%;
+			opacity: 0%;
 		}
 		60% 
 		{
-			opacity: 0%;
+			opacity: 75%;
+		}
+		85%
+		{
+			opacity: 100%;
 		}
 		100% 
 		{
@@ -107,7 +127,7 @@ import SparkleImg from "../assets/about/sparkle.svg";
 		35% 
 		{
 			opacity: 100%;
-            transform: rotate(90deg  );
+            transform: rotate(5deg) scale(.95);
 		}
 		50% 
 		{
@@ -135,13 +155,12 @@ import SparkleImg from "../assets/about/sparkle.svg";
 
 	#squiggle-overlay 
 	{
-		animation: squiggle-animation 8s ease-in-out infinite;
+		animation: squiggle-animation 8s ease-in infinite;
 	}
 
-    #sparkle1, #sparkle2, #sparkle3 
+    .sparkle
     {
-        /* transform-box: fill-box; */
-        /* transform-origin: 50% 50%; */
-        /* animation: flash-animation 3s ease-in-out infinite; */
+		transform-origin: center;
+        animation: flash-animation 3s ease-in-out infinite;
     }
 </style>
