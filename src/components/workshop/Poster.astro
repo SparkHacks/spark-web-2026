@@ -1,0 +1,35 @@
+---
+const { background, index } = Astro.props;
+import PosterBulb from "./PosterBulb.astro";
+---
+<div
+  class="poster w-full max-w-[280px] h-[350px] sm:w-80 sm:h-96 cursor-pointer border border-black flex flex-col transition-all duration-300"
+  style={`background: ${background}`}
+  data-index={index}
+>
+  <div class="w-full h-10 sm:h-12 flex items-center justify-center gap-2 sm:gap-4">
+    {Array.from({ length: 6 }).map(() => (
+      <PosterBulb />
+    ))}
+  </div>
+  <div class="flex-1 flex flex-row">
+    <div class="w-10 sm:w-12 h-full flex flex-col items-center justify-center gap-2 sm:gap-4">
+      {Array.from({ length: 6 }).map(() => (
+        <PosterBulb />
+      ))}
+    </div>
+    <div class="flex-1 h-full bg-gray-500 flex justify-center items-center text-center px-2">
+      <p class="text-sm sm:text-base">Coming Soon...</p>
+    </div>
+    <div class="w-10 sm:w-12 h-full flex flex-col items-center justify-center gap-2 sm:gap-4">
+      {Array.from({ length: 6 }).map(() => (
+        <PosterBulb />
+      ))}
+    </div>
+  </div>
+  <div class="w-full h-10 sm:h-12 flex items-center justify-center gap-2 sm:gap-4">
+    {Array.from({ length: 6 }).map(() => (
+      <PosterBulb />
+    ))}
+  </div>
+</div>
