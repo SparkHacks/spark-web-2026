@@ -1,33 +1,117 @@
 ---
 import FrontEnvelope from '../assets/envelope/frontEnvelope.svg';
 import BackEnvelope from '../assets/envelope/backEnvelope.svg';
+import EnvRibbon from '../assets/envelope/envRibbon.svg';
 ---
 
-<div class="flex flex-col place-content-center items-center bg-[#10042A] overflow-hidden h-[100vh]">
-    <svg viewBox="0 -50 700 1000" width="100%">
+<div class="flex flex-col place-content-center items-center bg-[#10042A] overflow-hidden h-[150vh] py-[20vh]">
+    <svg id="letterSvg" viewBox="300 -150 600 1300" width="100%" class="h-[50%] lg:h-full">
         <BackEnvelope />
-        <FrontEnvelope x="167.5" y="184" />
 
-        <foreignObject width="100%" height="100%" x="-54" y="202" transform="scale(1.2)">
-            <div class="flex flex-col font-[Kumbh_Sans,sans-serif] text-center items-center bg-[#FFF0D2] border-[#C6822A] border-3 px-18 pt-7">
-                <h2 class="text-xl font-bold text-[#C6822A] mb-12">You have been formally invited</h2>
+        <foreignObject id="letter" width="100%" height="100%" x="298" y="255">
+            <div class="bg-[#FFF0D2] border-[#FFAD41] border-3 px-14 py-8">
+                <div id="letterContent" class="flex flex-col font-[Kumbh_Sans,sans-serif] text-center items-center invisible">
+                    <h2 class="text-3xl text-[#C6822A] font-[MonteCarlo,cursive] mb-3">You have been Formally Invited to</h2>
 
-                <h1 class="text-5xl font-bold text-[#A54848] my-2">2026 SparkHacks</h1>
+                    <h2 class="text-xl text-transparent bg-linear-to-b from-[#D41928] to-[#6E0D15] bg-clip-text font-[Marko_One,cursive]">Annual Hackathon</h2>
+                    <h1 class="text-5xl text-transparent bg-linear-to-b from-[#D41928] to-[#6E0D15] bg-clip-text font-[Marko_One,cursive] pb-5">SparkHacks</h1>
 
-                <p class="text-lg font-bold text-[#7A1E1E] my-6">University of Illinois at Chicago
-                    <br>February 7th - 8th
-                    <br>Annual Hackathon</p>
+                    <p class="text-lg font-bold text-[#7A1E1E] font-[Merriweather,serif] leading-[1.2]">University of Illinois at Chicago<br>February 6th - 7th, 2026</p>
 
-                <p class="text-lg text-[#A54848]">Join us for a weekend of sophisticated programming and an awards ceremony you will never forget!
-                    <br><br>Reserve your seat and apply now!</p>
-                
-                <div class="bg-[#EF2427] text-lg font-bold text-white rounded-lg py-1 px-12 my-10 cursor-pointer">Apply</div>
+                    <p class="text-lg text-[#A54848] leading-[1.2] my-5">Join us for a weekend of sophisticated programming and an awards ceremony you will never forget!
+                        <br><br>Reserve your seat and apply now!</p>
+                    
+                    <div class="bg-[#EF2427] text-lg font-bold text-white rounded-lg py-1 px-12 cursor-pointer">Apply</div>
+                </div>
             </div>
         </foreignObject>
+
+        <FrontEnvelope id="frontEnv" x="282" y="312" />
+
+        <EnvRibbon y="141" />
     </svg>
-    </div>
 </div>
 
+<script>
+    window.addEventListener('load', () => {
+        const svgContainer = document.getElementById('letterSvg');
+        const letter = document.getElementById('letter');
+        const letterContent = document.getElementById('letterContent');
+        const frontEnv = document.getElementById('frontEnv');
+
+        if (svgContainer && letter && letterContent && frontEnv) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            letter.classList.add('animate-open');
+                            letterContent.classList.add('animate-content');
+                            frontEnv.classList.add('animate-remove');
+                            frontEnv?.addEventListener('animationend', () => {
+                                frontEnv.remove();
+                            });
+
+                            observer.unobserve(svgContainer);
+                        }
+                    });
+                }, { threshold: 0.5 }
+            );
+
+            observer.observe(svgContainer);
+        }
+    });
+</script>
+
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Marko+One&family=Merriweather:opsz,wght@18..144,300..900&family=MonteCarlo&display=swap');
+
+    #letter {
+        transform-style: preserve-3d;
+        transform-origin: right;
+    }
+
+    .animate-open {
+        animation: openEnvelope 3s forwards;
+    }
+
+    .animate-content {
+        animation: contentAppear 3s forwards;
+    }
+
+    .animate-remove {
+        animation: removeEnvelope 3s forwards;
+    }
+
+    @keyframes openEnvelope {
+        25% {
+            transform: translateY(-400px);
+        }
+        70% {
+            transform: scale(1.7) translateY(260px);
+        }
+        85% {
+            transform: rotateY(-90deg) scale(1.7) translateY(260px);
+        }
+        100% {
+            transform: scale(1.7) translateY(260px);
+        }
+    }
+
+    @keyframes contentAppear {
+        84.9% {
+            visibility: hidden;
+        }
+        85%, 100% {
+            visibility: visible;
+        }
+    }
+
+    @keyframes removeEnvelope {
+        24.9% {
+            visibility: visible;
+        }
+        25%, 100% {
+            visibility: hidden;
+        }
+    }
 </style>
