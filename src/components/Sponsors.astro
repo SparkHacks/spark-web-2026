@@ -1,30 +1,44 @@
 ---
-import Carpet from '/src/assets/sponsors/carpet.svg';
-import VipRibbon from '/src/assets/sponsors/vipRibbon.svg';
-import SideRibbon from '/src/assets/sponsors/sideRibbon.svg';
-import BigSponsor from './sponsors/BigSponsor.astro';
-import SmallSponsor from './sponsors/SmallSponsor.astro';
+import HeaderRibbon from '/src/assets/sponsors/headerRibbon.svg';
+import Screen from '/src/assets/sponsors/screen.svg';
+import Reflections from '/src/assets/sponsors/reflections.svg';
+import Audience from '/src/assets/sponsors/audience.svg';
+import SponsorList from '/src/assets/sponsors/sponsorList.svg';
 ---
 
 <div
-    class="relative w-full h-fit bg-linear-to-b from-[#a1123a] via-[#f79733] via-70% to-[#a81b21] text-white pt-20"
+    class="flex flex-col place-content-center items-center bg-linear-to-b from-[#941014] via-[#60090e] via-70% to-[#000000]"
 >
-    <SideRibbon class="absolute left-0 top-40 w-[40%] h-fit" />
-    <SideRibbon class="absolute right-0 top-40 w-[40%] h-fit rotate-y-180" />
-    <Carpet class="absolute bottom-0 w-[60%] left-[20%] h-fit" />
+    <svg viewBox="0 -50 2000 2000" width="100%">
+        <HeaderRibbon width="100%" />
+        <text fill="white" x="50%" dx="-25" dy="110" text-anchor="middle" font-family="'Kumbh Sans', sans-serif">
+            <tspan font-size="70">Thanks to Our</tspan>
+            <tspan font-size="100" dx="-550" dy="1.2em" font-weight="bold">Sponsors and</tspan>
+            <tspan font-size="100" dx="-510" dy="1.2em" font-weight="bold">Partners</tspan>
+        </text>
 
-    <div class="flex flex-col items-center pb-100">
-        <span class="text-3xl text-center z-1">Thanks to Our <h1 class="font-bold">Sponsors</h1></span>
-        <VipRibbon class="w-[60%] h-fit z-1" />
-
-        <div class="flex flex-col items-center gap-5 z-1">
-            <BigSponsor name="UIC CS Department"/>
-            <BigSponsor name="UIC CS Department"/>
-            <BigSponsor name="UIC CS Department"/>
-            <BigSponsor name="UIC CS Department"/>
-            <SmallSponsor name="UIC CS Department"/>
-            <SmallSponsor name="UIC CS Department"/>
-            <SmallSponsor name="UIC CS Department"/>
-        </div>
-    </div>
+        <Screen width="100%" y="500"/>
+        <svg width="1216" height="716" x="392" y="510">
+            <SponsorList id="sponsors" width="100%" />
+        </svg>
+        <Reflections width="100%" y="465" />
+        <Audience width="100%" y="1225" />
+    </svg>
 </div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
+    #sponsors {
+        animation: creditsScroll 15s linear infinite;
+    }
+
+    @keyframes creditsScroll {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(-100%);
+        }
+    }
+</style>
