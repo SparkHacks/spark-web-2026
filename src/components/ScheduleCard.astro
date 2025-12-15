@@ -1,0 +1,71 @@
+---
+import ImportantStar from "../assets/schedule/star.svg";
+
+interface Props {
+    eventData: {
+        title: string;
+        time: string;
+        description: string;
+        tags: string[];
+    };
+}
+
+const { eventData } = Astro.props;
+
+const rotDeg = Math.random() * 360
+---
+<div class="flex flex-col gap-3 bg-[#ffffff0F] rounded-2xl p-5 w-108 h-64 relative">
+    {
+        eventData.tags.includes("important") &&
+        <div class="w-10 h-10 absolute right-95 bottom-150">
+            <ImportantStar style={`transform: scale(0.15) rotate(${rotDeg}deg)`} />
+        </div>
+    }
+
+    {
+        eventData.tags.includes("important") &&
+        <div class="w-10 h-10 absolute right-95 bottom-150">
+            <ImportantStar class="important-star" style={`animation: star-animation ${Math.random() * (5-2+1) + 2}s ease-in-out infinite; transform: scale(0.15) rotate(${rotDeg}deg)`} />
+        </div>
+    }
+
+    <h1 class="text-2xl font-bold text-left leading-relaxed">{eventData.title}</h1>
+    <h1 class="text-xl font-bold text-left leading-relaxed">{eventData.time}</h1>
+    <h1>{eventData.description}</h1>
+    <div class="flex-grow"></div>
+    <div class="flex flex-row gap-3 justify-self-end">
+        {
+            eventData.tags.map((tag) => (
+                <div class="max-w-xs border-1 border-white rounded-full p-3 font-bold">
+                    <h1>{tag}</h1>
+                </div>
+            )
+        )}
+    </div>
+</div>
+
+<style>
+    @keyframes star-animation
+    {
+        0%
+        {
+            opacity: 0%;
+        }
+
+        50%
+        {
+            opacity: 100%;
+        }
+
+        100%
+        {
+            opacity: 0%;
+        }
+    }
+
+    .important-star
+    {
+        filter: blur(100px);
+        mix-blend-mode: hard-light;
+    }
+</style>

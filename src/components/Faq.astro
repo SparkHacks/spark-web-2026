@@ -1,0 +1,103 @@
+---
+import { faqData } from "../data/faqData";
+import FreshImg from '../assets/fresh.png?url';
+import RottenImg from '../assets/rotten.png?url';
+import PositiveImg from '../assets/positive.png?url';
+import NegativeImg from '../assets/negative.png?url';
+import popcornBagImg from '../assets/popcorn-bag.svg?url';
+
+const iconPairs = [
+  { closed: FreshImg, open: RottenImg },
+  { closed: PositiveImg, open: NegativeImg },
+];
+
+function getIconPair() {
+  return iconPairs[Math.floor(Math.random() * iconPairs.length)];
+}
+
+const iconPairsList = faqData.map(() => getIconPair());
+---
+
+<div class="min-h-screen bg-dark-red p-12">
+  <div class="max-w-8xl mx-auto">
+    <div class="text-center mb-8">
+      <p class="text-3xl md:text-4xl text-white mb-2">Don't Miss Out!</p>
+      <h1 class="text-3xl md:text-4xl text-white mb-2">
+        Catch up on
+      </h1>
+      <h2 class="text-4xl md:text-5xl font-bold text-white">
+        Frequently Asked Questions
+      </h2>
+    </div>
+
+    <div class="w-1/2 h-full mb-8">
+        <img src={popcornBagImg} class="w-full h-full" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-40 gap-y-12">
+      {
+        faqData.map((item, index) => (
+          <div class="flex gap-4 cursor-pointer faq-item" data-index={index}>
+            <div class="w-12 h-12 flex-shrink-0 relative">
+              <img
+                src={iconPairsList[index].closed}
+                class="faq-icon-closed h-12 object-cover"
+                data-index={index}
+              />
+              <img
+                src={iconPairsList[index].open}
+                class="faq-icon-open w-30 object-cover hidden"
+                data-index={index}
+              />
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <h3 class="text-white font-bold text-xl mb-2">
+                  {item.question}
+                </h3>
+                <span
+                  class="faq-arrow text-l flex-shrink-0 transition-transform duration-300 text-white inline-block"
+                  data-index={index}
+                >
+                  ▼
+                </span>
+              </div>
+              <p
+                class="faq-answer text-red-100 text-sm hidden"
+                data-index={index}
+              >
+                {item.answer}
+              </p>
+              
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  function initFaq() {
+    document.querySelectorAll(".faq-item").forEach((button) => {
+      button.addEventListener("click", function(this: HTMLElement) {
+        const index = this.getAttribute("data-index");
+        if (!index) return;
+        
+        const answer = this.querySelector(`.faq-answer[data-index="${index}"]`);
+        const closedIcon = this.querySelector(`.faq-icon-closed[data-index="${index}"]`);
+        const openIcon = this.querySelector(`.faq-icon-open[data-index="${index}"]`);
+        const arrow = this.querySelector(`.faq-arrow[data-index="${index}"]`);
+
+        answer?.classList.toggle("hidden");
+        closedIcon?.classList.toggle("hidden");
+        openIcon?.classList.toggle("hidden");
+        arrow?.classList.toggle("rotate-180");
+      });
+    });
+  }
+
+  initFaq();
+  
+  document.addEventListener('astro:page-load', initFaq);
+</script>

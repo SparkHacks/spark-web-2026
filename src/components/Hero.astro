@@ -1,9 +1,137 @@
 ---
-
+import TopCurtain from '../assets/hero/topCurtain.svg';
+import SideCurtain from '../assets/hero/sideCurtain.svg';
+import HeroLogo from '../assets/hero/heroLogo.svg';
+import HeroBulbLight from '../assets/hero/heroBulbLight.svg';
+import HeroBulbDark from '../assets/hero/heroBulbDark.svg';
 ---
 
 <div
-    class="sticky flex h-[calc(100vh-44px)] w-full place-content-center items-center bg-dark-red text-white"
+    class="relative h-[75vh] lg:h-screen w-full bg-[#2A0404] text-white"
 >
-    HERO SECTION
+    <SideCurtain class="hidden md:block absolute top-0 left-0 w-fit h-[95%]" />
+    <SideCurtain class="hidden md:block absolute top-0 right-0 w-fit h-[95%] rotate-y-180" />
+    <TopCurtain class="absolute w-full -top-[8%] h-fit" />
+    <div class="relative left-[2.5%] md:left-[25%] top-[30%] w-[95%] md:w-[50%]">
+        <div class="absolute">
+            <div class="absolute font-[Marck_Script,cursive] text-shadow-lg/20 text-[5vw] md:text-[3vw] w-full text-center top-[-4vh]">Presenting</div>
+            <HeroLogo class="w-full h-fit" />
+            <div class="absolute bottom-[15%] w-full aspect-9/2">
+                <!-- Top Left Row Bulbs -->
+                <div class="absolute -top-[8%] left-[7%]">
+                    <div class="flex">
+                        {Array.from({ length: 4 }).map(() => (
+                            <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
+                        ))}
+                    </div>
+                </div>
+
+                <!-- Top Middle Row Bulbs -->
+                <div class="absolute -top-[57%] -left-[1.25%] w-full">
+                    <div class="flex gap-[1.5%] justify-center">
+                        <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit mt-[6%]" />
+                        <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit mt-[1.5%]" />
+                        <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
+                        <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit mt-[1.5%]" />
+                        <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit mt-[6%]" />
+                    </div>
+                </div>
+
+                <!-- Top Right Row Bulbs -->
+                <div class="absolute -top-[8%] right-[7%]">
+                    <div class="flex">
+                        {Array.from({ length: 4 }).map(() => (
+                            <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
+                        ))}
+                    </div>
+                </div>
+
+                <!-- Right Column Bulbs -->
+                <div class="absolute -bottom-[15%] -right-[2.5%]">
+                    <div class="flex flex-col items-end justify-end md:gap-0">
+                        <HeroBulbDark class="heroBulb w-[7vw] md:w-[4vw] h-fit" />
+                        {Array.from({ length: 2 }).map(() => (
+                            <HeroBulbDark class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
+                        ))}
+                        <HeroBulbDark class="heroBulb w-[7vw] md:w-[4vw] h-fit" />
+                    </div>
+                </div>
+
+                <!-- Bottom Row Bulbs -->
+                <div class="absolute -bottom-[10%] w-full">
+                    <div class="flex flex-row-reverse gap-[0.6%] justify-center">
+                        {Array.from({ length: 13 }).map(() => (
+                            <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
+                        ))}
+                    </div>
+                </div>
+
+                <!-- Left Column Bulbs -->
+                <div class="absolute -bottom-[15%] -left-[2.5%]">
+                    <div class="flex flex-col-reverse justify-end md:gap-0">
+                        <HeroBulbDark class="heroBulb w-[7vw] md:w-[4vw] h-fit" />
+                        {Array.from({ length: 2 }).map(() => (
+                            <HeroBulbDark class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
+                        ))}
+                        <HeroBulbDark class="heroBulb w-[7vw] md:w-[4vw] h-fit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <svg width="100%" height="100%">
+        <line x1="33%" y1="0" x2="33%" y2="50%" stroke="#C6822A" stroke-width="4" />
+        <line x1="67%" y1="0" x2="67%" y2="50%" stroke="#C6822A" stroke-width="4" />
+        <circle id="mainSpotlight" cx="50%" cy="50%" fill="#EBD19D" opacity="0.5" />
+    </svg>
 </div>
+
+<script>
+    const bulbs = document.querySelectorAll(".heroBulb");
+    bulbs.forEach((bulb, i) => {
+        (bulb as HTMLElement).style.animationDelay = `${i/6 + 1}s`;
+    });
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+    #mainSpotlight {
+        r: 25vh;
+        animation: spotlightOn 10s infinite;
+    }
+
+    /* lg and up */
+    @media (width >= 64rem) {
+        #mainSpotlight {
+            r: 50vh;
+        }
+    }
+
+    @keyframes spotlightOn {
+        0%, 10% {
+            opacity: 0;
+        }
+        10.1%, 18%, 20%, 22% {
+            opacity: 0.5;
+        }
+        19%, 21% {
+            opacity: 0.2;
+        }
+    }
+
+    .heroBulb {
+        opacity: 0.5;
+        animation: bulbFlash 2s infinite;
+    }
+
+    @keyframes bulbFlash {
+        10%, 35% {
+            opacity: 1;
+        }
+        45% {
+            opacity: 0.5;
+        }
+    }
+</style>
