@@ -5,43 +5,128 @@ export interface FAQItem {
 
 export const faqData: FAQItem[] = [
   {
-    question: "What is a hackathon?",
-    answer: "Funsies!",
+    question: 'Who can participate?',
+    answer:
+      'SparkHacks is open to anyone! Whether you' +
+      're a freshman with no coding experience or a senior with a keen interest in technology, you are welcome to join. We encourage diversity and a mix of skills to create a dynamic and enriching experience for all participants.',
   },
   {
-    question: "Who can participate?",
-    answer: "All UIC students! No expertise needed.",
+    question: 'What is the deadline to apply for SparkHacks?',
+    answer:
+      'There is no deadline to apply but we will be accepting applications on a rolling basis and will close registrations once we hit a certain threshold. Please apply as soon as possible since we only have a limited number of spots available! Encourage the rest of your team to apply as soon as possible as well.',
   },
   {
-    question: "When do applications close?",
-    answer: "to be added",
+    question: "What if I'm not an experienced coder?",
+    answer:
+      'No problem! We have a No-Code track where you can take one of our prompts and implement it using Figma!',
   },
   {
-    question: "Is attending SparkHacks free?",
-    answer: "Yes!",
+    question: 'Do I need a team to participate in SparkHacks?',
+    answer:
+      'Yes, teams must consist of 2 to 5 members; Individual participation is not allowed due to devpost rules, and the events nature is not conducive to solo participation. However, we will be having a Team Formation Social to help you find potential teammates!',
   },
   {
-    question: "How big are the teams? Can I apply as a team/solo?",
-    answer: "to be added",
+    question: 'Can I start working on my project before SparkHacks begins?',
+    answer:
+      'No, all projects must be started and developed during SparkHacks. Participants are expected to attend the opening session to learn of the tracks and corresponding prompts.',
   },
   {
-    question: "Does SparkHacks provide food, drinks, or accommodations?",
-    answer: "to be added",
+    question: 'Who should I contact if I have questions',
+    answer:
+      'You can reach out to the Exec Team through sparkhacks@uic.edu, or on Instagram @sparkhacksuic or LinkedIn - SparkHacks',
   },
   {
-    question: "Can I attend SparkHacks remotely?",
-    answer: "to be added",
+    question: 'Is SparkHacks overnight?',
+    answer:
+      'Unfortunately, at this time we cannot offer an overnight Hackathon experience. You are welcome to continue hacking at home within the hacking period but we cannot provide facilities for sleeping on campus.',
   },
   {
-    question: "What should I bring?",
-    answer: "to be added",
+    question: 'How to find support during the hackathon?',
+    answer:
+      'Mentors will be available throughout SparkHacks in person as well as through Discord to provide guidance, answer questions, and assist participants with technical challenges. You can reach out to a mentor at any time during SparkHacks!',
   },
   {
-    question: "Do I have to select a track for my project?",
-    answer: "to be added",
+    question: 'How can I submit my project?',
+    answer:
+      'All submissions will be made through Devpost which is also how we will be keeping track of teams. There will be a session to familiarize yourself with how to submit your project through Devpost during the hackathon.',
   },
   {
-    question: "Any other questions?",
-    answer: "to be added.",
+    question: 'How are the projects judged, and what are the criteria?',
+    answer:
+      'The Judging Criteria will be available within the HackPack. A panel of experienced judges from the industry along with faculty will evaluate the projects and determine the winners.',
   },
+  {
+    question: 'What prizes are available for winners?',
+    answer:
+      'Prizes may vary, but typically winners will receive recognition as well as valuable tech gadgets. Prizes are track-specific and the list of prizes can be found in the HackPack.',
+  },
+  {
+    question: 'Where can I find SparkHacks resources?',
+    answer:
+      'All SparkHacks resources, including guidelines, workshops, resources to help you best prepare, and other relevant information, is currently available in the HackPack.',
+  },
+  {
+    "question": "Is there a fee to participate?",
+    "answer": "Nope! SparkHacks is completely free. We’ll provide meals, swag, and all the resources you need during the event."
+  },
+  {
+    "question": "Can I participate if I’m new to hackathons?",
+    "answer": "Absolutely! SparkHacks is beginner-friendly, with workshops, mentors, and resources to help you get started."
+  },
+  {
+    "question": "Can I participate alone?",
+    "answer": "Solo participation isn’t allowed—teams must have 4-5 members."
+  },
+  {
+    "question": "Can my team include members from outside UIC?",
+    "answer": "No. SparkHacks is exclusively for current UIC students."
+  },
+  {
+    "question": "Can I change teams during the hackathon?",
+    "answer": "Teams are finalized once hacking begins, so plan your team in advance."
+  },
+  {
+    "question": "Do I need coding experience to participate?",
+    "answer": "Not at all! You can contribute to brainstorming, design, and presentations, and we even have a no-code track for designers."
+  },
+  {
+    "question": "Can I work on a project I started before the hackathon?",
+    "answer": "No. All projects must be created during the 24-hour hackathon timeframe."
+  },
+  {
+    "question": "Do I need to follow the theme of the hackathon for my project?",
+    "answer": "The event theme sets the vibe, but your project doesn’t need to align with it unless you’re participating in a specific themed challenge or track."
+  },
+  {
+    "question": "How are projects judged?",
+    "answer": "Projects are judged on innovation, usability, technical complexity (or design for no-code), and overall impact. Check the Judging Criteria section for more details."
+  },
+  {
+    "question": "Are there workshops during the hackathon?",
+    "answer": "Yes! We’ll host pre-hack workshops (Feb 4-6) and technical sessions during the event to help you learn new skills."
+  },
+  {
+    "question": "How can I connect with mentors?",
+    "answer": "You can reach mentors through the #ask-a-mentor channel on Discord or meet them in person at the mentoring areas."
+  },
+  {
+    "question": "What do I need to bring?",
+    "answer": "Bring your UIC ID, laptop, chargers, headphones, power bank, and any personal items you’ll need for the 24 hours."
+  },
+  {
+    "question": "Will food be provided?",
+    "answer": "Yes! We’ve got you covered with meals and snacks throughout the event."
+  },
+  {
+    "question": "Is there a place to sleep?",
+    "answer": "SparkHacks is a 24-hour event, so no sleeping areas are provided. If you need to rest, plan your own accommodations."
+  },
+  {
+    "question": "What if I have technical issues during the event?",
+    "answer": "Reach out to the #ask-organizers channel on Discord or find an organizer dressed in [distinguishing feature, e.g., SparkHacks t-shirts or badges] for immediate assistance."
+  },
+  {
+    "question": "Who do I contact if I have more questions?",
+    "answer": "You can: Ask questions in the #ask-sparkhacks channel on Discord. Email us at sparkhacks@uic.edu. Message us on social media."
+  }
 ];
