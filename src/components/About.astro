@@ -1,23 +1,166 @@
 ---
-import medalImg from '../assets/medal.svg';
-import spotlightImg from '../assets/spotlight.svg';
+import MedalImg from "../assets/about/medal.svg";
+import CrowdImg from "../assets/about/people.svg";
+import SquiggleImg from "../assets/about/squiggle.svg";
+import AboutText from "../assets/about/aboutText.svg";
+import SpotlightImg from "../assets/about/spotlight.svg";
+import SparkleImg from "../assets/about/sparkle.svg";
 ---
 
-<div class="flex flex-col place-content-center items-center bg-[#48090a] text-white gap-20 pb-30" id="about">
-    <div class="w-full">
-        <div class="flex flex-col place-items-center items-center gap-12 pt-20 md:pt-60 pb-30 bg-position-[bottom_left_10%,bottom_right] bg-size-[115px,contain] bg-no-repeat"
-                style=`background-image: url('${medalImg.src}'), url('${spotlightImg.src}');`>
-            <h1 class="text-5xl font-bold">About</h1>
-            <h2 class="text-2xl font-bold">"The Event of the Year"</h2>
-            <h2 class="text-2xl font-bold">Chicago's Largest Hackathon</h2>
-            <h2 class="text-2xl font-bold">1000+ Participants</h2>
-            <h2 class="text-2xl font-bold">$30k+ in Prizes</h2>
-        </div>
-    </div>
+<div class="flex flex-col place-content-center items-center bg-[#1F0303] text-white gap-5 pb-30"
+	id="about">
+	<div class="w-full">
+		<svg height="100%" width="100%"viewBox="0 0 100 75">
+			<svg x="-8%" y="-10%" viewBox="0 0 1750 500" transform="scale(1.25)" xmlns="http://www.w3.org/2000/svg">
+				<filter id="gaussianBlur1">
+					<feGaussianBlur stdDeviation="30" />
+				</filter>
 
-    <p class="text-xl w-[80%] md:w-[60%]">SparkHacks is a 24-hour hackathon hosted by the Department of Computer Science at the 
-        University of Illinois Chicago along with several different CS-based student organizations. 
-        This is the third iteration of SparkHacks and aims to provide an environment to learn, 
-        collaborate with peers, and build a project that tackles our problem statements for a 
-        chance to win prizes!</p>
+				<!-- <defs>
+					<linearGradient id="Gradient1" x1="0" x2="0" y1="0" y2="1">
+						<stop style="stop-color:#1D0303" offset="0%" />
+						<stop style="stop-color:black" offset="100%" />
+					</linearGradient>
+				</defs>
+				<rect width="100%" height="200%" fill="url(#Gradient1)" />  -->
+				
+				<CrowdImg x="5%" y="40%" />
+                
+                <SparkleImg class="sparkle" x="45%" y="70%" />
+                <SparkleImg class="sparkle" x="10%" y="55%" />
+                <SparkleImg class="sparkle" x="75%" y="100%" />
+                
+                <ellipse id="bottom" cx="54.60%" cy="139.5%" rx="345" ry="15" fill="#FFF0D2" />
+				<SquiggleImg x="5%" y="0%" transform="scale(1.05)" />
+				<SquiggleImg id="squiggle-overlay" filter="url(#gaussianBlur1)" style="mix-blend-mode: plus-lighter;" x="5%" y="0%" transform="scale(1.05)" />
+				<AboutText x="28%" y="-15%" transform="scale(1.05)"/>
+				
+                
+                <MedalImg x="75%" y="54%" transform="scale(.75)" />
+				<SpotlightImg id="spotlight" x="35%" y="-30%" style="opacity: 80%" style="mix-blend-mode: plus-lighter;" />
+			</svg>
+		</svg>
+	</div>
+
+	<p class="text-2xl text-center leading-relaxed w-[75%] md:w-[65%] ">
+		SparkHacks is a 24-hour hackathon hosted by the Department of Computer Science at the
+		University of Illinois Chicago along with several different CS-based student organizations.
+		This is the fourth iteration of SparkHacks and aims to provide an environment to learn,
+		collaborate with peers, and build a project that tackles our problem statements for a chance
+		to win prizes!
+	</p>
 </div>
+
+<script>
+	var sparkles = document.querySelectorAll(".sparkle")
+
+	if (!sparkles)
+	{
+		console.error("Sparkles not found");	
+	}
+	else
+	{
+		sparkles.forEach((s, i) => {
+			var rng = Math.random() * 3;
+			(s as HTMLElement).style.animationDelay = `${rng}s`;
+		})
+	}
+
+</script>
+
+<style>
+	#about
+	{
+		background-image: linear-gradient(#1D030300, #000000, #000000, #1D030300);
+	}
+
+	@keyframes spotlight-animation 
+	{
+		0% 
+		{
+			transform: skew(0deg, 0deg);
+		}
+		50% 
+		{
+			transform: skew(-25deg, 0deg);
+		}
+		100% 
+		{
+			transform: skew(0deg, 0deg);
+		}
+	}
+
+	@keyframes squiggle-animation 
+	{
+		0% 
+		{
+			opacity: 0%;
+		}
+		40% 
+		{
+			opacity: 0%;
+		}
+		50% 
+		{
+			opacity: 0%;
+		}
+		60% 
+		{
+			opacity: 75%;
+		}
+		85%
+		{
+			opacity: 100%;
+		}
+		100% 
+		{
+			opacity: 0%;
+		}
+	}
+
+    @keyframes flash-animation
+    {
+        0% 
+		{
+			opacity: 100%;
+		}
+		35% 
+		{
+			opacity: 100%;
+            transform: rotate(5deg) scale(.95);
+		}
+		50% 
+		{
+			opacity: 0%;
+		}
+		65% 
+		{
+			opacity: 100%;
+		}
+		100% 
+		{
+			opacity: 100%;
+		}
+    }
+
+	#spotlight 
+	{
+		animation: spotlight-animation 5s ease-in-out infinite;
+	}
+
+	#bottom 
+	{
+		animation: spotlight-animation 5s ease-in-out infinite;
+	}
+
+	#squiggle-overlay 
+	{
+		animation: squiggle-animation 8s ease-in infinite;
+	}
+
+    .sparkle
+    {
+		transform-origin: center;
+        animation: flash-animation 3s ease-in-out infinite;
+    }
+</style>

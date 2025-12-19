@@ -1,0 +1,144 @@
+---
+import ScheduleCard from "./ScheduleCard.astro"
+
+const scheduleData = [
+    {
+        date: "February 6th",
+        day: "Friday",
+        events: [
+            {
+                "title": "Check-In",
+                "time": "5:00pm - 6:00pm",
+                "description": "Have your QR code ready for scanning!",
+                "tags": ["snacks", "ARC 137"]
+            },
+            {
+                "title": "Team Building",
+                "time": "5:00pm - 6:30pm",
+                "description": "Build your film team!",
+                "tags": ["team", "ARC 137"]
+            },
+            {
+                "title": "Networking",
+                "time": "5:00pm - 6:30pm",
+                "description": "Network with SparkHacks sponsors!",
+                "tags": ["networking", "ARC 137"]
+            },
+            {
+                "title": "Opening Ceremony",
+                "time": "6:00pm - 6:30pm",
+                "description": "Join us for the opening ceremony!",
+                "tags": ["important", "ARC 137"]
+            },
+            {
+                "title": "Workshop One",
+                "time": "7:00pm - 8:00pm",
+                "description": "Workshop One!",
+                "tags": ["workshop", "ARC 137"]
+            },
+            {
+                "title": "Dinner 🍿",
+                "time": "8:15pm - 9:30pm",
+                "description": "Enjoy some top tier food!",
+                "tags": ["food", "ARC 137"]
+            },
+            {
+                "title": "De-Stress: Mario Kart! 🎮",
+                "time": "9:30pm - 10:30pm",
+                "description": "Take a break and play some video games with the SparkHacks team!",
+                "tags": ["game", "ARC 137"]
+            },
+            {
+                "title": "Midnight Snacks 🍪",
+                "time": "11:30pm - 12:00am",
+                "description": "Enjoy some insomia cookies!",
+                "tags": ["snacks", "ARC 137"]
+            },
+        ],
+    },
+    {
+        date: "February 7th",
+        day: "Saturday",
+        events: [
+            {
+                "title": "Check-In & Breakfast",
+                "time": "9:00am - 10:30am",
+                "description": "Check in for day 2 and get ready with breakfast!",
+                "tags": ["food", "ARC 137"]
+            },
+            {
+                "title": "Lunch 🍿",
+                "time": "1:00pm - 2:00pm",
+                "description": "Lunch!!",
+                "tags": ["food", "ARC 137"]
+            },
+            {
+                "title": "DevPost Drafts Due!",
+                "time": "2:30pm - 2:45pm",
+                "description": "Make sure drafts for DevPosts have been made! Submit team forms as well!",
+                "tags": ["important", "ARC 137"]
+            },
+            {
+                "title": "De-Stress: Origami!",
+                "time": "4:00pm - 6:30pm",
+                "description": "Make sure drafts for DevPosts have been made! Submit team forms as well!",
+                "tags": ["important", "ARC 137"]
+            },
+            {
+                "title": "Hacking Over‼️",
+                "time": "5:30pm - 5:45pm",
+                "description": "SUBMIT THOSE DEVPOSTS!!! FINAL SUBMISSIONS",
+                "tags": ["important", "ARC 137"]
+            },
+            {
+                "title": "Demo/Workshop One",
+                "time": "6:30pm - 7:00pm",
+                "description": "Workshop One!",
+                "tags": ["demo", "workshop", "ARC 137"]
+            },
+            {
+                "title": "Project Expo",
+                "time": "7:00pm - 8:00pm",
+                "description": "Present your projects and get ready for judging!",
+                "tags": ["expo", "ARC 137"]
+            },
+            {
+                "title": "DINNER & Meet the Team! 🍿",
+                "time": "8:00pm - 9:00pm",
+                "description": "Enjoy some well-earned dinner and meet the SparkHacks team!",
+                "tags": ["food", "ARC 137"]
+            },
+            {
+                "title": "Closing Ceremony & Awards",
+                "time": "9:00pm - 9:30pm",
+                "description": "Winner Announcements!",
+                "tags": ["important", "ARC 137"]
+            },
+        ]
+    }
+]
+---
+
+<section id="schedule">
+    <div class="flex flex-col place-content-center items-center bg-linear-to-b from-[#650B0D] to-[#DC1A1D] text-white pb-30">
+        <h1 class="text-3xl text-center leading-relaxed">The Short List</h1>
+        <h1 class="text-3xl font-bold text-center leading-relaxed">Schedule</h1>
+        <br />
+        <div class="flex flex-row flex-wrap place-content-center items-start text-white gap-15 pb-30"> 
+            {
+                scheduleData.map((d) => (
+                    <div>
+                        <h1><span class="text-3xl font-bold text-center leading-relaxed">{d.day}</h1>
+                        <div class="flex flex-col gap-5">
+                            {
+                                d.events.map((event) => (
+                                    <ScheduleCard eventData={event} />
+                                ))
+                            }
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
