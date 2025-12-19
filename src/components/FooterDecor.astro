@@ -7,9 +7,21 @@ import Spotlight3 from "../assets/footer/spotlight3.svg";
 import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 ---
 
-<div class="w-full">
+<div class="w-full bg-[#1A2766]">
     <svg height="100%" width="100%"viewBox="0 0 100 55">
         <svg viewBox="0 0 1750 500" y="5%" transform="scale(1)" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient id="billboard-bg" x1="0" x2="0" y1="0" y2="1">
+                    <stop style="stop-color:#FFC77E" offset="0%" />
+                    <stop style="stop-color:#FCA129" offset="100%" />
+                </radialGradient>
+            </defs>
+
+            <filter id="blur">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+            </filter>
+            
+
             <HillBG x="-2%" y="11%" transform="scale(1.3)" />
             <SparkHacksLetters x="75%" y="20%" />
 
@@ -19,10 +31,85 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
             
 
             <BuildingsBG x="5%" y="-20%" transform="scale(1)"/>
-            
+            <rect width="10" height="116" x="30%" y="-42%" fill="white" /> 
+            <rect width="10" height="191" x="28%" y="-57%" fill="white" />
+
+            <g id="billboard-group">
+                <rect width="258" height="115" x="12%" y="115%" fill-opacity="0" stroke="white" stroke-width="5" />
+                <rect width="328" height="134.45" x="10%" y="90%" fill="url(#billboard-bg)" stroke="#48090A" stroke-width="15" />     
+                <text class="billboard-txt" x="19.25%" y="100%">Coming to a</text>
+                <text class="billboard-txt" x="19.25%" y="110%">Campus By You!</text>
+                <rect id="billboard-overlay" width="328" height="134.45" x="10%" y="90%" fill="#FCA129" style="mix-blend-mode: lighten;" />
+
+                <g id="top-lights">
+                    {Array.from({length: 12}).map((e, i) => (
+                        <ellipse class="board-bulb-top" fill="#FFF0D2"  rx="12" cx={`${9.75 + i * 1.75}%`} cy="89%" />
+                    ))}
+                </g>
+
+                <g id="bottom-lights">
+                    {Array.from({length: 12}).map((e, i) => (
+                        <ellipse class="board-bulb-bottom" fill="#FFF0D2"  rx="12" cx={`${9.75 + i * 1.75}%`} cy="118%" />
+                    ))}
+                </g>
+            </g> 
+
+
+            <g id="building-lights-group">
+                {Array.from({length: 6}).map((e, i) => (
+                    <rect class="building-light" fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="55%" />
+                    <rect class="building-light" fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="62%" />
+                    <rect class="building-light" fill="#FFF0D2"  width="25" height="20" x={`${8.75 + i * 2.25}%`} y="69%" />
+                ))}
+
+                {Array.from({length: 3}).map((e, i) => (
+                    <rect class="building-light" fill="#FFF0D2"  width="40" height="25" x={`${35.75 + i * 3}%`} y="97%" />
+                    <rect class="building-light" fill="#FFF0D2"  width="40" height="25" x={`${35.75 + i * 3}%`} y="105%" />
+                ))}
+
+                <rect class="building-light" fill="#FFF0D2"  width="55" height="25" x="52.5%" y="110%" />
+                <rect class="building-light" fill="#FFF0D2"  width="55" height="25" x="26%" y="25%" />
+                <rect class="building-light" fill="#FFF0D2"  width="55" height="25" x="29%" y="55%" />
+            </g>
         </svg>
     </svg>
 </div>
+
+<script>
+    // billboard lights
+    const billboard_top = document.querySelectorAll("board-bulb-top");
+    const billboard_bottom = document.querySelectorAll("board-bulb-bottom");
+
+    if (!billboard_top || !billboard_bottom) 
+    {
+        console.error("Footer billboard not found");
+    }
+    else 
+    {
+        billboard_top.forEach((bulb, i) => {
+            (bulb as HTMLElement).style.animationDelay = `${i/6 + 1}s`;
+        });
+
+        billboard_bottom.forEach((bulb, i) => {
+            (bulb as HTMLElement).style.animationDelay = `${i/6 + 1}s`;
+        });
+    }
+
+    // buildings lights
+    const building_lights = document.querySelectorAll("building-light");
+    if (!building_lights) 
+    {
+        console.error("Footer building lights not found");
+    }
+    else
+    {
+        building_lights.forEach((light, i) => {
+            var rng = Math.random() * i;
+            (light as HTMLElement).style.animationDelay = `${rng}s`;
+        });
+    }
+    
+</script>
 
 <style>
 	@keyframes spotlight1-animation
@@ -32,7 +119,7 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 
         50%
         {
-            transform: rotate(-15deg);
+            transform: rotate(-5deg);
         }
 
         100%
@@ -46,7 +133,7 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 
         50%
         {
-            transform: rotate(-25deg);
+            transform: rotate(3deg);
         }
 
         100%
@@ -60,17 +147,63 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 
         50%
         {
-            transform: rotate(15deg);
+            transform: rotate(-5deg);
         }
 
         100%
         {}
 	}
 
+    @keyframes billboard-animation
+	{
+        0%
+        {
+            opacity: 0%;
+        }
+
+        50%
+        {
+            opacity: 50%;
+        }
+
+        100%
+        {
+            opacity: 0%;
+        }
+	}
+
+    @keyframes board-bulb-animation
+    {
+        10%, 35% 
+        {
+            opacity: 1;
+        }
+        45% 
+        {
+            opacity: 0.5;
+        }
+    }
+    
+    @keyframes building-light-animation
+    {
+        10%, 50% 
+        {
+            opacity: 1;
+        }
+        55% 
+        {
+            opacity: 0;
+        }
+        60%
+        {
+            opacity: 1;
+        }
+    }
+
 
 	#spotlight1, #spotlight2, #spotlight3 
 	{
-		transform-origin: center;
+		transform-origin: bottom left;
 	}
 
     #spotlight1
@@ -87,5 +220,28 @@ import SparkHacksLetters from "../assets/footer/sparkhacksLetters.svg";
 	{
 		animation: spotlight3-animation 9s ease-in-out infinite;
 	}
+
+    .billboard-txt
+    {
+        user-select: none;
+        font: bold 36px sans-serif;
+        fill: #48090A;
+        text-anchor: middle;
+    }
 	
+    #billboard-overlay 
+    {
+        filter: brightness(1.5) blur(50px);
+        animation: billboard-animation 3s ease infinite;
+    }
+
+    .board-bulb-top, .board-bulb-bottom 
+    {
+        animation: board-bulb-animation 2s infinite;
+    }
+
+    .building-light
+    {
+        /* animation: building-light-animation 3s ease infinite; */
+    }
 </style>

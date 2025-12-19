@@ -1,27 +1,213 @@
 ---
 const links = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#about' },
-    { name: 'Workshops', href: '#workshops' },
-    { name: 'Schedule', href: '#schedule' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
-    { name: 'Sponsors', href: '#sponsors' },
-    { name: 'Apply', href: '#apply' },
-]
+  { name: 'About', href: '#about' },
+  { name: 'Resources', href: '#resources' },
+  { name: 'Workshops', href: '#workshops' },
+  { name: 'Schedule', href: '#schedule' },
+  { name: 'FAQ', href: '#faq' },
+  { name: 'Apply', href: '#apply' },
+];
 ---
 
+<!-- imported kumbh sans font from google gonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
 <header
-    class="header flex flex-row items-center justify-between bg-gold px-4 py-2 text-white"
+  class="header fixed top-0 z-50 w-full bg-transparent px-6 py-6 text-white backdrop-blur-[3px] transition-all duration-300"
+  style="font-family: 'Kumbh Sans', sans-serif;"
 >
-    <div class="text-lg">SparkHacks 2026</div>
-    <ul class="flex flex-row gap-10">
-        {
-            links.map((link) => (
-                <li>
-                    <a href={link.href}>{link.name}</a>
-                </li>
-            ))
+  <div class="mx-auto flex max-w-7xl flex-row items-center justify-between gap-8">
+
+    <!-- logo (replacing with text for now)
+    <div class="flex items-center">
+      <img
+        src="/socialIcons/sparkhacks-logo.svg"
+        alt="SparkHacks 2026 Logo"
+        class="h-12 w-auto"
+      />
+    </div>
+    -->
+    <div class="flex items-center">
+      <!-- <span class="text-2xl font-bold whitespace-nowrap">SH 26</span> -->
+      <a><img src="/sparkhacks-logo.svg" width="50px"/></a>
+    </div>
+
+    <div class="hidden flex-row items-center gap-8 md:flex justify-between w-full">
+      <ul class="flex flex-row items-center justify-center gap-20 w-full">        {
+          links.slice(0, -1).map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="spotlight-link relative inline-block text-[21.5px] font-bold transition-colors duration-300 hover:text-vanilla"
+              >
+                <span class="spotlight-glow"></span>
+                <span class="relative z-10">{link.name}</span>
+              </a>
+            </li>
+          ))
         }
+      </ul>
+
+
+      <!-- apply button -->
+      <a
+        href="#apply"
+        class="spotlight-link relative inline-block rounded-lg bg-bright-red px-6 py-2.5 text-[21px] font-bold text-white transition-all duration-300 hover:bg-vanilla hover:shadow-lg"
+      >
+        <span class="spotlight-glow-btn"></span>
+        <span class="relative z-10">Apply</span>
+      </a>
+    </div>
+
+
+    <!-- mobile hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="flex flex-col gap-1.5 md:hidden"
+      aria-label="Toggle menu"
+    >
+      <span class="h-0.5 w-6 bg-white transition-all duration-300"></span>
+      <span class="h-0.5 w-6 bg-white transition-all duration-300"></span>
+      <span class="h-0.5 w-6 bg-white transition-all duration-300"></span>
+    </button>
+  </div>
+
+
+  <!-- mobile nav -->
+  <div
+    id="mobile-menu"
+    class="max-h-0 overflow-hidden transition-all duration-300 md:hidden"
+  >
+    <ul class="flex flex-col gap-4 pb-6 pt-6">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={
+                link.name === 'Apply'
+                  ? 'block bg-bright-red px-5 py-3 text-center rounded-lg font-bold hover:bg-accent-red transition-all duration-300'
+                  : 'block font-semibold transition-colors duration-200 hover:text-vanilla'
+              }
+            >
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
     </ul>
+  </div>
 </header>
+
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+
+  // toggle mobile menu
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.style.maxHeight && mobileMenu.style.maxHeight !== '0px';
+    if (isOpen) {
+      if (mobileMenu) mobileMenu.style.maxHeight = '0px';
+      menuBtn.classList.remove('open');
+    } else {
+      if (mobileMenu) mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+      menuBtn.classList.add('open');
+    }
+  });
+
+
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', () => {
+      const href = anchor.getAttribute('href');
+      if (!href) return;
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+
+<style>
+  /* spotlighte effect  */
+  .spotlight-link {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+  }
+
+
+  .spotlight-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(
+      circle at center,
+      rgba(243, 229, 171, 0.6) 0%,
+      rgba(223, 182, 93, 0.3) 30%,
+      transparent 60%
+    );
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    filter: blur(20px);
+    z-index: 0;
+  }
+
+
+  .spotlight-link:hover .spotlight-glow {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+
+  .spotlight-glow-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(
+      circle at center,
+      rgba(243, 229, 171, 0.4) 0%,
+      rgba(223, 182, 93, 0.2) 30%,
+      transparent 60%
+    );
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    filter: blur(18px);
+    z-index: 0;
+  }
+
+
+  .spotlight-link:hover .spotlight-glow-btn {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  #mobile-menu-btn.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+
+  #mobile-menu-btn.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+
+  #mobile-menu-btn.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+</style>
+

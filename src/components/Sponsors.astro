@@ -1,0 +1,44 @@
+---
+import HeaderRibbon from '/src/assets/sponsors/headerRibbon.svg';
+import Screen from '/src/assets/sponsors/screen.svg';
+import Reflections from '/src/assets/sponsors/reflections.svg';
+import Audience from '/src/assets/sponsors/audience.svg';
+import SponsorList from '/src/assets/sponsors/sponsorList.svg';
+---
+
+<div
+    class="flex flex-col place-content-center items-center bg-linear-to-b from-[#DC1A1D] to-[#1F0106]"
+>
+    <svg viewBox="0 -50 2000 2000" width="100%">
+        <HeaderRibbon width="100%" />
+        <text fill="white" x="50%" dx="-25" dy="110" text-anchor="middle" font-family="'Kumbh Sans', sans-serif">
+            <tspan font-size="70">Thanks to Our</tspan>
+            <tspan font-size="100" dx="-550" dy="1.2em" font-weight="bold">Sponsors and</tspan>
+            <tspan font-size="100" dx="-510" dy="1.2em" font-weight="bold">Partners</tspan>
+        </text>
+
+        <Screen width="100%" y="500"/>
+        <svg width="1216" height="716" x="392" y="510">
+            <SponsorList id="sponsors" width="100%" />
+        </svg>
+        <Reflections width="100%" y="465" />
+        <Audience width="100%" y="1225" />
+    </svg>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
+    #sponsors {
+        animation: creditsScroll 15s linear infinite;
+    }
+
+    @keyframes creditsScroll {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(-100%);
+        }
+    }
+</style>

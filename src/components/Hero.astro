@@ -1,21 +1,32 @@
 ---
 import TopCurtain from '../assets/hero/topCurtain.svg';
 import SideCurtain from '../assets/hero/sideCurtain.svg';
+import FullCurtain from '../assets/hero/fullCurtain.svg';
 import HeroLogo from '../assets/hero/heroLogo.svg';
 import HeroBulbLight from '../assets/hero/heroBulbLight.svg';
 import HeroBulbDark from '../assets/hero/heroBulbDark.svg';
 ---
 
 <div
-    class="relative h-[75vh] lg:h-screen w-full bg-[#2A0404] text-white"
+    class="relative h-[75vh] lg:h-screen w-full bg-[#10042a]  text-white overflow-hidden"
 >
+    <FullCurtain id="leftFull" class="absolute right-[47%] rotate-y-180 z-10" />
+    <FullCurtain id="rightFull" class="absolute left-[47%] z-10" />
     <SideCurtain class="hidden md:block absolute top-0 left-0 w-fit h-[95%]" />
     <SideCurtain class="hidden md:block absolute top-0 right-0 w-fit h-[95%] rotate-y-180" />
-    <TopCurtain class="absolute w-full -top-[8%] h-fit" />
+    <TopCurtain class="absolute w-full -top-[8%] h-fit z-11" />
+
+    <!-- Logo Support Bars -->
+    <svg class="absolute" width="100%" height="100%">
+        <line x1="33%" y1="0" x2="33%" y2="50%" stroke="#C6822A" stroke-width="4" />
+        <line x1="67%" y1="0" x2="67%" y2="50%" stroke="#C6822A" stroke-width="4" />
+    </svg>
+
+    <!-- Hero Logo Board -->
     <div class="relative left-[2.5%] md:left-[25%] top-[30%] w-[95%] md:w-[50%]">
         <div class="absolute">
-            <div class="absolute font-[Marck_Script,cursive] text-shadow-lg/20 text-[5vw] md:text-[3vw] w-full text-center top-[-4vh]">Presenting</div>
-            <HeroLogo class="w-full h-fit" />
+            <div class="logoIlluminate absolute font-[Marck_Script,cursive] text-shadow-lg/20 text-[5vw] md:text-[3vw] w-full text-center top-[-4vh]">Presenting</div>
+            <HeroLogo class="logoIlluminate w-full h-fit" />
             <div class="absolute bottom-[15%] w-full aspect-9/2">
                 <!-- Top Left Row Bulbs -->
                 <div class="absolute -top-[8%] left-[7%]">
@@ -80,26 +91,57 @@ import HeroBulbDark from '../assets/hero/heroBulbDark.svg';
         </div>
     </div>
 
-    <svg width="100%" height="100%">
-        <line x1="33%" y1="0" x2="33%" y2="50%" stroke="#C6822A" stroke-width="4" />
-        <line x1="67%" y1="0" x2="67%" y2="50%" stroke="#C6822A" stroke-width="4" />
-        <circle id="mainSpotlight" cx="50%" cy="50%" fill="#EBD19D" opacity="0.5" />
+    <!-- Spotlight -->
+    <svg class="absolute" width="100%" height="100%">
+        <circle id="mainSpotlight" cx="50%" cy="50%" />
+        <!-- <polygon points ="50,500 150,350 200,425" fill="#FFF0D2" /> -->
     </svg>
 </div>
 
 <script>
+    // Stagger delays for bulb flash animations
     const bulbs = document.querySelectorAll(".heroBulb");
     bulbs.forEach((bulb, i) => {
-        (bulb as HTMLElement).style.animationDelay = `${i/6 + 1}s`;
+        (bulb as HTMLElement).style.animationDelay = `${i/6 + 3}s`;
+    });
+
+    // Delete full curtains after opening animation
+    const leftFull = document.getElementById('leftFull');
+    const rightFull = document.getElementById('rightFull');
+    leftFull?.addEventListener('animationend', () => {
+        leftFull.remove();
+    });
+    rightFull?.addEventListener('animationend', () => {
+        rightFull.remove();
     });
 </script>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
 
+    #leftFull {
+        animation: leftCurtainOpen 2s 1s ease-in;
+    }
+
+    #rightFull {
+        animation: rightCurtainOpen 2s 1s ease-in;
+    }
+
     #mainSpotlight {
         r: 25vh;
-        animation: spotlightOn 10s infinite;
+        fill: #EBD19D;
+        opacity: 0.3;
+        animation: spotlightOn 10s 2s infinite backwards;
+        mix-blend-mode: plus-lighter;
+    }
+
+    .logoIlluminate {
+        animation: logoIlluminate 10s 2s infinite backwards;
+    }
+
+    .heroBulb {
+        filter: brightness(75%);
+        animation: bulbFlash 2s infinite;
     }
 
     /* lg and up */
@@ -109,29 +151,51 @@ import HeroBulbDark from '../assets/hero/heroBulbDark.svg';
         }
     }
 
+    @keyframes leftCurtainOpen {
+        from {
+            transform: translateX(0%) rotateY(180deg);
+        }
+        to {
+            transform: translateX(-100%) rotateY(180deg);
+        }
+    }
+
+    @keyframes rightCurtainOpen {
+        from {
+            transform: translateX(0%);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+
     @keyframes spotlightOn {
         0%, 10% {
             opacity: 0;
         }
         10.1%, 18%, 20%, 22% {
-            opacity: 0.5;
+            opacity: 0.3;
         }
         19%, 21% {
-            opacity: 0.2;
+            opacity: 0.15;
         }
     }
 
-    .heroBulb {
-        opacity: 0.5;
-        animation: bulbFlash 2s infinite;
+    @keyframes logoIlluminate {
+        0%, 10% {
+            filter: brightness(50%);
+        }
+        10.1%, 18%, 20%, 22% {
+            filter: brightness(100%);
+        }
+        19%, 21% {
+            filter: brightness(75%);
+        }
     }
 
     @keyframes bulbFlash {
-        10%, 35% {
-            opacity: 1;
-        }
         45% {
-            opacity: 0.5;
+            filter: drop-shadow(0px 0px 20px #EBD19D) brightness(100%);
         }
     }
 </style>
