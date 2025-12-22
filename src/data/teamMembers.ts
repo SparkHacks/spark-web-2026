@@ -2,139 +2,162 @@ export const teamMembers = [
   {
     name: "Naga Maddipudi",
     title: "Director",
-    image: "",
-    linkedin: ""
+    image: "/headshots/naga.JPG",
+    year: "Senior",
+    major: "Computer Science",
   },
   {
     name: "Kaito Sekiya",
     title: "Director",
-    image: "",
-    linkedin: ""
+    image: "headshots/kaito.JPG",
+    year: "Senior",
+    major: "Computer Science",
   },
   {
     name: "Kaustubha Medikundam",
     title: "Communications - Team Lead",
-    image: "",
-    linkedin: ""
+    image: "headshots/kaustubha.JPG",
+    year: "Senior",
+    major: "Computer Science",
   },
   {
     name: "Florianne Che",
     title: "Web Development - Team Lead",
-    image: "",
-    linkedin: ""
+    image: "headshots/flori.PNG",
+    year: "Junior",
+    major: "Computer Science",
   },
   {
     name: "Nathan Trinh",
     title: "Web Development - Team Lead",
-    image: "",
-    linkedin: ""
+    image: "headshots/nathan.JPG",
+    year: "Senior",
+    major: "Computer Science",
   },
   {
     name: "Eman Arsham",
     title: "Outreach",
-    image: "",
-    linkedin: ""
+    image: "headshots/eman.jpeg",
+    year: "Senior",
+    major: "Computer Science + Design",
   },
   {
     name: "Niharika Patil",
     title: "Outreach",
-    image: "",
-    linkedin: ""
+    image: "headshots/niharika.JPG",
+    year: "Senior",
+    major: "Computer Science",
   },
   {
     name: "Huda Syed",
     title: "Outreach",
-    image: "",
-    linkedin: ""
+    image: "headshots/huda.JPG",
+    year: "Junior",
+    major: "Computer Science",
   },
   {
     name: "Mina Pattanaik",
     title: "Outreach",
-    image: "",
-    linkedin: ""
+    image: "headshots/mina.JPG",
+    year: "Senior",
+    major: "Computer Science",
   },
   {
     name: "Gerard Wilbert",
     title: "Logistics",
-    image: "",
-    linkedin: ""
+    image: "headshots/gerard.JPG",
+    year: "Senior",
+    major: "Mechanical Engineering",
   },
   {
     name: "Mehtab Kaur",
     title: "Logistics",
-    image: "",
-    linkedin: ""
+    image: "headshots/mehtab.JPG",
+    year: "Sophomore",
+    major: "Data Science",
   },
   {
     name: "Stanley Huang",
     title: "Logistics",
-    image: "",
-    linkedin: ""
+    image: "headshots/stanley.JPG",
+    year: "Sophomore",
+    major: "Computer Science",
   },
   {
     name: "Sena Ozcan",
     title: "Logistics",
-    image: "",
-    linkedin: ""
+    image: "headshots/sena.JPG",
+    year: "Junior",
+    major: "Computer Science",
   },
   {
     name: "Kavya Patel",
     title: "Communications",
-    image: "",
-    linkedin: ""
+    image: "headshots/kavya.JPG",
+    year: "Junior",
+    major: "Computer Science",
   },
   {
     name: "Zaina Khalil",
     title: "Communications",
-    image: "",
-    linkedin: ""
+    image: "headshots/zaina.jpg",
+    year: "Junior",
+    major: "Data Science",
   },
   {
     name: "Rajvi Shah",
     title: "Experience",
-    image: "",
-    linkedin: ""
+    image: "headshots/rajvi.JPG",
+    year: "Senior",
+    major: "Computer Science + Linguistics",
   },
   {
     name: "Rasleen Dhaliwal",
     title: "Experience",
-    image: "",
-    linkedin: ""
+    image: "headshots/rasleen.JPG",
+    year: "Senior",
+    major: "Computer Science + Design",
   },
   {
     name: "Adithya Prasad",
     title: "Experience",
-    image: "",
-    linkedin: ""
+    image: "headshots/adithya.JPG",
+    year: "Senior",
+    major: "Computer Science",
   },
   {
     name: "Rawisara Hameyotin",
     title: "Experience",
-    image: "",
-    linkedin: ""
+    image: "headshots/mj.JPG",
+    year: "Junior",
+    major: "Data Science",
   },
   {
     name: "Dominic Irla",
     title: "Web Development",
-    image: "",
-    linkedin: ""
+    image: "headshots/dominic.png",
+    year: "Junior",
+    major: "Computer Science",
   },
   {
     name: "Josephine Lee",
     title: "Web Development",
-    image: "",
-    linkedin: ""
+    image: "headshots/josephine.JPG",
+    year: "Junior",
+    major: "Computer Science",
   },
   {
     name: "Daniel Barajas",
     title: "Web Development",
-    image: "",
-    linkedin: ""
+    image: "headshots/daniel.JPG",
+    year: "Senior",
+    major: "Computer Science",
   },
   {
     name: "Fatima Rasheed",
     title: "Web Development",
-    image: "",
-    linkedin: ""
+    image: "headshots/fatima.jpg",
+    year: "Junior",
+    major: "Computer Science",
   },
 ]
