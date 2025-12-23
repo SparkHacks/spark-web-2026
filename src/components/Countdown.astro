@@ -1,0 +1,172 @@
+---
+import leftStanchionImg from '../assets/leftRopes.svg?url';
+import rightStanchionImg from '../assets/rightRopes.svg?url';
+import leftSpotlight from '../assets/leftSpotlight.svg?url';
+import rightSpotlight from '../assets/rightSpotlight.svg?url';
+const countdownDate = new Date("2026-02-06T16:00:00").getTime();
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+<div class="min-h-screen pt-20 md:pt-32 pb-20 flex flex-col justify-start items-center relative overflow-x-hidden bg-[#1D0303] font-['Kumbh_Sans']">
+   
+  <h1 class="text-3xl md:text-6xl font-bold text-white mb-15 md:mb-28 text-center px-4 relative z-20">
+    Sparkhacks will begin in...
+  </h1>
+ 
+  <div class="flex gap-6 md:gap-18 flex-wrap justify-center px-4 mb-25 md:mb-90 relative z-20">
+    {["days", "hours", "minutes", "seconds"].map((unit) => (
+      <div class="flex flex-col items-center">
+        <div class="countdown-box bg-[#736089] rounded-2xl p-4 md:p-6 min-w-[90px] md:min-w-[169px] h-[60px] md:h-[112px] flex items-center justify-center transition-all duration-1000">
+          <div id={unit} class="text-4xl md:text-[5rem] font-bold text-white text-center leading-none tracking-[0.5rem] md:tracking-[1.5rem] mr-[-0.5rem] md:mr-[-1.5rem] tabular-nums">00</div>
+        </div>
+        <div class="text-[1.2rem] md:text-[2.5rem] font-bold text-white mt-1 capitalize">{unit}</div>
+      </div>
+    ))}
+  </div>
+
+  <img src={leftStanchionImg} alt="Left" class="absolute bottom-20 md:bottom-40 left-0 w-[35vw] md:w-[23vw] max-w-[400px] min-w-[120px] md:min-w-[180px] z-10" />
+  <img src={rightStanchionImg} alt="Right" class="absolute bottom-20 md:bottom-40 right-0 w-[35vw] md:w-[23vw] max-w-[400px] min-w-[120px] md:min-w-[180px] z-10" />
+
+  <!-- Spotlight sways -->
+  <div id="leftSpotlightGroup" class="spotlight-group spotlight-left">
+    <img src={leftSpotlight} alt="Left spotlight beam" />
+  </div>
+  <div id="rightSpotlightGroup" class="spotlight-group spotlight-right">
+    <img src={rightSpotlight} alt="Right spotlight beam" />
+  </div>
+
+  <div class="spotlight-glow glow-center"></div>
+</div>
+
+<style>
+  .spotlight-on .countdown-box {
+    box-shadow: 0 0 60px rgba(255, 220, 180, 0.2), 0 0 100px rgba(255, 220, 180, 0.12);
+    transform: translateY(-2px);
+  }
+
+  /* Spotlight base */
+  .spotlight-group {
+    position: absolute;
+    bottom: 7rem;
+    width: 600px;
+    height: auto;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1200ms ease-out, transform 1200ms ease-out;
+  }
+
+  .spotlight-left { left: 0; transform-origin: bottom left; }
+  .spotlight-right { right: 0; transform-origin: bottom right; }
+
+  @keyframes spotlight-sway-left {
+    0%, 100% { transform: skewX(0deg); opacity: 0.85; }
+    50% { transform: skewX(15deg); opacity: 0.95; }
+  }
+  @keyframes spotlight-sway-right {
+    0%, 100% { transform: skewX(0deg); opacity: 0.85; }
+    50% { transform: skewX(-15deg); opacity: 0.95; }
+  }
+
+  .spotlight-group img {
+    width: 100%;
+    height: auto;
+    filter: blur(8px) brightness(1.1);
+    mix-blend-mode: screen;
+  }
+  .spotlight-left img {
+    animation: spotlight-sway-left 5s ease-in-out infinite;
+    transform-origin: bottom left;
+  }
+  .spotlight-right img {
+    animation: spotlight-sway-right 5.5s ease-in-out infinite;
+    transform-origin: bottom right;
+  }
+
+  .spotlight-glow {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1500ms ease-out;
+  }
+
+  .glow-center {
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 235, 205, 0.15) 0%, rgba(255, 220, 180, 0.08) 30%, transparent 70%);
+    filter: blur(40px);
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.85; transform: translate(-50%, -50%) scale(1.1); }
+  }
+
+  @media (max-width: 768px) {
+    .spotlight-group { width: 320px; bottom: 4rem; }
+    .glow-center { width: 220px; height: 220px; top: 42%; }
+  }
+</style>
+
+<script define:vars={{ targetDate: countdownDate }}>
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const timeLeft = targetDate - now;
+
+    if (timeLeft < 0) {
+      document.getElementById("days").textContent = "00";
+      document.getElementById("hours").textContent = "00";
+      document.getElementById("minutes").textContent = "00";
+      document.getElementById("seconds").textContent = "00";
+      return;
+    }
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = String(days).padStart(2, "0");
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  const leftSpotlightGroup = document.getElementById("leftSpotlightGroup");
+  const rightSpotlightGroup = document.getElementById("rightSpotlightGroup");
+  const countdownSection = document.querySelector(".min-h-screen");
+  const glowCenter = document.querySelector(".glow-center");
+
+  if (leftSpotlightGroup && rightSpotlightGroup && countdownSection) {
+    const spotlightObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Reveal spotlights
+            leftSpotlightGroup.style.opacity = "1";
+            rightSpotlightGroup.style.opacity = "1";
+            leftSpotlightGroup.style.transform = "translateY(0)";
+            rightSpotlightGroup.style.transform = "translateY(0)";
+            countdownSection.classList.add("spotlight-on");
+
+            setTimeout(() => {
+              if (glowCenter) glowCenter.style.opacity = "1";
+            }, 600);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    spotlightObserver.observe(countdownSection);
+  }
+</script>
