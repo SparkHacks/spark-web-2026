@@ -63,6 +63,13 @@ export const teamMembers = [
     major: "Computer Science",
   },
   {
+    name: "Sena Ozcan",
+    title: "Logistics",
+    image: "headshots/sena.JPG",
+    year: "Junior",
+    major: "Computer Science",
+  },
+  {
     name: "Gerard Wilbert",
     title: "Logistics",
     image: "headshots/gerard.JPG",
@@ -84,11 +91,11 @@ export const teamMembers = [
     major: "Computer Science",
   },
   {
-    name: "Sena Ozcan",
-    title: "Logistics",
-    image: "headshots/sena.JPG",
+    name: "Zaina Khalil",
+    title: "Communications",
+    image: "headshots/zaina.jpg",
     year: "Junior",
-    major: "Computer Science",
+    major: "Data Science",
   },
   {
     name: "Kavya Patel",
@@ -98,13 +105,6 @@ export const teamMembers = [
     major: "Computer Science",
   },
   {
-    name: "Zaina Khalil",
-    title: "Communications",
-    image: "headshots/zaina.jpg",
-    year: "Junior",
-    major: "Data Science",
-  },
-  {
     name: "Rajvi Shah",
     title: "Experience",
     image: "headshots/rajvi.JPG",
@@ -112,11 +112,11 @@ export const teamMembers = [
     major: "Computer Science + Linguistics",
   },
   {
-    name: "Rasleen Dhaliwal",
+    name: "Rawisara Hameyotin",
     title: "Experience",
-    image: "headshots/rasleen.JPG",
-    year: "Senior",
-    major: "Computer Science + Design",
+    image: "headshots/mj.JPG",
+    year: "Junior",
+    major: "Data Science",
   },
   {
     name: "Adithya Prasad",
@@ -126,11 +126,11 @@ export const teamMembers = [
     major: "Computer Science",
   },
   {
-    name: "Rawisara Hameyotin",
+    name: "Rasleen Dhaliwal",
     title: "Experience",
-    image: "headshots/mj.JPG",
-    year: "Junior",
-    major: "Data Science",
+    image: "headshots/rasleen.JPG",
+    year: "Senior",
+    major: "Computer Science + Design",
   },
   {
     name: "Dominic Irla",

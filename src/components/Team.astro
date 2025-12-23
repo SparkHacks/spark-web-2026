@@ -1,8 +1,8 @@
 ---
 import { teamMembers } from "../data/teamMembers";
 ---
-<div class="w-full relative pt-5 overflow-x-hidden">
-  <div class="relative w-full mb-32 pb-15">
+<div class="w-full relative md:pt-10 lg:pt-20 xl:pt-30 overflow-x-hidden">
+  <div class="relative w-full sm:mb-4 sm:pb-8 lg:mb-32 lg:pb-25">
     <div class="relative w-full flex justify-center items-center min-h-[300px]">
       
       <img 
@@ -34,70 +34,70 @@ import { teamMembers } from "../data/teamMembers";
       />
       
       <div id="memberContainer" class="absolute inset-0">
-        <button id="prevBtn" class="absolute -left-86 top-1/2 -translate-y-1/2 text-white text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg">
+        <button id="prevBtn" class="absolute left-2 md:left-4 lg:left-2 xl:-left-20 2xl:-left-50 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl lg:text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg">
           ‹
         </button>
         
-        <div class="absolute top-1/2 -translate-y-1/2 -left-20 flex flex-col items-center">
+        <div class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-[120%] lg:-left-20 lg:translate-x-0 flex flex-col items-center">
           <div class="relative transform">
             <img 
               id="teamPhoto" 
               src="" 
-              class="w-180 h-120 object-cover rounded-lg shadow-2xl grayscale"
+              class="w-48 h-56 lg:w-180 lg:h-120 object-cover rounded-lg shadow-2xl grayscale"
             />
           </div>
         </div>
         
-        <div class="absolute top-1/2 -translate-y-1/2 right-20 flex flex-col gap-4 w-64">
+        <div class="absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-[120%] lg:right-20 lg:translate-x-0 flex flex-col lg:gap-4 w-40 lg:w-64">
           <div class="-rotate-6 transform transition-transform hover:rotate-0">
             <img 
               id="memberPhoto" 
               src="" 
-              class="w-48 h-48 object-cover"
+              class="w-32 h-32 lg:w-48 lg:h-48 object-cover"
             />
-            <div class="absolute -top-2 right-10 text-5xl">
+            <div class="absolute -top-2 right-12 text-3xl lg:text-5xl">
               📎
-            </div>
+            </div>-
           </div>
 
-          <div class="flex flex-col gap-3 mt-12">
-            <h3 id="memberName" class="text-4xl font-bold text-gold drop-shadow-lg text-left">
+          <div class="flex flex-col gap-2 lg:gap-3 lg:mt-12">
+            <h3 id="memberName" class="text-xl lg:text-4xl font-bold text-gold drop-shadow-lg text-left lg:whitespace-nowrap">
             </h3>
-            <p id="memberInfo" class="text-xl text-white text-left drop-shadow-lg font-bold mt-4">
+            <p id="memberInfo" class="text-sm lg:text-xl text-white text-left drop-shadow-lg font-bold mt-0 lg:mt-4">
             </p>
-            <p id="memberTitle" class="text-xl text-white text-left drop-shadow-lg font-bold mt-4">
+            <p id="memberTitle" class="text-sm lg:text-xl text-white text-left drop-shadow-lg font-bold mt-0 lg:mt-4">
             </p>
           </div>
         </div>
         
-        <button id="nextBtn" class="absolute -right-86 top-1/2 -translate-y-1/2 text-white text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg">
+        <button id="nextBtn" class="absolute right-2 md:right-4 lg:right-2 xl:-right-20 2xl:-right-50 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl lg:text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg">
           ›
         </button>
       </div>
       
-      <div id="pagination" class="absolute -bottom-15 left-1/2 transform -translate-x-1/2 flex justify-center gap-2 z-20">
+      <div id="pagination" class="absolute -bottom-8 lg:-bottom-15 left-1/2 transform -translate-x-1/2 flex justify-center gap-2 z-20">
       </div>
     </div>
   </div>
 
-  <div class="flex flex-wrap justify-center gap-12 mt-50">
+  <div class="flex flex-wrap justify-center gap-4 lg:gap-12 mt-24 md:mt-40 lg:mt-50 max-w-lg lg:max-w-none mx-auto">
 
-    <button class="team-filter px-6 py-2 rounded-full border-2 border-white bg-white text-black hover:bg-white hover:text-black transition" data-team="Director">
+    <button class="team-filter px-4 py-2 lg:px-6 text-sm lg:text-base rounded-full border-2 border-white bg-white text-black hover:bg-white hover:text-black transition" data-team="Director">
       🎬 Directors
     </button>
-    <button class="team-filter px-6 py-2 rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition" data-team="Logistics">
+    <button class="team-filter px-4 py-2 lg:px-6 text-sm lg:text-base rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition" data-team="Logistics">
       📰 Logistics
     </button>
-    <button class="team-filter px-6 py-2 rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition" data-team="Experience">
+    <button class="team-filter px-4 py-2 lg:px-6 text-sm lg:text-base rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition" data-team="Experience">
       📣 Experience
     </button>
-    <button class="team-filter px-6 py-2 rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition" data-team="Web Development">
+    <button class="team-filter px-4 py-2 lg:px-6 text-sm lg:text-base rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition" data-team="Web Development">
       💻 Web Dev
     </button>
-    <button class="team-filter px-6 py-2 rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition" data-team="Communications">
+    <button class="team-filter px-4 py-2 lg:px-6 text-sm lg:text-base rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition" data-team="Communications">
       📞 Communications
     </button>
-    <button class="team-filter px-6 py-2 rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition" data-team="Outreach">
+    <button class="team-filter px-4 py-2 lg:px-6 text-sm lg:text-base rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition" data-team="Outreach">
       💬 Outreach
     </button>
   </div>
