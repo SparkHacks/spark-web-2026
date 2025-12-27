@@ -16,12 +16,17 @@ function getIconPair() {
 }
 
 const iconPairsList = faqData.map(() => getIconPair());
+const categories = ['General', 'Logistics', 'Event Details', 'Sponsor/Volunteer'] as const;
 ---
 
-<div id="#faq" class="min-h-screen bg-linear-to-b from-[#1F0106] to-[#1A2766] p-12">
-  <div class="max-w-8xl mx-auto">
-    <div class="text-center mb-8">
-      <p class="text-3xl md:text-4xl text-white mb-2">Don't Miss Out!</p>
+<div id="#faq" class="min-h-screen bg-gradient-to-b from-gradient-dark-red via-gradient-dark-blue to-gradient-blue py-16 px-6 md:px-12">
+  <div class="w-1/2 mb-8 -ml-16">
+    <img src={popcornBagImg} class="w-full h-full" />
+  </div>
+
+  <div class="max-w-5xl mx-auto faq-container" data-active-filter="General">
+    <div class="text-center mb-12">
+      <p class="text-3xl md:text-4xl text-white mb-4">Don't Miss Out!</p>
       <h1 class="text-3xl md:text-4xl text-white mb-2">
         Catch up on
       </h1>
@@ -30,74 +35,164 @@ const iconPairsList = faqData.map(() => getIconPair());
       </h2>
     </div>
 
-    <div class="w-1/2 h-full mb-8">
-        <img src={popcornBagImg} class="w-full h-full" />
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      {categories.map((category) => (
+        <button
+          class="category-btn px-6 py-2 rounded-full border-2 border-white text-white font-medium transition-all duration-300 hover:bg-white hover:text-black"
+          data-category={category}
+          data-active={category === 'General' ? 'true' : 'false'}
+        >
+          {category}
+        </button>
+      ))}
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-40 gap-y-12">
+    <div class="space-y-6 mb-12">
       {
         faqData.map((item, index) => (
-          <div class="flex gap-4 cursor-pointer faq-item" data-index={index}>
-            <div class="w-12 h-12 flex-shrink-0 relative">
-              <img
-                src={iconPairsList[index].closed}
-                class="faq-icon-closed h-12 object-cover"
-                data-index={index}
-              />
-              <img
-                src={iconPairsList[index].open}
-                class="faq-icon-open w-30 object-cover hidden"
-                data-index={index}
-              />
-            </div>
-            <div class="flex-1">
-              <div class="flex items-center justify-between">
-                <h3 class="text-white font-bold text-xl mb-2">
-                  {item.question}
-                </h3>
-                <span
-                  class="faq-arrow text-l flex-shrink-0 transition-transform duration-300 text-white inline-block"
+          <div 
+            class="faq-item py-6 cursor-pointer border-b border-white/20 transition-all duration-300" 
+            data-index={index}
+            data-category={item.category}
+            data-open="false"
+          >
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 flex-shrink-0 relative">
+                <img
+                  src={iconPairsList[index].closed}
+                  class="faq-icon-closed h-14 w-14 object-contain transition-opacity duration-700"
                   data-index={index}
-                >
-                  ▼
-                </span>
+                  alt="Icon"
+                />
+                <img
+                  src={iconPairsList[index].open}
+                  class="faq-icon-open h-14 w-14 object-contain absolute top-0 left-0 opacity-0 transition-opacity duration-700"
+                  data-index={index}
+                  alt="Icon open"
+                />
               </div>
-              <p
-                class="faq-answer text-red-100 text-sm hidden"
-                data-index={index}
-              >
-                {item.answer}
-              </p>
-              
+
+              <div class="flex-1 min-w-0">
+                
+                <div class="flex items-center justify-between gap-4">
+                  <h3 class="text-white font-bold text-lg md:text-xl">
+                    {item.question}
+                  </h3>
+
+                  <span
+                    class="faq-arrow text-xl flex-shrink-0 transition-transform duration-700 text-white inline-block"
+                    data-index={index}
+                  >
+                    ▼
+                  </span>
+                </div>
+
+                <div class="faq-answer-wrapper overflow-hidden transition-all duration-700 ease-in-out max-h-0" data-index={index}>
+                  <p class="faq-answer text-gray-300 text-sm md:text-base pt-4" data-index={index}>
+                    {item.answer}
+                  </p>
+                </div>
+
+              </div>
             </div>
           </div>
         ))
       }
     </div>
+
+    <div class="flex justify-center">
+      <a 
+        href="mailto:sparkhacks@uic.edu" 
+        class="contact-btn px-8 py-4 bg-gold text-black font-bold text-lg rounded-lg transition-all duration-300 hover:scale-105 shadow-lg relative overflow-hidden group"
+      >
+        <span class="relative z-10">Contact Us</span>
+        <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"></div>
+      </a>
+    </div>
   </div>
 </div>
 
+<style>
+  .faq-container[data-active-filter]:not([data-active-filter="all"]) .faq-item:not([data-category]) {
+    display: none;
+  }
+  
+  .faq-container[data-active-filter="General"] .faq-item:not([data-category="General"]) {
+    display: none;
+  }
+  
+  .faq-container[data-active-filter="Logistics"] .faq-item:not([data-category="Logistics"]) {
+    display: none;
+  }
+  
+  .faq-container[data-active-filter="Event Details"] .faq-item:not([data-category="Event Details"]) {
+    display: none;
+  }
+  
+  .faq-container[data-active-filter="Sponsor/Volunteer"] .faq-item:not([data-category="Sponsor/Volunteer"]) {
+    display: none;
+  }
+
+  .category-btn[data-active="true"] {
+    background-color: white;
+    color: black;
+  }
+
+  .faq-item[data-open="true"] .faq-arrow {
+    transform: rotate(180deg);
+  }
+
+  .faq-item[data-open="true"] .faq-icon-closed {
+    opacity: 0;
+  }
+
+  .faq-item[data-open="true"] .faq-icon-open {
+    opacity: 1;
+  }
+</style>
+
 <script>
   function initFaq() {
-    document.querySelectorAll(".faq-item").forEach((button) => {
-      button.addEventListener("click", function(this: HTMLElement) {
-        const index = this.getAttribute("data-index");
-        if (!index) return;
+    const container = document.querySelector('.faq-container');
+    if (!container) return;
+    
+    container.setAttribute('data-active-filter', 'General');
+    
+    container.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      
+      // Category filter
+      if (target.classList.contains('category-btn')) {
+        const category = target.getAttribute('data-category');
+        const currentFilter = container.getAttribute('data-active-filter');
         
-        const answer = this.querySelector(`.faq-answer[data-index="${index}"]`);
-        const closedIcon = this.querySelector(`.faq-icon-closed[data-index="${index}"]`);
-        const openIcon = this.querySelector(`.faq-icon-open[data-index="${index}"]`);
-        const arrow = this.querySelector(`.faq-arrow[data-index="${index}"]`);
-
-        answer?.classList.toggle("hidden");
-        closedIcon?.classList.toggle("hidden");
-        openIcon?.classList.toggle("hidden");
-        arrow?.classList.toggle("rotate-180");
-      });
+        const newFilter = (currentFilter === category) ? 'all' : category;
+        container.setAttribute('data-active-filter', newFilter || 'all');
+        
+        container.querySelectorAll('.category-btn').forEach(btn => {
+          btn.setAttribute('data-active', btn.getAttribute('data-category') === newFilter ? 'true' : 'false');
+        });
+      }
+      
+      // FAQ item toggle
+      const faqItem = target.closest('.faq-item') as HTMLElement;
+      if (faqItem && !target.classList.contains('category-btn')) {
+        const isOpen = faqItem.getAttribute('data-open') === 'true';
+        const wrapper = faqItem.querySelector('.faq-answer-wrapper') as HTMLElement;
+        
+        if (wrapper) {
+          if (isOpen) {
+            wrapper.style.maxHeight = '0px';
+          } else {
+            wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+          }
+        }
+        
+        faqItem.setAttribute('data-open', isOpen ? 'false' : 'true');
+      }
     });
   }
 
   initFaq();
-  
   document.addEventListener('astro:page-load', initFaq);
 </script>
