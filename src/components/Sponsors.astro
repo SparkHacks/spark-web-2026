@@ -11,23 +11,45 @@ import SponsorList from '/src/assets/sponsors/sponsorList.svg';
 >
     <svg viewBox="0 -50 2000 2000" width="100%">
         <HeaderRibbon width="100%" />
-        <text fill="white" x="50%" dx="-25" dy="110" text-anchor="middle" font-family="'Kumbh Sans', sans-serif">
-            <tspan font-size="70">Thanks to Our</tspan>
-            <tspan font-size="100" dx="-550" dy="1.2em" font-weight="bold">Sponsors and</tspan>
-            <tspan font-size="100" dx="-510" dy="1.2em" font-weight="bold">Partners</tspan>
+        <text fill="white" x="50%" dx="-25" dy="110" text-anchor="middle" >
+            <tspan font-size="70" class="font-bebas">Thanks to Our</tspan>
+            <tspan font-size="100" dx="-550" dy="1.2em" font-weight="bold" class="font-bebas">Sponsors and </tspan>
+            <tspan font-size="100" font-weight="bold" class="font-bebas">Partners</tspan>
         </text>
 
         <Screen width="100%" y="500"/>
-        <svg width="1216" height="716" x="392" y="510">
+        <!-- <svg width="1216" height="716" x="392" y="510">
             <SponsorList id="sponsors" width="100%" />
-        </svg>
+        </svg> -->
+         <!-- temporary company list -->
+        <foreignObject x="392" y="510" width="1216" height="716">
+            <div id="sponsors" class="flex flex-col gap-6 text-center text-white text-6xl font-bebas space-y-4">
+                <div id="exec-producer">
+                    <div class="italic text-7xl">🎬 Executive Producer</div>
+                    <div>UIC Engineering</div>
+                </div>
+                <div id="leading-star ">
+                    <div class="italic text-7xl">⭐ Leading Star</div>
+                    <div>Grainger</div>
+                </div>
+                <div id="supporting-cast ">
+                    <div class="italic text-7xl">🎭 Supporting Producer</div>
+                    <div>CME Group</div>
+                    <div>Argonne National Laboratories</div>
+                <div>84.51</div>
+                </div>
+                
+                
+                
+            </div>
+        </foreignObject>
         <Reflections width="100%" y="465" />
         <Audience width="100%" y="1225" />
     </svg>
 </div>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+  
 
     #sponsors {
         animation: creditsScroll 15s linear infinite;

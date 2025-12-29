@@ -2,15 +2,18 @@
 import FrontEnvelope from '../assets/envelope/frontEnvelope.svg';
 import BackEnvelope from '../assets/envelope/backEnvelope.svg';
 import EnvRibbon from '../assets/envelope/envRibbon.svg';
+import LetterMarking from '../assets/envelope/letterMarking.svg';
+import Logo from '../../public/sparkhacks-logo.svg';
 ---
 
-<div class="flex flex-col place-content-center items-center bg-gradient-to-b from-[#10042A] to-[#1F0303] overflow-hidden h-[150vh] py-[20vh]">
-    <svg id="letterSvg" viewBox="300 -150 600 1300" width="100%" class="h-[50%] lg:h-full">
+<div class="flex flex-col place-content-center items-center bg-gradient-to-b from-[#10042A] to-[#1F0303] overflow-hidden h-[150vh] py-[20vh]"> <svg id="letterSvg" viewBox="300 -150 600 1300" width="100%" class="h-[50%] lg:h-full">
         <BackEnvelope />
 
-        <foreignObject id="letter" width="100%" height="100%" x="298" y="255">
-            <div class="bg-[#FFF0D2] border-[#FFAD41] border-3 px-14 py-8 text-[#7A1E1E]">
-                <div id="letterContent" class="flex flex-col  text-center items-center invisible">
+        <foreignObject id="letter" width="100%" height="1200" x="298" y="200">
+            <div class="bg-[#FFF0D2] border-[#FFAD41] border-3 px-14 py-8 text-[#7A1E1E] min-h-[400px]">
+                <div id="letterBg" class="w-full h-full bg-[url(../assets/envelope/letterMarking.svg)] bg-contain bg-no-repeat bg-center invisible">
+                <div id="letterContent" class=" flex flex-col  text-center items-center invisible ">
+                    <Logo width="50px" height="50px"/>
                     <h2 class="text-lg font-playfair italic mb-3">You Are Invited to</h2>
 
                     <!-- <h2 class="text-xl text-transparent bg-linear-to-b from-[#D41928] to-[#6E0D15] bg-clip-text font-[Marko_One,cursive]">Annual Hackathon</h2> -->
@@ -21,7 +24,8 @@ import EnvRibbon from '../assets/envelope/envRibbon.svg';
                     <p class="text-lg font-[300] leading-[1.2] my-5">Join us for a weekend of blockbuster programming and an awards ceremony you will never forget.
                         <br><br>Reserve your seat and apply now!</p>
                     
-                    <div class="bg-[#EF2427] text-lg font-bold text-white rounded-lg py-1 px-12 cursor-pointer">Apply</div>
+                    <a class="bg-[#EF2427] text-lg font-bold text-white rounded-lg py-1 px-12 cursor-pointer" href="https://dashboard.sparkhacks.org/" target="_blank">Apply</a>
+                </div>
                 </div>
             </div>
         </foreignObject>
@@ -37,15 +41,17 @@ import EnvRibbon from '../assets/envelope/envRibbon.svg';
         const svgContainer = document.getElementById('letterSvg');
         const letter = document.getElementById('letter');
         const letterContent = document.getElementById('letterContent');
+        const letterBg = document.getElementById('letterBg');
         const frontEnv = document.getElementById('frontEnv');
 
-        if (svgContainer && letter && letterContent && frontEnv) {
+        if (svgContainer && letter && letterContent && letterBg && frontEnv) {
             const observer = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
                             letter.classList.add('animate-open');
                             letterContent.classList.add('animate-content');
+                            letterBg.classList.add('animate-content');
                             frontEnv.classList.add('animate-remove');
                             frontEnv?.addEventListener('animationend', () => {
                                 frontEnv.remove();
