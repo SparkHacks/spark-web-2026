@@ -9,16 +9,16 @@ import EnvRibbon from '../assets/envelope/envRibbon.svg';
         <BackEnvelope />
 
         <foreignObject id="letter" width="100%" height="100%" x="298" y="255">
-            <div class="bg-[#FFF0D2] border-[#FFAD41] border-3 px-14 py-8">
-                <div id="letterContent" class="flex flex-col font-[Kumbh_Sans,sans-serif] text-center items-center invisible">
-                    <h2 class="text-3xl text-[#C6822A] font-[MonteCarlo,cursive] mb-3">You have been Formally Invited to</h2>
+            <div class="bg-[#FFF0D2] border-[#FFAD41] border-3 px-14 py-8 text-[#7A1E1E]">
+                <div id="letterContent" class="flex flex-col  text-center items-center invisible">
+                    <h2 class="text-lg font-playfair italic mb-3">You Are Invited to</h2>
 
-                    <h2 class="text-xl text-transparent bg-linear-to-b from-[#D41928] to-[#6E0D15] bg-clip-text font-[Marko_One,cursive]">Annual Hackathon</h2>
-                    <h1 class="text-5xl text-transparent bg-linear-to-b from-[#D41928] to-[#6E0D15] bg-clip-text font-[Marko_One,cursive] pb-5">SparkHacks</h1>
+                    <!-- <h2 class="text-xl text-transparent bg-linear-to-b from-[#D41928] to-[#6E0D15] bg-clip-text font-[Marko_One,cursive]">Annual Hackathon</h2> -->
+                    <h1 class="text-5xl font-playfair font-[700] text-transparent bg-linear-to-b from-[#D41928] to-[#6E0D15] bg-clip-text pb-5">SparkHacks</h1>
 
-                    <p class="text-lg font-bold text-[#7A1E1E] font-[Merriweather,serif] leading-[1.2]">University of Illinois at Chicago<br>February 6th - 7th, 2026</p>
+                    <p class="text-lg font-[600] leading-[1.2]">University of Illinois at Chicago<br>February 6th - 7th, 2026</p>
 
-                    <p class="text-lg text-[#A54848] leading-[1.2] my-5">Join us for a weekend of sophisticated programming and an awards ceremony you will never forget!
+                    <p class="text-lg font-[300] leading-[1.2] my-5">Join us for a weekend of blockbuster programming and an awards ceremony you will never forget.
                         <br><br>Reserve your seat and apply now!</p>
                     
                     <div class="bg-[#EF2427] text-lg font-bold text-white rounded-lg py-1 px-12 cursor-pointer">Apply</div>
@@ -63,8 +63,6 @@ import EnvRibbon from '../assets/envelope/envRibbon.svg';
 </script>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Marko+One&family=Merriweather:opsz,wght@18..144,300..900&family=MonteCarlo&display=swap');
-
     #letter {
         transform-style: preserve-3d;
         transform-origin: right;
