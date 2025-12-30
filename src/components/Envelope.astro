@@ -28,7 +28,7 @@ import EnvRibbon from '../assets/envelope/envRibbon.svg';
 
         <FrontEnvelope id="frontEnv" x="282" y="312" />
 
-        <EnvRibbon y="141" />
+        <EnvRibbon id="envRibbon" y="141" />
     </svg>
 </div>
 
@@ -38,8 +38,9 @@ import EnvRibbon from '../assets/envelope/envRibbon.svg';
         const letter = document.getElementById('letter');
         const letterContent = document.getElementById('letterContent');
         const frontEnv = document.getElementById('frontEnv');
+        const envRibbon = document.getElementById('envRibbon');
 
-        if (svgContainer && letter && letterContent && frontEnv) {
+        if (svgContainer && letter && letterContent && frontEnv && envRibbon) {
             const observer = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {
@@ -47,8 +48,10 @@ import EnvRibbon from '../assets/envelope/envRibbon.svg';
                             letter.classList.add('animate-open');
                             letterContent.classList.add('animate-content');
                             frontEnv.classList.add('animate-remove');
-                            frontEnv?.addEventListener('animationend', () => {
+                            envRibbon.classList.add('animate-remove');
+                            frontEnv.addEventListener('animationend', () => {
                                 frontEnv.remove();
+                                envRibbon.remove();
                             });
 
                             observer.unobserve(svgContainer);
@@ -79,7 +82,7 @@ import EnvRibbon from '../assets/envelope/envRibbon.svg';
     }
 
     .animate-remove {
-        animation: removeEnvelope 3s forwards;
+        animation: removeLayer 3s forwards;
     }
 
     @keyframes openEnvelope {
@@ -106,7 +109,7 @@ import EnvRibbon from '../assets/envelope/envRibbon.svg';
         }
     }
 
-    @keyframes removeEnvelope {
+    @keyframes removeLayer {
         24.9% {
             visibility: visible;
         }
