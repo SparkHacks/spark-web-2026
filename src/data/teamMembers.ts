@@ -5,6 +5,7 @@ export const teamMembers = [
     image: "/headshots/naga.JPG",
     year: "Senior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Kaito Sekiya",
@@ -12,6 +13,7 @@ export const teamMembers = [
     image: "headshots/kaito.JPG",
     year: "Senior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Kaustubha Medikundam",
@@ -19,6 +21,7 @@ export const teamMembers = [
     image: "headshots/kaustubha.JPG",
     year: "Senior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Florianne Che",
@@ -26,6 +29,7 @@ export const teamMembers = [
     image: "headshots/flori.PNG",
     year: "Junior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Nathan Trinh",
@@ -33,6 +37,7 @@ export const teamMembers = [
     image: "headshots/nathan.JPG",
     year: "Senior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Eman Arsham",
@@ -40,6 +45,7 @@ export const teamMembers = [
     image: "headshots/eman.jpeg",
     year: "Senior",
     major: "Computer Science + Design",
+    linkedin: "",
   },
   {
     name: "Niharika Patil",
@@ -47,6 +53,7 @@ export const teamMembers = [
     image: "headshots/niharika.JPG",
     year: "Senior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Huda Syed",
@@ -54,6 +61,7 @@ export const teamMembers = [
     image: "headshots/huda.JPG",
     year: "Junior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Mina Pattanaik",
@@ -61,6 +69,7 @@ export const teamMembers = [
     image: "headshots/mina.JPG",
     year: "Senior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Sena Ozcan",
@@ -68,6 +77,7 @@ export const teamMembers = [
     image: "headshots/sena.JPG",
     year: "Junior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Gerard Wilbert",
@@ -75,6 +85,7 @@ export const teamMembers = [
     image: "headshots/gerard.JPG",
     year: "Senior",
     major: "Mechanical Engineering",
+    linkedin: "",
   },
   {
     name: "Mehtab Kaur",
@@ -82,6 +93,7 @@ export const teamMembers = [
     image: "headshots/mehtab.JPG",
     year: "Sophomore",
     major: "Data Science",
+    linkedin: "",
   },
   {
     name: "Stanley Huang",
@@ -89,6 +101,7 @@ export const teamMembers = [
     image: "headshots/stanley.JPG",
     year: "Sophomore",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Zaina Khalil",
@@ -96,6 +109,7 @@ export const teamMembers = [
     image: "headshots/zaina.jpg",
     year: "Junior",
     major: "Data Science",
+    linkedin: "",
   },
   {
     name: "Kavya Patel",
@@ -103,6 +117,7 @@ export const teamMembers = [
     image: "headshots/kavya.JPG",
     year: "Junior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Rajvi Shah",
@@ -110,6 +125,7 @@ export const teamMembers = [
     image: "headshots/rajvi.JPG",
     year: "Senior",
     major: "Computer Science + Linguistics",
+    linkedin: "",
   },
   {
     name: "Rawisara Hameyotin",
@@ -117,6 +133,7 @@ export const teamMembers = [
     image: "headshots/mj.JPG",
     year: "Junior",
     major: "Data Science",
+    linkedin: "",
   },
   {
     name: "Adithya Prasad",
@@ -124,6 +141,7 @@ export const teamMembers = [
     image: "headshots/adithya.JPG",
     year: "Senior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Rasleen Dhaliwal",
@@ -131,6 +149,7 @@ export const teamMembers = [
     image: "headshots/rasleen.JPG",
     year: "Senior",
     major: "Computer Science + Design",
+    linkedin: "",
   },
   {
     name: "Dominic Irla",
@@ -138,6 +157,7 @@ export const teamMembers = [
     image: "headshots/dominic.png",
     year: "Junior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Josephine Lee",
@@ -145,6 +165,7 @@ export const teamMembers = [
     image: "headshots/josephine.JPG",
     year: "Junior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Daniel Barajas",
@@ -152,6 +173,7 @@ export const teamMembers = [
     image: "headshots/daniel.JPG",
     year: "Senior",
     major: "Computer Science",
+    linkedin: "",
   },
   {
     name: "Fatima Rasheed",
@@ -159,5 +181,6 @@ export const teamMembers = [
     image: "headshots/fatima.jpg",
     year: "Junior",
     major: "Computer Science",
+    linkedin: "",
   },
 ]
