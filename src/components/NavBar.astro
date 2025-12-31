@@ -9,12 +9,6 @@ const links = [
 ];
 ---
 
-<!-- imported kumbh sans font from google gonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
-
 <header
   class="header fixed top-0 z-50 w-full bg-transparent px-6 py-6 text-white backdrop-blur-[3px] transition-all duration-300"
   style="font-family: 'Kumbh Sans', sans-serif;"
@@ -35,13 +29,13 @@ const links = [
       <a><img src="/sparkhacks-logo.svg" width="50px"/></a>
     </div>
 
-    <div class="hidden flex-row items-center gap-8 md:flex justify-between w-full">
+    <div class="hidden flex-row items-center gap-8 md:flex justify-end w-full">
       <ul class="flex flex-row items-center justify-center gap-20 w-full">        {
           links.slice(0, -1).map((link) => (
             <li>
               <a
                 href={link.href}
-                class="spotlight-link relative inline-block text-[21.5px] font-bold transition-colors duration-300 hover:text-vanilla"
+                class="text-xl spotlight-link relative inline-block font-bold transition-colors duration-300 hover:text-vanilla"
               >
                 <span class="spotlight-glow"></span>
                 <span class="relative z-10">{link.name}</span>
@@ -55,7 +49,7 @@ const links = [
       <!-- apply button -->
       <a
         href="#apply"
-        class="spotlight-link relative inline-block rounded-lg bg-bright-red px-6 py-2.5 text-[21px] font-bold text-white transition-all duration-300 hover:bg-vanilla hover:shadow-lg"
+        class="spotlight-link relative inline-block rounded-lg bg-bright-red px-6 py-2.5 text-xl font-bold text-white transition-all duration-300 hover:bg-vanilla hover:shadow-lg"
       >
         <span class="spotlight-glow-btn"></span>
         <span class="relative z-10">Apply</span>
@@ -66,7 +60,7 @@ const links = [
     <!-- mobile hamburger -->
     <button
       id="mobile-menu-btn"
-      class="flex flex-col gap-1.5 md:hidden"
+      class="flex flex-col gap-1.5 md:hidden cursor-pointer"
       aria-label="Toggle menu"
     >
       <span class="h-0.5 w-6 bg-white transition-all duration-300"></span>
