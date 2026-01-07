@@ -44,7 +44,7 @@ export const teamMembers = [
     title: "Outreach",
     image: "headshots/eman.jpeg",
     year: "Senior",
-    major: "Computer Science + Design",
+    major: "CS + Design",
     linkedin: "",
   },
   {
@@ -124,7 +124,7 @@ export const teamMembers = [
     title: "Experience",
     image: "headshots/rajvi.JPG",
     year: "Senior",
-    major: "Computer Science + Linguistics",
+    major: "CS + Linguistics",
     linkedin: "",
   },
   {
@@ -148,7 +148,7 @@ export const teamMembers = [
     title: "Experience",
     image: "headshots/rasleen.JPG",
     year: "Senior",
-    major: "Computer Science + Design",
+    major: "CS + Design",
     linkedin: "",
   },
   {
