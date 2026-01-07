@@ -29,58 +29,60 @@ import { teamMembers } from "../data/teamMembers";
   <div class="max-w-6xl mx-auto my-16 relative z-30">
     <div class="relative">
       <img 
-        src="src/assets/team/new_set/film_reel_large.svg" 
-        class="w-full h-auto scale-165 left-1/2" 
+        src="teams/film_reel_large.svg" 
+        class="w-full h-auto scale-x-150 scale-y-160 sm:scale-y-130 md:scale-x-200 md:scale-y-135 xl:scale-x-260 xl:scale-y-165 left-1/2" 
       />
+
+      <!-- class="w-full h-auto scale-165 left-1/2" -->
       
       <div id="memberContainer" class="absolute inset-0">
-        <button id="prevBtn" class="absolute left-2 md:left-4 lg:left-2 xl:-left-20 2xl:-left-50 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl lg:text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg">
+        <button id="prevBtn" class="absolute left-2 md:left-0 lg:left-2 xl:-left-35 2xl:-left-70 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl lg:text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg hover:cursor-pointer">
           ‹
         </button>
         
-        <div class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-[120%] lg:-left-20 lg:translate-x-0 flex flex-col items-center">
+        <div class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-[120%] sm:left-20 md:left-10 lg:-left-20 sm:translate-x-0 flex flex-col items-center">
           <div class="relative transform">
             <img 
               id="teamPhoto" 
               src="" 
-              class="w-48 h-56 lg:w-180 lg:h-120 object-cover rounded-lg shadow-2xl grayscale"
+              class="w-36 h-48 sm:w-90 sm:h-70 md:w-150 md:h-90 lg:w-180 lg:h-120 object-cover rounded-lg shadow-2xl grayscale"
             />
           </div>
         </div>
         
-        <div class="absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-[120%] lg:right-20 lg:translate-x-0 flex flex-col lg:gap-4 w-40 lg:w-64">
+        <div class="absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-[120%] sm:right-40 md:right-20 sm:translate-x-0 flex flex-col md:gap-4 w-40 md:w-64">
           <div class="-rotate-6 transform transition-transform hover:rotate-0">
             <img 
               id="memberPhoto" 
               src="" 
-              class="w-32 h-32 lg:w-48 lg:h-48 object-cover"
+              class="w-16 h-16 sm:w-32 sm:h-32 md:w-48 md:h-48 object-cover"
             />
-            <div class="absolute -top-2 right-12 text-3xl lg:text-5xl">
+            <div class="absolute -top-2 right-20 sm:right-12 text-3xl md:text-5xl">
               📎
             </div>-
           </div>
 
-          <div class="flex flex-col gap-2 lg:gap-3 lg:mt-12">
-            <h3 id="memberName" class="text-xl lg:text-4xl font-bold text-gold drop-shadow-lg text-left lg:whitespace-nowrap">
+          <div class="flex flex-col gap-2 md:gap-3 md:mt-12">
+            <h3 id="memberName" class="text-l sm:text-xl md:text-4xl font-bold text-gold drop-shadow-lg text-left lg:whitespace-nowrap">
             </h3>
-            <p id="memberInfo" class="text-sm lg:text-xl text-white text-left drop-shadow-lg font-bold mt-0 lg:mt-4">
+            <p id="memberInfo" class="text-sm md:text-xl text-white text-left drop-shadow-lg font-bold mt-0 md:mt-4 md:whitespace-nowrap">
             </p>
-            <p id="memberTitle" class="text-sm lg:text-xl text-white text-left drop-shadow-lg font-bold mt-0 lg:mt-4">
+            <p id="memberTitle" class="text-sm md:text-xl text-white text-left drop-shadow-lg font-bold mt-0 md:mt-4">
             </p>
           </div>
         </div>
         
-        <button id="nextBtn" class="absolute right-2 md:right-4 lg:right-2 xl:-right-20 2xl:-right-50 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl lg:text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg">
+        <button id="nextBtn" class="absolute right-2 md:right-0 lg:right-2 xl:-right-35 2xl:-right-70 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl lg:text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg hover:cursor-pointer">
           ›
         </button>
       </div>
       
-      <div id="pagination" class="absolute -bottom-8 lg:-bottom-15 left-1/2 transform -translate-x-1/2 flex justify-center gap-2 z-20">
+      <div id="pagination" class="absolute -bottom-6 lg:-bottom-15 left-1/2 transform -translate-x-1/2 flex justify-center gap-2 z-20">
       </div>
     </div>
   </div>
 
-  <div class="flex flex-wrap justify-center gap-4 lg:gap-12 mt-24 md:mt-40 lg:mt-50 max-w-lg lg:max-w-none mx-auto">
+  <div class="flex flex-wrap justify-center gap-4 lg:gap-12 mt-24 md:mt-30 lg:mt-50 max-w-lg lg:max-w-none mx-auto">
 
     <button class="team-filter px-4 py-2 lg:px-6 text-sm lg:text-base rounded-full border-2 border-white bg-white text-black hover:bg-white hover:text-black hover:cursor-pointer transition" data-team="Director">
       🎬 Directors
@@ -206,6 +208,38 @@ import { teamMembers } from "../data/teamMembers";
       filterTeam(team);
     });
   });
+  
+  // Swipe to change member (mobile only - was vibe coded so test throughly pls)
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const memberContainer = document.getElementById('memberContainer');
+  
+  memberContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  
+  memberContainer.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+  
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    
+    if (touchEndX < touchStartX - swipeThreshold) {
+      if (!document.getElementById('nextBtn').disabled) {
+        currentIndex = currentIndex + 1;
+        updateDisplay();
+      }
+    }
+    
+    if (touchEndX > touchStartX + swipeThreshold) {
+      if (!document.getElementById('prevBtn').disabled) {
+        currentIndex = currentIndex - 1;
+        updateDisplay();
+      }
+    }
+  }
   
   updateDisplay();
 </script>
