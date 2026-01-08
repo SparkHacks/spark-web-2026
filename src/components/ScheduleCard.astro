@@ -17,15 +17,15 @@ const rotDeg = Math.random() * 360
 <div class="flex flex-col gap-3 bg-[#ffffff0F] rounded-2xl p-5 sm:min-w-82 max-w-108 sm:h-64 relative">
     {
         eventData.tags.includes("❗ Mandatory") &&
-        <div class="w-10 h-10 absolute right-105 bottom-150">
-            <ImportantStar style={`transform: scale(0.15) rotate(${rotDeg}deg)`} />
+        <div class="w-5 h-5 absolute right-115 bottom-160 md:right-110 lg:right-110 lg:bottom-155">
+            <ImportantStar class="scale-10 md:scale-15 lg:scale-15" style={`transform: rotate(${rotDeg}deg)`} />
         </div>
     }
 
     {
         eventData.tags.includes("❗ Mandatory") &&
-        <div class="w-10 h-10 absolute right-105 bottom-150">
-            <ImportantStar class="important-star" style={`animation: star-animation ${Math.random() * (5-2+1) + 2}s ease-in-out infinite; transform: scale(0.15) rotate(${rotDeg}deg)`} />
+        <div class="w-5 h-5 absolute right-115 bottom-160 md:right-110 lg:right-110 lg:bottom-155">
+            <ImportantStar class="important-star scale-10 md:scale-15 lg:scale-15" style={`animation: star-animation ${Math.random() * (5-2+1) + 2}s ease-in-out infinite; transform: rotate(${rotDeg}deg)`} />
         </div>
     }
 
