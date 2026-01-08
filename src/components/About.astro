@@ -16,7 +16,7 @@ import SparkleImg from "../assets/about/sparkle.svg";
 					<feGaussianBlur stdDeviation="30" />
 				</filter>
 				
-				<g><CrowdImg x="5%" y="40%" /></g>
+				<g><CrowdImg x="7%" y="40%" /></g>
                 
                 <g class="aboutSparkle"><SparkleImg class="sparkle" x="45%" y="70%" /></g>
                 <g class="aboutSparkle"><SparkleImg class="sparkle" x="10%" y="55%" /></g>
@@ -66,6 +66,24 @@ import SparkleImg from "../assets/about/sparkle.svg";
 		background-image: linear-gradient(#1D030300, #000000, #000000, #1D030300);
 	}
 
+	/* webkit animations */
+	@-webkit-keyframes spotlight-animation 
+	{
+		0% 
+		{
+			-webkit-transform: skew(0deg, 0deg);
+		}
+		50% 
+		{
+			-webkit-transform: skew(-25deg, 0deg);
+		}
+		100% 
+		{
+			-webkit-transform: skew(0deg, 0deg);
+		}
+	}
+
+	/* regular animations */
 	@keyframes spotlight-animation 
 	{
 		0% 
@@ -137,11 +155,19 @@ import SparkleImg from "../assets/about/sparkle.svg";
 
 	#spotlight 
 	{
+		-webkit-animation-name: spotlight-animation;
+		-webkit-animation-duration: 5s;
+		-webkit-animation-delay: 0.01s;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-timing-function: ease-in-out;
+		
 		animation: spotlight-animation 5s ease-in-out infinite;
 	}
 
 	#bottom 
 	{
+		-webkit-animation: none !important;
+
 		animation: spotlight-animation 5s ease-in-out infinite;
 	}
 
