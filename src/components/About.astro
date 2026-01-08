@@ -15,20 +15,12 @@ import SparkleImg from "../assets/about/sparkle.svg";
 				<filter id="gaussianBlur1">
 					<feGaussianBlur stdDeviation="30" />
 				</filter>
-
-				<!-- <defs>
-					<linearGradient id="Gradient1" x1="0" x2="0" y1="0" y2="1">
-						<stop style="stop-color:#1D0303" offset="0%" />
-						<stop style="stop-color:black" offset="100%" />
-					</linearGradient>
-				</defs>
-				<rect width="100%" height="200%" fill="url(#Gradient1)" />  -->
 				
 				<CrowdImg x="5%" y="40%" />
                 
-                <SparkleImg class="sparkle" x="45%" y="70%" />
-                <SparkleImg class="sparkle" x="10%" y="55%" />
-                <SparkleImg class="sparkle" x="75%" y="100%" />
+                <g class="aboutSparkle"><SparkleImg class="sparkle" x="45%" y="70%" /></g>
+                <g class="aboutSparkle"><SparkleImg class="sparkle" x="10%" y="55%" /></g>
+                <g class="aboutSparkle"><SparkleImg class="sparkle" x="75%" y="100%" /></g>
                 
                 <ellipse id="bottom" cx="54.60%" cy="139.5%" rx="345" ry="15" fill="#FFF0D2" />
 				<SquiggleImg x="5%" y="0%" transform="scale(1.05)" />
@@ -36,7 +28,7 @@ import SparkleImg from "../assets/about/sparkle.svg";
 				<AboutText x="28%" y="-15%" transform="scale(1.05)"/>
 				
                 
-                <MedalImg x="75%" y="54%" transform="scale(.75)" />
+                <MedalImg x="75%" y="77%" transform="scale(.75)" />
 				<SpotlightImg id="spotlight" x="35%" y="-30%" style="opacity: 80%" style="mix-blend-mode: plus-lighter;" />
 			</svg>
 		</svg>
