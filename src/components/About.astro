@@ -18,18 +18,18 @@ import SparkleImg from "../assets/about/sparkle.svg";
 				
 				<g><CrowdImg x="7%" y="40%" /></g>
                 
-                <g class="aboutSparkle"><SparkleImg class="sparkle" x="45%" y="70%" /></g>
-                <g class="aboutSparkle"><SparkleImg class="sparkle" x="10%" y="55%" /></g>
-                <g class="aboutSparkle"><SparkleImg class="sparkle" x="75%" y="100%" /></g>
+                <g class="sparkle"><SparkleImg x="45%" y="70%" /></g>
+                <g class="sparkle"><SparkleImg x="10%" y="55%" /></g>
+                <g class="sparkle"><SparkleImg x="75%" y="100%" /></g>
                 
-                <ellipse id="bottom" cx="54.60%" cy="139.5%" rx="345" ry="15" fill="#FFF0D2" /></g>
+                <g id="bottom"><ellipse cx="54.60%" cy="139.5%" rx="345" ry="15" fill="#FFF0D2" /></g>
 				<g><SquiggleImg x="-5%" y="0%" height="100%" width="100%" /></g>
-				<g><SquiggleImg id="squiggle-overlay" filter="url(#gaussianBlur1)" style="mix-blend-mode: plus-lighter;" x="-5%" y="0%" height="100%" width="100%" /></g>
+				<g id="squiggle-overlay" style="mix-blend-mode: plus-lighter;"><SquiggleImg filter="url(#gaussianBlur1)"  x="-5%" y="0%" height="100%" width="100%" /></g>
 				<g><AboutText x="0%" y="-30%" height="75%" width="75%"/></g>
 				
                 
                 <g><MedalImg x="15%" y="40%" height="100%" width="100%" /></g>
-				<g><SpotlightImg id="spotlight" x="35%" y="-30%" style="opacity: 80%" style="mix-blend-mode: plus-lighter;" /></g>
+				<g id="spotlight" style="opacity: 80%; mix-blend-mode: plus-lighter;"><SpotlightImg x="35%" y="-30%" /></g>
 			</svg>
 		</svg>
 	</div>
@@ -64,23 +64,6 @@ import SparkleImg from "../assets/about/sparkle.svg";
 	#about
 	{
 		background-image: linear-gradient(#1D030300, #000000, #000000, #1D030300);
-	}
-
-	/* webkit animations */
-	@-webkit-keyframes spotlight-animation 
-	{
-		0% 
-		{
-			-webkit-transform: skew(0deg, 0deg);
-		}
-		50% 
-		{
-			-webkit-transform: skew(-25deg, 0deg);
-		}
-		100% 
-		{
-			-webkit-transform: skew(0deg, 0deg);
-		}
 	}
 
 	/* regular animations */
@@ -155,19 +138,11 @@ import SparkleImg from "../assets/about/sparkle.svg";
 
 	#spotlight 
 	{
-		-webkit-animation-name: spotlight-animation;
-		-webkit-animation-duration: 5s;
-		-webkit-animation-delay: 0.01s;
-		-webkit-animation-iteration-count: infinite;
-		-webkit-animation-timing-function: ease-in-out;
-		
 		animation: spotlight-animation 5s ease-in-out infinite;
 	}
 
 	#bottom 
 	{
-		-webkit-animation: none;
-
 		animation: spotlight-animation 5s ease-in-out infinite;
 	}
 
