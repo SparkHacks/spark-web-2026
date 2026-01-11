@@ -11,10 +11,10 @@ const gap = 50;
 <div
     class="relative h-[75vh] lg:h-screen w-full bg-[#10042a] text-white overflow-hidden"
 >
-    <FullCurtain id="leftFull" class="absolute h-full right-1/2 translate-x-[25%] rotate-y-180 z-10" width="auto" />
-    <FullCurtain id="rightFull" class="absolute h-full left-1/2 -translate-x-[25%] z-10" width="auto" />
-    <TopCurtain class="absolute w-[200%] sm:w-[125%] md:w-full sm:-top-[8%] left-[50%] -translate-x-[50%] z-11" height="auto" />
-
+    <FullCurtain id="leftFull" class="absolute w-fit h-full right-1/2 translate-x-[25%] rotate-y-180 z-10" />
+    <FullCurtain id="rightFull" class="absolute w-fit h-full left-1/2 -translate-x-[25%] z-10" />
+    <TopCurtain class="absolute w-[200%] sm:w-[125%] md:w-full h-fit sm:-top-[8%] left-[50%] -translate-x-[50%] z-11" height="auto" />
+    
     <svg class="absolute top-[50%] left-[50%] -translate-[50%] w-[180%] md:w-full" viewBox="0 0 1750 500" height="100%" style="transform-box: fill-box;">
         <defs>
             <filter id="brightness50" color-interpolation-filters="sRGB">
