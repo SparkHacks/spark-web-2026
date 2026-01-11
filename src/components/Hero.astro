@@ -9,7 +9,7 @@ const gap = 50;
 ---
 
 <div
-    class="relative h-[75vh] lg:h-screen w-full bg-[#10042a] text-white overflow-hidden"
+    class="relative h-[75vh] sm:h-screen w-full bg-[#10042a] text-white overflow-hidden"
 >
     <FullCurtain id="leftFull" class="absolute w-fit h-full right-1/2 translate-x-[25%] rotate-y-180 z-10" />
     <FullCurtain id="rightFull" class="absolute w-fit h-full left-1/2 -translate-x-[25%] z-10" />
@@ -40,6 +40,7 @@ const gap = 50;
                 <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#EBD19D" />
             </filter>
         </defs>
+
         <!-- Logo Support Bars -->
         <line x1="33%" y1="-200%" x2="33%" y2="50%" stroke="#C6822A" stroke-width="4" />
         <line x1="67%" y1="-200%" x2="67%" y2="50%" stroke="#C6822A" stroke-width="4" />
@@ -116,6 +117,13 @@ const gap = 50;
         filter: url(#spotlightGlow);
     }
 
+    /* sm and up */
+    @media (width >= 40rem) {
+        #mainSpotlight {
+            r: 48vh;
+        }
+    }
+
     .logoIlluminate {
         animation: logoIlluminate 10s 2s infinite backwards;
     }
@@ -124,13 +132,6 @@ const gap = 50;
         filter: url(#brightness75);
         animation: bulbFlash 2s infinite;
         scale: 1.1;
-    }
-
-    /* md and up */
-    @media (width >= 48rem) {
-        #mainSpotlight {
-            r: 48vh;
-        }
     }
 
     @keyframes leftCurtainOpen {
