@@ -11,11 +11,35 @@ const gap = 50;
 <div
     class="relative h-[75vh] lg:h-screen w-full bg-[#10042a] text-white overflow-hidden"
 >
-    <FullCurtain id="leftFull" class="absolute w-fit h-full right-1/2 translate-x-[25%] rotate-y-180 z-10" />
-    <FullCurtain id="rightFull" class="absolute w-fit h-full left-1/2 -translate-x-[25%] z-10" />
-    <TopCurtain class="absolute w-[200%] sm:w-[125%] md:w-full sm:-top-[8%] left-[50%] -translate-x-[50%] h-fit z-11" />
+    <FullCurtain id="leftFull" class="absolute h-full right-1/2 translate-x-[25%] rotate-y-180 z-10" width="auto" />
+    <FullCurtain id="rightFull" class="absolute h-full left-1/2 -translate-x-[25%] z-10" width="auto" />
+    <TopCurtain class="absolute w-[200%] sm:w-[125%] md:w-full sm:-top-[8%] left-[50%] -translate-x-[50%] z-11" height="auto" />
 
     <svg class="absolute top-[50%] left-[50%] -translate-[50%] w-[180%] md:w-full" viewBox="0 0 1750 500" height="100%" style="transform-box: fill-box;">
+        <defs>
+            <filter id="brightness50" color-interpolation-filters="sRGB">
+                <feComponentTransfer>
+                    <feFuncR type="linear" slope="0.50" />
+                    <feFuncG type="linear" slope="0.50" />
+                    <feFuncB type="linear" slope="0.50" />
+                </feComponentTransfer>
+            </filter>
+            <filter id="brightness75" color-interpolation-filters="sRGB">
+                <feComponentTransfer>
+                    <feFuncR type="linear" slope="0.75" />
+                    <feFuncG type="linear" slope="0.75" />
+                    <feFuncB type="linear" slope="0.75" />
+                </feComponentTransfer>
+            </filter>
+            <filter id="bulbGlow" x="-75%" y="-75%" width="300%" height="300%" color-interpolation-filters="sRGB">
+                <feDropShadow dx="0" dy="0" stdDeviation="15" flood-color="#EBD19D" />
+            </filter>
+            <filter id="spotlightGlow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+                <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#EBD19D" />
+                <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#EBD19D" />
+                <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#EBD19D" />
+            </filter>
+        </defs>
         <!-- Logo Support Bars -->
         <line x1="33%" y1="-200%" x2="33%" y2="50%" stroke="#C6822A" stroke-width="4" />
         <line x1="67%" y1="-200%" x2="67%" y2="50%" stroke="#C6822A" stroke-width="4" />
@@ -89,7 +113,7 @@ const gap = 50;
         fill: #EBD19D;
         opacity: 0.3;
         animation: spotlightOn 10s 2s infinite backwards;
-        mix-blend-mode: plus-lighter;
+        filter: url(#spotlightGlow);
     }
 
     .logoIlluminate {
@@ -97,7 +121,7 @@ const gap = 50;
     }
 
     .heroBulb {
-        filter: brightness(75%);
+        filter: url(#brightness75);
         animation: bulbFlash 2s infinite;
         scale: 1.1;
     }
@@ -105,7 +129,7 @@ const gap = 50;
     /* md and up */
     @media (width >= 48rem) {
         #mainSpotlight {
-            r: 50vh;
+            r: 48vh;
         }
     }
 
@@ -141,19 +165,22 @@ const gap = 50;
 
     @keyframes logoIlluminate {
         0%, 10% {
-            filter: brightness(50%);
+            filter: url(#brightness50);
         }
         10.1%, 18%, 20%, 22% {
-            filter: brightness(100%);
+            filter: none;
         }
         19%, 21% {
-            filter: brightness(75%);
+            filter: url(#brightness75);
         }
     }
 
     @keyframes bulbFlash {
+        0% {
+            filter: none;
+        }
         45% {
-            filter: drop-shadow(0px 0px 20px #EBD19D) brightness(100%);
+            filter: url(#bulbGlow);
         }
     }
 </style>
