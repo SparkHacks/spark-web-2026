@@ -10,34 +10,26 @@ import SparkleImg from "../assets/about/sparkle.svg";
 <div class="flex flex-col place-content-center items-center bg-[#1F0303] text-white gap-5 pb-30"
 	id="about">
 	<div class="w-full">
-		<svg height="100%" width="100%"viewBox="0 0 100 75">
-			<svg x="-8%" y="-10%" viewBox="0 0 1750 500" transform="scale(1.25)" xmlns="http://www.w3.org/2000/svg">
+		<svg height="100%" width="100%" viewBox="0 0 100 75">
+			<svg x="-8%" y="-10%" viewBox="0 0 1750 500" height="120%" width="120%" xmlns="http://www.w3.org/2000/svg">
 				<filter id="gaussianBlur1">
 					<feGaussianBlur stdDeviation="30" />
 				</filter>
-
-				<!-- <defs>
-					<linearGradient id="Gradient1" x1="0" x2="0" y1="0" y2="1">
-						<stop style="stop-color:#1D0303" offset="0%" />
-						<stop style="stop-color:black" offset="100%" />
-					</linearGradient>
-				</defs>
-				<rect width="100%" height="200%" fill="url(#Gradient1)" />  -->
 				
-				<CrowdImg x="5%" y="40%" />
+				<g><CrowdImg x="7%" y="40%" /></g>
                 
-                <SparkleImg class="sparkle" x="45%" y="70%" />
-                <SparkleImg class="sparkle" x="10%" y="55%" />
-                <SparkleImg class="sparkle" x="75%" y="100%" />
+                <g class="sparkle"><SparkleImg x="45%" y="70%" /></g>
+                <g class="sparkle"><SparkleImg x="10%" y="55%" /></g>
+                <g class="sparkle"><SparkleImg x="75%" y="100%" /></g>
                 
-                <ellipse id="bottom" cx="54.60%" cy="139.5%" rx="345" ry="15" fill="#FFF0D2" />
-				<SquiggleImg x="5%" y="0%" transform="scale(1.05)" />
-				<SquiggleImg id="squiggle-overlay" filter="url(#gaussianBlur1)" style="mix-blend-mode: plus-lighter;" x="5%" y="0%" transform="scale(1.05)" />
-				<AboutText x="28%" y="-15%" transform="scale(1.05)"/>
+                <g id="bottom"><ellipse cx="54.60%" cy="139.5%" rx="345" ry="15" fill="#FFF0D2" /></g>
+				<g><SquiggleImg x="-5%" y="0%" height="100%" width="100%" /></g>
+				<g id="squiggle-overlay" style="mix-blend-mode: plus-lighter;"><SquiggleImg filter="url(#gaussianBlur1)"  x="-5%" y="0%" height="100%" width="100%" /></g>
+				<g><AboutText x="0%" y="-30%" height="75%" width="75%"/></g>
 				
                 
-                <MedalImg x="75%" y="54%" transform="scale(.75)" />
-				<SpotlightImg id="spotlight" x="35%" y="-30%" style="opacity: 80%" style="mix-blend-mode: plus-lighter;" />
+                <g><MedalImg x="15%" y="40%" height="100%" width="100%" /></g>
+				<g id="spotlight" style="opacity: 80%; mix-blend-mode: plus-lighter;"><SpotlightImg x="35%" y="-30%" /></g>
 			</svg>
 		</svg>
 	</div>
@@ -74,6 +66,7 @@ import SparkleImg from "../assets/about/sparkle.svg";
 		background-image: linear-gradient(#1D030300, #000000, #000000, #1D030300);
 	}
 
+	/* regular animations */
 	@keyframes spotlight-animation 
 	{
 		0% 
