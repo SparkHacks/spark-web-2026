@@ -14,7 +14,7 @@ const { eventData } = Astro.props;
 
 const rotDeg = Math.random() * 360
 ---
-<div class="flex flex-col gap-3 bg-[#ffffff0F] rounded-2xl p-5 min-w-96 max-w-108 h-64 relative">
+<div class="flex flex-col gap-3 bg-[#ffffff0F] rounded-2xl p-5 sm:min-w-82 max-w-108 sm:h-64 relative">
     {
         eventData.tags.includes("important") &&
         <div class="w-10 h-10 absolute right-95 bottom-150">

@@ -1,100 +1,94 @@
 ---
 import TopCurtain from '../assets/hero/topCurtain.svg';
-import SideCurtain from '../assets/hero/sideCurtain.svg';
 import FullCurtain from '../assets/hero/fullCurtain.svg';
 import HeroLogo from '../assets/hero/heroLogo.svg';
 import HeroBulbLight from '../assets/hero/heroBulbLight.svg';
 import HeroBulbDark from '../assets/hero/heroBulbDark.svg';
+
+const gap = 50;
 ---
 
 <div
-    class="relative h-[75vh] lg:h-screen w-full bg-[#10042a]  text-white overflow-hidden"
+    class="relative h-[75vh] sm:h-screen w-full bg-[#10042a] text-white overflow-hidden"
 >
-    <FullCurtain id="leftFull" class="absolute right-[47%] rotate-y-180 z-10" />
-    <FullCurtain id="rightFull" class="absolute left-[47%] z-10" />
-    <SideCurtain class="hidden md:block absolute top-0 left-0 w-fit h-[95%]" />
-    <SideCurtain class="hidden md:block absolute top-0 right-0 w-fit h-[95%] rotate-y-180" />
-    <TopCurtain class="absolute w-full -top-[8%] h-fit z-11" />
+    <FullCurtain id="leftFull" class="absolute w-fit h-full right-1/2 translate-x-[25%] rotate-y-180 z-10" />
+    <FullCurtain id="rightFull" class="absolute w-fit h-full left-1/2 -translate-x-[25%] z-10" />
+    <TopCurtain class="absolute w-[200%] sm:w-[125%] md:w-full h-fit sm:-top-[8%] left-[50%] -translate-x-[50%] z-11" height="auto" />
+    
+    <svg class="absolute top-[50%] left-[50%] -translate-[50%] w-[180%] md:w-full" viewBox="0 0 1750 500" height="100%" style="transform-box: fill-box;">
+        <defs>
+            <filter id="brightness50" color-interpolation-filters="sRGB">
+                <feComponentTransfer>
+                    <feFuncR type="linear" slope="0.50" />
+                    <feFuncG type="linear" slope="0.50" />
+                    <feFuncB type="linear" slope="0.50" />
+                </feComponentTransfer>
+            </filter>
+            <filter id="brightness75" color-interpolation-filters="sRGB">
+                <feComponentTransfer>
+                    <feFuncR type="linear" slope="0.75" />
+                    <feFuncG type="linear" slope="0.75" />
+                    <feFuncB type="linear" slope="0.75" />
+                </feComponentTransfer>
+            </filter>
+            <filter id="bulbGlow" x="-75%" y="-75%" width="300%" height="300%" color-interpolation-filters="sRGB">
+                <feDropShadow dx="0" dy="0" stdDeviation="15" flood-color="#EBD19D" />
+            </filter>
+            <filter id="spotlightGlow" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+                <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#EBD19D" />
+                <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#EBD19D" />
+                <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#EBD19D" />
+            </filter>
+        </defs>
 
-    <!-- Logo Support Bars -->
-    <svg class="absolute" width="100%" height="100%">
-        <line x1="33%" y1="0" x2="33%" y2="50%" stroke="#C6822A" stroke-width="4" />
-        <line x1="67%" y1="0" x2="67%" y2="50%" stroke="#C6822A" stroke-width="4" />
+        <!-- Logo Support Bars -->
+        <line x1="33%" y1="-200%" x2="33%" y2="50%" stroke="#C6822A" stroke-width="4" />
+        <line x1="67%" y1="-200%" x2="67%" y2="50%" stroke="#C6822A" stroke-width="4" />
+
+        <!-- Hero Logo Board -->
+        <text class="font-playfair italic text-shadow-lg/20" fill="white" font-size="36" x="50%" y="80" text-anchor="middle">Presenting</text>
+        <g class="logoIlluminate -translate-[50%]" style="transform-box: fill-box;"><HeroLogo x="50%" y="50%" /></g>
+
+        <g style="isolation: isolate;">
+            <!-- Top Left Row Bulbs -->
+            {Array.from({ length: 4 }).map((_, index) => (
+                <g class="heroBulb"><HeroBulbLight x={440 + index * gap} y="180" /></g>
+            ))}
+
+            <!-- Top Middle Row Bulbs -->
+            <g class="heroBulb"><HeroBulbLight x="635" y="145" /></g>
+            <g class="heroBulb"><HeroBulbLight x="695" y="105" /></g>
+            <g class="heroBulb"><HeroBulbLight x="760" y="90" /></g>
+            <g class="heroBulb"><HeroBulbLight x="825" y="105" /></g>
+            <g class="heroBulb"><HeroBulbLight x="885" y="145" /></g>
+            <!-- Top Right Row Bulbs -->
+            {Array.from({ length: 4 }).map((_, index) => (
+                <g class="heroBulb"><HeroBulbLight x={940 + index * gap} y="180" /></g>
+            ))}
+
+            <!-- Right Column Bulbs -->
+            <g class="heroBulb" style="scale: 1.5"><HeroBulbDark x="847" y="130" /></g>
+            {Array.from({ length: 2 }).map((_, index) => (
+                <g class="heroBulb"><HeroBulbDark x="1173" y={240 + index * gap} /></g>
+            ))}
+            <g class="heroBulb" style="scale: 1.5"><HeroBulbDark x="847" y="250" /></g>
+            <!-- Bottom Row Bulbs -->
+            {Array.from({ length: 14 }).map((_, index) => (
+                <g class="heroBulb"><HeroBulbLight x={1090 - index * gap} y="345" /></g>
+            ))}
+
+            <!-- Left Column Bulbs -->
+            <g class="heroBulb" style="scale: 1.5"><HeroBulbDark x="272" y="250" /></g>
+            {Array.from({ length: 2 }).map((_, index) => (
+                <g class="heroBulb"><HeroBulbDark x="369" y={290 - index * gap} /></g>
+            ))}
+            <g class="heroBulb" style="scale: 1.5"><HeroBulbDark x="272" y="130" /></g>
+        </g>
     </svg>
-
-    <!-- Hero Logo Board -->
-    <div class="relative left-[2.5%] md:left-[25%] top-[30%] w-[95%] md:w-[50%]">
-        <div class="absolute">
-            <div class="logoIlluminate absolute font-playfair italic text-shadow-lg/20 text-[3vw] md:text-[2vw] w-full text-center top-[-4vh]">Presenting</div>
-            <HeroLogo class="logoIlluminate w-full h-fit" />
-            <div class="absolute bottom-[15%] w-full aspect-9/2">
-                <!-- Top Left Row Bulbs -->
-                <div class="absolute -top-[8%] left-[7%]">
-                    <div class="flex">
-                        {Array.from({ length: 4 }).map(() => (
-                            <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
-                        ))}
-                    </div>
-                </div>
-
-                <!-- Top Middle Row Bulbs -->
-                <div class="absolute -top-[57%] -left-[1.25%] w-full">
-                    <div class="flex gap-[1.5%] justify-center">
-                        <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit mt-[6%]" />
-                        <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit mt-[1.5%]" />
-                        <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
-                        <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit mt-[1.5%]" />
-                        <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit mt-[6%]" />
-                    </div>
-                </div>
-
-                <!-- Top Right Row Bulbs -->
-                <div class="absolute -top-[8%] right-[7%]">
-                    <div class="flex">
-                        {Array.from({ length: 4 }).map(() => (
-                            <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
-                        ))}
-                    </div>
-                </div>
-
-                <!-- Right Column Bulbs -->
-                <div class="absolute -bottom-[15%] -right-[2.5%]">
-                    <div class="flex flex-col items-end justify-end md:gap-0">
-                        <HeroBulbDark class="heroBulb w-[7vw] md:w-[4vw] h-fit" />
-                        {Array.from({ length: 2 }).map(() => (
-                            <HeroBulbDark class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
-                        ))}
-                        <HeroBulbDark class="heroBulb w-[7vw] md:w-[4vw] h-fit" />
-                    </div>
-                </div>
-
-                <!-- Bottom Row Bulbs -->
-                <div class="absolute -bottom-[10%] w-full">
-                    <div class="flex flex-row-reverse gap-[0.6%] justify-center">
-                        {Array.from({ length: 13 }).map(() => (
-                            <HeroBulbLight class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
-                        ))}
-                    </div>
-                </div>
-
-                <!-- Left Column Bulbs -->
-                <div class="absolute -bottom-[15%] -left-[2.5%]">
-                    <div class="flex flex-col-reverse justify-end md:gap-0">
-                        <HeroBulbDark class="heroBulb w-[7vw] md:w-[4vw] h-fit" />
-                        {Array.from({ length: 2 }).map(() => (
-                            <HeroBulbDark class="heroBulb w-[6vw] md:w-[3vw] h-fit" />
-                        ))}
-                        <HeroBulbDark class="heroBulb w-[7vw] md:w-[4vw] h-fit" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Spotlight -->
     <svg class="absolute" width="100%" height="100%">
         <circle id="mainSpotlight" cx="50%" cy="50%" />
-        <!-- <polygon points ="50,500 150,350 200,425" fill="#FFF0D2" /> -->
     </svg>
 </div>
 
@@ -104,35 +98,30 @@ import HeroBulbDark from '../assets/hero/heroBulbDark.svg';
     bulbs.forEach((bulb, i) => {
         (bulb as HTMLElement).style.animationDelay = `${i/6 + 3}s`;
     });
-
-    // Delete full curtains after opening animation
-    const leftFull = document.getElementById('leftFull');
-    const rightFull = document.getElementById('rightFull');
-    leftFull?.addEventListener('animationend', () => {
-        leftFull.remove();
-    });
-    rightFull?.addEventListener('animationend', () => {
-        rightFull.remove();
-    });
 </script>
 
 <style>
-    
-
     #leftFull {
-        animation: leftCurtainOpen 2s 1s ease-in;
+        animation: leftCurtainOpen 2s 1s ease-in forwards;
     }
 
     #rightFull {
-        animation: rightCurtainOpen 2s 1s ease-in;
+        animation: rightCurtainOpen 2s 1s ease-in forwards;
     }
 
     #mainSpotlight {
-        r: 25vh;
+        r: 50vw;
         fill: #EBD19D;
         opacity: 0.3;
         animation: spotlightOn 10s 2s infinite backwards;
-        mix-blend-mode: plus-lighter;
+        filter: url(#spotlightGlow);
+    }
+
+    /* sm and up */
+    @media (width >= 40rem) {
+        #mainSpotlight {
+            r: 48vh;
+        }
     }
 
     .logoIlluminate {
@@ -140,15 +129,9 @@ import HeroBulbDark from '../assets/hero/heroBulbDark.svg';
     }
 
     .heroBulb {
-        filter: brightness(75%);
+        filter: url(#brightness75);
         animation: bulbFlash 2s infinite;
-    }
-
-    /* lg and up */
-    @media (width >= 64rem) {
-        #mainSpotlight {
-            r: 50vh;
-        }
+        scale: 1.1;
     }
 
     @keyframes leftCurtainOpen {
@@ -156,7 +139,7 @@ import HeroBulbDark from '../assets/hero/heroBulbDark.svg';
             transform: translateX(0%) rotateY(180deg);
         }
         to {
-            transform: translateX(-100%) rotateY(180deg);
+            transform: translateX(-60%) rotateY(180deg);
         }
     }
 
@@ -165,7 +148,7 @@ import HeroBulbDark from '../assets/hero/heroBulbDark.svg';
             transform: translateX(0%);
         }
         to {
-            transform: translateX(100%);
+            transform: translateX(60%);
         }
     }
 
@@ -183,19 +166,22 @@ import HeroBulbDark from '../assets/hero/heroBulbDark.svg';
 
     @keyframes logoIlluminate {
         0%, 10% {
-            filter: brightness(50%);
+            filter: url(#brightness50);
         }
         10.1%, 18%, 20%, 22% {
-            filter: brightness(100%);
+            filter: none;
         }
         19%, 21% {
-            filter: brightness(75%);
+            filter: url(#brightness75);
         }
     }
 
     @keyframes bulbFlash {
+        0% {
+            filter: none;
+        }
         45% {
-            filter: drop-shadow(0px 0px 20px #EBD19D) brightness(100%);
+            filter: url(#bulbGlow);
         }
     }
 </style>
