@@ -51,15 +51,18 @@ import { teamMembers } from "../data/teamMembers";
         </div>
         
         <div class="absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-[120%] sm:right-40 md:right-20 sm:translate-x-0 flex flex-col md:gap-4 w-40 md:w-64">
-          <div class="-rotate-6 transform transition-transform hover:rotate-0">
-            <img 
-              id="memberPhoto" 
-              src="" 
-              class="w-16 h-16 sm:w-32 sm:h-32 md:w-48 md:h-48 object-cover"
-            />
-            <div class="absolute -top-2 right-20 sm:right-12 text-3xl md:text-5xl">
-              📎
-            </div>-
+          <div class="-rotate-6 transform transition-transform hover:rotate-0 w-fit">
+            <a id="memberLink" href="" target="_blank">
+              <img 
+                id="memberPhoto" 
+                src="" 
+                class="relative w-16 h-16 sm:w-32 sm:h-32 md:w-48 md:h-48 object-cover z-10"
+              />
+              <div class="absolute -top-2 right-0 sm:right-0 text-3xl md:text-5xl z-20">
+                📎
+              </div>
+              <span class="absolute -top-4 md:-top-2 -right-3 md:right-0 w-[150%] h-[150%] md:w-full md:h-full animate-pulse rounded-full bg-vanilla blur-xl md:blur-3xl opacity-75 z-0" />
+            </a>
           </div>
 
           <div class="flex flex-col gap-2 md:gap-3 md:mt-12">
@@ -120,6 +123,7 @@ import { teamMembers } from "../data/teamMembers";
     document.getElementById('memberInfo').textContent = `${member.year} | ${member.major}`;
     document.getElementById('memberTitle').textContent = member.title;
     document.getElementById('memberPhoto').src = member.image;
+    document.getElementById('memberLink').href = member.linkedin;
     
     const teamPhotoMap = {
       'Director': '/teams/director.JPG',

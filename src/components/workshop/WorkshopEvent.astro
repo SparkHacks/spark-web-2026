@@ -1,11 +1,16 @@
 ---
-const { title, date, time, description, link } = Astro.props;
+const { title, date, time, location, description, link } = Astro.props;
 ---
 
 <div class="text-white">
   <!-- Title -->
   <div class="text-3xl font-bold mb-2">
     {title} | {date} @ {time}
+  </div>
+
+  <!-- Location -->
+  <div class="mb-4 text-xl font-bold">
+    {location}
   </div>
 
   <!-- Description -->
