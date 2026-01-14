@@ -3,13 +3,17 @@ import leftStanchionImg from '../assets/leftRopes.svg?url';
 import rightStanchionImg from '../assets/rightRopes.svg?url';
 import leftSpotlight from '../assets/leftSpotlight.svg?url';
 import rightSpotlight from '../assets/rightSpotlight.svg?url';
-const countdownDate = new Date("2026-02-06T16:00:00").getTime();
+const countdownDate = new Date("2026-01-20T08:00:00").getTime(); // applications open
+// const countdownDate = new Date("2026-01-27T23:59:59").getTime(); // applications close
+// const countdownDate = new Date("2026-02-06T16:00:00").getTime(); // sparkhacks start
 ---
 
 <div class="h-125 md:h-screen pt-20 md:pt-32 pb-20 flex flex-col justify-start items-center relative overflow-x-hidden bg-[#1D0303] overflow-y-hidden">
    
   <h1 class="text-3xl md:text-6xl font-bold text-white mb-15 md:mb-28 text-center px-4 relative z-20">
-    Sparkhacks will begin in...
+    Applications will open in...
+    <!-- Applications will close in... -->
+    <!-- Sparkhacks will begin in... -->
   </h1>
  
   <div class="flex gap-3 md:gap-6 md:gap-18 flex-wrap justify-center px-4 mb-25 md:mb-90 relative z-20">
@@ -27,10 +31,10 @@ const countdownDate = new Date("2026-02-06T16:00:00").getTime();
   <img src={rightStanchionImg} alt="Right" class="absolute bottom-10 right-0 w-[35vw] md:w-[23vw] max-w-[400px] min-w-[120px] md:min-w-[180px] z-10 block" />
 
   <!-- Spotlight sways -->
-  <div id="leftSpotlightGroup" class="spotlight-group spotlight-left hidden sm:block">
+  <div id="leftSpotlightGroup" class="spotlight-group spotlight-left sm:block">
     <img src={leftSpotlight} alt="Left spotlight beam" />
   </div>
-  <div id="rightSpotlightGroup" class="spotlight-group spotlight-right hidden sm:block">
+  <div id="rightSpotlightGroup" class="spotlight-group spotlight-right sm:block">
     <img src={rightSpotlight} alt="Right spotlight beam" />
   </div>
 
