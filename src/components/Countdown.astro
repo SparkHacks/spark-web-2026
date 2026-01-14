@@ -27,8 +27,8 @@ const countdownDate = new Date("2026-01-20T08:00:00").getTime(); // applications
     ))}
   </div>
 
-  <img src={leftStanchionImg} alt="Left" class="absolute bottom-10 left-0 w-[35vw] md:w-[23vw] max-w-[400px] min-w-[120px] md:min-w-[180px] z-10 block" />
-  <img src={rightStanchionImg} alt="Right" class="absolute bottom-10 right-0 w-[35vw] md:w-[23vw] max-w-[400px] min-w-[120px] md:min-w-[180px] z-10 block" />
+  <img src={leftStanchionImg} alt="Left Stanchion" class="absolute bottom-10 left-0 w-[35vw] md:w-[23vw] max-w-[400px] min-w-[120px] md:min-w-[180px] z-10 block" />
+  <img src={rightStanchionImg} alt="Right Stanchion" class="absolute bottom-10 right-0 w-[35vw] md:w-[23vw] max-w-[400px] min-w-[120px] md:min-w-[180px] z-10 block" />
 
   <!-- Spotlight sways -->
   <div id="leftSpotlightGroup" class="spotlight-group spotlight-left sm:block">
@@ -54,7 +54,7 @@ const countdownDate = new Date("2026-01-20T08:00:00").getTime(); // applications
     width: 600px;
     height: auto;
     pointer-events: none;
-    opacity: 0;
+    opacity: 100;
     transform: translateY(40px);
     transition: opacity 1200ms ease-out, transform 1200ms ease-out;
   }
