@@ -1,22 +1,26 @@
 ---
 import { teamMembers } from "../data/teamMembers";
+
+import Board from '../assets/team/new_set/board.svg?url';
+import FilmCircle from '../assets/team/new_set/film_reel_circle.svg?url';
+import FilmReel from '../assets/team/new_set/film_reel.svg?url';
 ---
 <div id="team" class="w-full relative md:pt-10 lg:pt-20 xl:pt-30 overflow-x-hidden bg-linear-to-b from-[#1A2766] to-[#1A2766]">
   <div class="relative w-full sm:mb-4 sm:pb-8 lg:mb-32 lg:pb-25">
     <div class="relative w-full flex justify-center items-center min-h-[25vh] md:min-h-[300px] mt-10">
       
       <img 
-        src="src/assets/team/new_set/board.svg" 
+        src={Board}
         class="absolute -left-12 top-1/2 -translate-y-1/2 w-[50vw] md:w-[25vw] max-w-[750px] md:max-w-[500px] h-auto z-10" 
       />
       
       <img 
-        src="src/assets/team/new_set/film_reel_circle.svg" 
+        src={FilmCircle} 
         class="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 w-[30vw] md:w-[24vw] max-w-[350px] h-auto z-10" 
       />
 
       <img 
-        src="src/assets/team/new_set/film_reel.svg" 
+        src={FilmReel} 
         class="absolute left-1/2 transform -translate-x-1/2 w-full h-auto scale-300 sm:scale-105 md:scale-105 opacity-70"
       />
       
