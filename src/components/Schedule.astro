@@ -1,110 +1,7 @@
 ---
-import ScheduleCard from "./ScheduleCard.astro"
+import ScheduleCard from "./schedule/ScheduleCard.astro"
+import { scheduleData } from "../data/scheduleData";
 
-const scheduleData = [
-    {
-        date: "February 6th",
-        day: "Friday",
-        events: [
-            {
-                "title": "Check-In",
-                "time": "5:00 PM - 6:00  PM",
-                "description": "Have your QR code ready and get your teammates together for check-in.",
-                "tags": ["❗ Mandatory","Snacks", "Location: TBD"]
-            },
-            {
-                "title": "Opening Ceremony",
-                "time": "6:00 PM - 6:30 PM",
-                "description": "Join us for the big night! We'll introduce our sponsors, reveal the tracks and prizes.",
-                "tags": ["❗ Mandatory", "Location: TBD"]
-            },
-            {
-                "title": "Workshop: Figma",
-                "time": "7:00 PM - 8:00 PM",
-                "description": "Learn the basics of Figma and bring your ideas to life visually!",
-                "tags": ["Workshop", "Location: TBD"]
-            },
-            {
-                "title": "Sponsor Tabling",
-                "time": "7:00 PM - 8:00 PM",
-                "description": "Meet and interact with our sponsors at their tables.",
-                "tags": ["Social"]
-            },
-            {
-                "title": "Dinner 🍿",
-                "time": "8:15 PM - 9:30 PM",
-                "description": "Enjoy some top tier food! Vegetarian options available.",
-                "tags": ["Food", "Location: TBD"]
-            },
-            {
-                "title": "De-Stress: Mario Kart!",
-                "time": "10:00 PM - 11:00 PM",
-                "description": "Take a breather and compete with friends in Mario Kart.",
-                "tags": ["Social", "Location: TBD"]
-            },
-        ],
-    },
-    {
-        date: "February 7th",
-        day: "Saturday",
-        events: [
-            {
-                "title": "Check-In & Breakfast",
-                "time": "9:00am - 10:00am",
-                "description": "Check in for Day 2 and re-fuel with breakfast! Vegetarian options available.",
-                "tags": ["❗ Mandatory", "Food", "Location: TBD"]
-            },
-            {
-                "title": "Lunch 🍿",
-                "time": "1:00 PM - 2:00 PM",
-                "description": "It's the final stretch! Make sure to grab food with your team before your final submission.",
-                "tags": ["Food", "Location: TBD"]
-            },
-            {
-                "title": "‼️ DevPost Drafts Due",
-                "time": "2:30 PM - 2:45 PM",
-                "description": "Make sure drafts for DevPosts have been made and teams have been submitted!",
-                "tags": ["❗ Mandatory"]
-            },
-            {
-                "title": "De-Stress: Origami",
-                "time": "4:00 PM - 6:30 PM",
-                "description": "Unwind and enjoy a hands-on origami session.",
-                "tags": ["Social", "Location: TBD"]
-            },
-            {
-                "title": "‼️ Hacking Over",
-                "time": "5:30 PM - 5:45 PM",
-                "description": "YOU DID IT! FINAL SUBMISSIONS! NO LATE POSTS ALLOWED.",
-                "tags": ["❗ Mandatory"]
-            },
-            {
-                "title": "Demo/Presentation Workshop",
-                "time": "6:30 PM - 7:00 PM",
-                "description": "Learn tips and strategies on delivering an engaging project presentation.",
-                "tags": ["Social", "Career", "Location: TBD"]
-            },
-            {
-                "title": "Project Expo",
-                "time": "7:00 PM - 8:00 PM",
-                "description": "Showcase your projects to our sponsors while judging takes place.",
-                "tags": ["Social", "Career"]
-            },
-            {
-                "title": "Dinner & Meet the Team! 🍿",
-                "time": "8:00 PM - 9:00 PM",
-                "description": "Enjoy your well-earned dinner and meet the SparkHacks team!",
-                "tags": ["Food", "Location: TBD"]
-            },
-            {
-                "title": "Closing Ceremony & Awards",
-                "time": "9:00 PM - 9:30 PM",
-                "description": "Winner announcements and closing remarks!",
-                "tags": ["❗ Mandatory", "Location: TBD"]
-            },
-        ]
-    }
-]
 ---
 
 <section id="schedule">
@@ -113,7 +10,7 @@ const scheduleData = [
         <h1 class="text-4xl md:text-6xl font-bold text-center leading-relaxed">Schedule</h1>
         <br />
         <div class="flex flex-row flex-wrap place-content-center items-start text-white gap-15 md:gap-25 pb-30"> 
-            {
+            <!-- {
                 scheduleData.map((d) => (
                     <div>
                         <h1><span class="text-3xl font-bold text-center leading-relaxed">{d.day}</h1>
@@ -126,7 +23,16 @@ const scheduleData = [
                         </div>
                     </div>
                 ))
-            }
+            } -->
+
+            <div class="cursor-pointer inline-block bg-[#FCA129] max-w-100 min-w-75 md:max-w-160 md:min-w-100 rounded-lg overflow-hidden hover:scale-101 transition-all duration-500 hover:shadow-[0_0_20px_rgba(252,161,41,0.8)]">
+                <div class="w-full h-24 text-black flex items-center justify-center font-semibold relative font-thin">
+                <div class="absolute inset-0 bg-[#FFC77E80]" 
+                    style="clip-path: polygon(25% 0, 55% 0, 75% 100%, 45% 100%);"></div>
+                <span class="relative z-10 font-bebas text-5xl md:text-6xl">Coming Soon!</span>
+                </div>
+            </div> 
+            
         </div>
     </div>
 </section>
