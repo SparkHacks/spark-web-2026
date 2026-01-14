@@ -14,7 +14,7 @@ export const faqData: FAQItem[] = [
   {
     question: 'What is the deadline to apply for SparkHacks?',
     answer:
-      'There is no deadline to apply but we will be accepting applications on a rolling basis and will close registrations once we hit a certain threshold. Please apply as soon as possible since we only have a limited number of spots available! Encourage the rest of your team to apply as soon as possible as well.',
+      'Applications will open on January 20 at 8:00 AM and will remain open until January 27 at 11:59 PM. After applications close, the organizing team will review all submissions and send out invitations, waitlist notifications, and declinations within the next few days. If you receive an invitation, you’ll need to accept or decline your spot. Once you accept, we’ll be able to confirm your attendance at the hackathon. Please apply as early as possible, since spots are limited! If you’re applying with a team, make sure everyone applies as soon as possible as well.',
     category: 'General',
   },
   {
@@ -26,7 +26,7 @@ export const faqData: FAQItem[] = [
   {
     question: 'Do I need a team to participate in SparkHacks?',
     answer:
-      'Yes, teams must consist of 4 to 5 members; Individual participation is not allowed due to devpost rules, and the events nature is not conducive to solo participation. However, we will be having a Team Formation Social to help you find potential teammates!',
+      'Yes, teams must consist of 3 to 5 members; Individual participation is not allowed due to devpost rules, and the events nature is not conducive to solo participation. However, we will be having a Team Formation Social to help you find potential teammates!',
     category: 'General',
   },
   {
@@ -137,7 +137,7 @@ export const faqData: FAQItem[] = [
   },
   {
     "question": "Who do I contact if I have more questions?",
-    "answer": "You can: Ask questions in the #ask-sparkhacks channel on Discord. Email us at sparkhacks@uic.edu. Message us on social media.",
+    "answer": "You can email us at sparkhacks@uic.edu or message us on social media! You can find our social links in the bottom right corner of our website.",
     "category": "General"
   }
 ];
