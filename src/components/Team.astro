@@ -114,7 +114,9 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
 
 <script define:vars={{ teamMembers }}>
   let currentIndex = 0;
+  let teamIndex = 0;
   let filteredMembers = teamMembers.filter(member => member.title.includes('Director'));
+  let teamBtns = document.querySelectorAll('.team-filter');
   
   function updateDisplay() {
     const paginationDiv = document.getElementById('pagination');
@@ -168,10 +170,19 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
     
     paginationDiv.innerHTML = '';
     
-    filteredMembers.forEach((_, index) => {
+    filteredMembers.forEach((member, index) => {
       const dot = document.createElement('span');
-      dot.className = `w-3 h-3 rounded-full ${index === currentIndex ? 'bg-white' : 'bg-gray-500'} cursor-pointer`;
+      dot.className = `w-3 h-3 rounded-full ${index === currentIndex ? 'bg-white text-black' : 'bg-gray-500'} cursor-pointer`;
+      if (window.matchMedia("(width >= 48rem)").matches) { // lg and up, show full name
+        dot.className += ' h-fit w-fit text-sm px-2 whitespace-nowrap';
+        dot.innerHTML = member.name;
+      } else if (window.matchMedia("(width >= 26rem)").matches) { // sm and up, show first name only
+        dot.className += ' h-fit w-fit text-sm px-2 whitespace-nowrap';
+        dot.innerHTML = member.name.split(' ')[0];
+      } // else screen is really small, keep it as dot only
+
       dot.addEventListener('click', () => {
+        clearInterval(autoScroll);
         currentIndex = index;
         updateDisplay();
       });
@@ -189,6 +200,7 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
   
   document.getElementById('prevBtn').addEventListener('click', () => {
     if (!document.getElementById('prevBtn').disabled) {
+      clearInterval(autoScroll);
       currentIndex = currentIndex - 1;
       updateDisplay();
     }
@@ -196,15 +208,37 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
   
   document.getElementById('nextBtn').addEventListener('click', () => {
     if (!document.getElementById('nextBtn').disabled) {
+      clearInterval(autoScroll);
       currentIndex = currentIndex + 1;
       updateDisplay();
     }
   });
-  
-  document.querySelectorAll('.team-filter').forEach(btn => {
-    btn.addEventListener('click', (e) => {
 
-      document.querySelectorAll('.team-filter').forEach(b => {
+  let autoScroll = setInterval(() => {
+    if (!document.getElementById('nextBtn').disabled) {
+      currentIndex = currentIndex + 1;
+    } else {
+      teamIndex = (teamIndex + 1) % teamBtns.length;
+
+      teamBtns.forEach(b => {
+        b.classList.remove('bg-white', 'text-black');
+        b.classList.add('text-white');
+      });
+
+      teamBtns[teamIndex].classList.remove('text-white');
+      teamBtns[teamIndex].classList.add('bg-white', 'text-black');
+
+      const team = teamBtns[teamIndex].dataset.team;
+      filterTeam(team);
+    }
+    updateDisplay();
+  }, 5000);
+  
+  teamBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      clearInterval(autoScroll);
+
+      teamBtns.forEach(b => {
         b.classList.remove('bg-white', 'text-black');
         b.classList.add('text-white');
       });
@@ -236,6 +270,7 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
     
     if (touchEndX < touchStartX - swipeThreshold) {
       if (!document.getElementById('nextBtn').disabled) {
+        clearInterval(autoScroll);
         currentIndex = currentIndex + 1;
         updateDisplay();
       }
@@ -243,6 +278,7 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
     
     if (touchEndX > touchStartX + swipeThreshold) {
       if (!document.getElementById('prevBtn').disabled) {
+        clearInterval(autoScroll);
         currentIndex = currentIndex - 1;
         updateDisplay();
       }
