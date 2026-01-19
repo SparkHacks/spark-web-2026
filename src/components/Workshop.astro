@@ -7,8 +7,8 @@ import WorkshopEvent from "../components/workshop/WorkshopEvent.astro";
 const posterBackgrounds = [
   "conic-gradient(from -45.87deg at 50% 50%, #A43D3D 0deg, #3E1717 360deg)",
   "conic-gradient(from 180deg at 50% 50%, #598651 -225.46deg, #152013 134.53deg, #598651 134.54deg, #152013 494.53deg)",
-  "conic-gradient(from 180deg at 50% 50%, #4063A8 -224.89deg, #192742 135.07deg, #4063A8 135.11deg, #192742 495.07deg)"
-  //"conic-gradient(from 180deg at 50% 50%, #4F336E -224.89deg, #1A1F29 135.07deg, #4F336E 135.11deg, #1A1F29 495.07deg)" // added a purple gradient for the 4th poster
+  "conic-gradient(from 180deg at 50% 50%, #4063A8 -224.89deg, #192742 135.07deg, #4063A8 135.11deg, #192742 495.07deg)",
+  "conic-gradient(from 180deg at 50% 50%, #4F336E -224.89deg, #1A1F29 135.07deg, #4F336E 135.11deg, #1A1F29 495.07deg)" 
 ];
 ---
 <div id="workshops" class="bg-[#650B0D] text-white pb-16">
@@ -19,7 +19,7 @@ const posterBackgrounds = [
     <!-- Left Lamp + Spotlight - Hidden on mobile -->
     <div
       id="lampGroupLeft"
-      class="hidden md:block absolute top-0 left-1/2 transform -translate-x-120 w-[400px] h-[600px] origin-[40px_40px] transition-all duration-700 ease-out pointer-events-none opacity-0"
+      class="hidden md:block absolute top-0 left-1/2 transform -translate-x-140 w-[400px] h-[600px] origin-[40px_40px] transition-all duration-700 ease-out pointer-events-none opacity-0"
       style="transform: rotate(0deg);"
     >
       <img src={lamp.src} alt="lamp" class="absolute top-0 left-0 w-20 h-20 z-10" />
@@ -29,7 +29,7 @@ const posterBackgrounds = [
     <!-- Right Lamp + Spotlight - Hidden on mobile -->
     <div
       id="lampGroupRight"
-      class="hidden md:block absolute top-0 right-1/2 transform translate-x-120 w-[400px] h-[600px] origin-[360px_40px] transition-all duration-700 ease-out pointer-events-none opacity-0"
+      class="hidden md:block absolute top-0 right-1/2 transform translate-x-140 w-[400px] h-[600px] origin-[360px_40px] transition-all duration-700 ease-out pointer-events-none opacity-0"
       style="transform: rotate(0deg);"
     >
       <img src={lamp.src} alt="lamp" class="absolute top-0 right-0 w-20 h-20 z-10 -scale-x-100" />
@@ -90,8 +90,8 @@ const posterBackgrounds = [
   const posterRow = document.getElementById("posterRow");
   const posters = document.querySelectorAll(".poster");
   
-  const anglesLeft = [0, -15, -25];
-  const anglesRight = [25, 15, 0];
+  const anglesLeft = [10, -15, -20, -25];
+  const anglesRight = [25, 20, 15, -10];
   
   let lampsActive = false;
   
