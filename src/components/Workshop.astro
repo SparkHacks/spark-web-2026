@@ -5,10 +5,18 @@ import Poster from "../components/workshop/Poster.astro";
 import WorkshopEvent from "../components/workshop/WorkshopEvent.astro";
 
 const posterBackgrounds = [
-  "conic-gradient(from -45.87deg at 50% 50%, #A43D3D 0deg, #3E1717 360deg)",
+  "conic-gradient(from 180deg at 50% 50%, #4F336E -224.89deg, #1A1F29 135.07deg, #4F336E 135.11deg, #1A1F29 495.07deg)",
   "conic-gradient(from 180deg at 50% 50%, #598651 -225.46deg, #152013 134.53deg, #598651 134.54deg, #152013 494.53deg)",
   "conic-gradient(from 180deg at 50% 50%, #4063A8 -224.89deg, #192742 135.07deg, #4063A8 135.11deg, #192742 495.07deg)",
-  "conic-gradient(from 180deg at 50% 50%, #4F336E -224.89deg, #1A1F29 135.07deg, #4F336E 135.11deg, #1A1F29 495.07deg)" 
+  "conic-gradient(from -45.87deg at 50% 50%, #A43D3D 0deg, #3E1717 360deg)"
+  
+];
+
+const posterImages = [
+  "/HiFi Mobile/Frame 84.png",
+  "/HiFi Mobile/Frame 86.png",
+  "/HiFi Mobile/Frame 85.png",
+  "/HiFi Mobile/Frame 87.png",
 ];
 ---
 <div id="workshops" class="bg-[#650B0D] text-white pb-16">
@@ -39,7 +47,7 @@ const posterBackgrounds = [
     <!-- Posters -->
     <div id="posterRow" class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 px-4 md:px-0 mb-16">
       {posterBackgrounds.map((bg, index) => (
-        <Poster background={bg} index={index} />
+        <Poster background={bg} index={index} image={posterImages[index]} />
       ))}
     </div>
   </div>
