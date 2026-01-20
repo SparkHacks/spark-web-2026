@@ -6,15 +6,15 @@ import LetterMarking from '../assets/envelope/letterMarking.svg';
 import Logo from '../../public/sparkhacks-logo.svg';
 ---
 
-<div class="flex flex-col place-content-center items-center bg-gradient-to-b from-[#10042A] to-[#1F0303] overflow-hidden h-[150vh] py-[20vh]">
-    <svg id="letterSvg" class="h-[50%] md:h-full" viewBox="300 -290 600 1300" width="100%">
+<div class="flex flex-col place-content-center items-center bg-gradient-to-b from-[#10042A] to-[#1F0303] overflow-hidden h-[100vh] md:h-[150vh] py-[20vh]">
+    <svg id="letterSvg" class="h-[90%] md:h-full" viewBox="300 -290 600 1300" width="100%">
         <BackEnvelope />
 
         <g id="letter">
             <foreignObject width="100%" height="1200" x="298" y="200">
-                <div class="flex justify-center items-center bg-[#FFF0D2] border-[#FFAD41] border-3 px-14 py-8 text-[#7A1E1E] min-h-[400px]">
+                <div class="flex justify-center items-center bg-[#FFF0D2] border-[#FFAD41] border-3 py-4 text-[#7A1E1E] min-h-[400px]">
                     <div id="letterBg" class="w-full h-full bg-[url(../assets/envelope/letterMarking.svg)] bg-contain bg-no-repeat bg-center invisible">
-                        <div id="letterContent" class=" flex flex-col text-center items-center invisible ">
+                        <div id="letterContent" class="flex flex-col text-center items-center invisible px-14 py-4">
                             <Logo width="50px" height="50px"/>
                             <h2 class="text-xl md:text-lg font-playfair italic mb-3">You Are Invited to</h2>
 
@@ -23,7 +23,7 @@ import Logo from '../../public/sparkhacks-logo.svg';
 
                             <p class="text-xl md:text-lg font-[600] leading-[1.2]">University of Illinois Chicago<br>February 6th - 7th, 2026</p>
 
-                            <p class="text-xl md:text-lg font-[300] leading-[1.2] my-5">Join us for a weekend of blockbuster programming and an awards ceremony you will never forget!</p>
+                            <p class="text-xl md:text-lg font-[300] leading-[1.2] my-5 px-10">Join us for a weekend of blockbuster programming and an awards ceremony you will never forget!</p>
                                 <!-- <br><br>Applications open January 20th!<br><br></p> -->
                                 <!-- <div class="p-0 m-0 bg-accent-red text-white"><a href="dashboard.sparkhacks.org">Apply</a></div> -->
                             <a class="bg-[#EF2427] text-lg font-bold text-white rounded-lg py-1 px-12 cursor-pointer" href="https://dashboard.sparkhacks.org/" target="_blank">Apply</a>
