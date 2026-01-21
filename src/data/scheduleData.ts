@@ -16,7 +16,7 @@ export const scheduleData = [
                 "title": "Check-In",
                 "time": "5:00 PM - 6:00  PM",
                 "description": "Have your QR code ready and get your teammates together for check-in.",
-                "tags": ["❗ Mandatory","Snacks", "Location: TBD"],
+                "tags": ["❗ Mandatory", "Location: TBD"],
                 "utc_start": "2026-02-06T17:00:00.000-06:00",
                 "utc_end": "2026-02-06T18:00:00.000-06:00"
             },
@@ -112,7 +112,7 @@ export const scheduleData = [
                 "title": "Project Expo",
                 "time": "7:00 PM - 8:00 PM",
                 "description": "Showcase your projects to our sponsors while judging takes place.",
-                "tags": ["Social", "Career"],
+                "tags": ["Social", "Career", "Location: TBD"],
                 "utc_start": "2026-02-07T19:00:00.000-06:00",
                 "utc_end": "2026-02-07T20:00:00.000-06:00"
             },
