@@ -5,16 +5,18 @@ export const scheduleData = [
         day: "Friday",
         events: [
             {
-                "title": "Sponsor Tabling",
-                "time": "5:00 PM - 7:30 PM",
-                "description": "This is your chance to network with our AWESOME sponsors in a casual environment.",
-                "tags": ["Social", "Career", "Location: TBD"]
-            },
-            {
                 "title": "Check-In",
                 "time": "5:00 PM - 6:00  PM",
                 "description": "Have your QR code ready and get your teammates together for check-in.",
                 "tags": ["❗ Mandatory","Snacks", "Location: TBD"]
+            },
+            {
+                "title": "Sponsor Tabling",
+                "time": "5:00 PM - 7:30 PM",
+                "description": "This is your chance to network with our AWESOME sponsors in a casual environment.",
+                "tags": ["Social", "Career", "Location: TBD"],
+                "utc_start": "2026-02-06T17:00:00.000-06:00",
+                "utc_end": "2026-02-06T19:00:00.000-06:00"
             },
             {
                 "title": "Opening Ceremony",
