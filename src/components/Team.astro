@@ -4,6 +4,7 @@ import { teamMembers } from "../data/teamMembers";
 import Board from '../assets/team/new_set/board.svg?url';
 import FilmCircle from '../assets/team/new_set/film_reel_circle.svg?url';
 import FilmReel from '../assets/team/new_set/film_reel.svg?url';
+import LinkedInIcon from '../../public/socialIcons/linkedin-logo.svg';
 ---
 <div id="team" class="w-full relative md:pt-10 lg:pt-20 xl:pt-30 overflow-x-hidden bg-linear-to-b from-[#1A2766] to-[#1A2766]">
   <div class="relative w-full sm:mb-4 sm:pb-8 lg:mb-32 lg:pb-25">
@@ -40,7 +41,7 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
       <!-- class="w-full h-auto scale-165 left-1/2" -->
       
       <div id="memberContainer" class="absolute inset-0">
-        <button id="prevBtn" class="absolute left-2 md:left-0 lg:left-2 xl:-left-35 2xl:-left-70 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl lg:text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg hover:cursor-pointer">
+        <button id="prevBtn" class="absolute left-2 md:left-0 lg:left-2 xl:-left-35 2xl:-left-70 top-1/2 -translate-y-1/2 text-white text-6xl md:text-7xl lg:text-9xl hover:text-yellow-400 transition z-50 drop-shadow-lg hover:cursor-pointer">
           ‹
         </button>
         
@@ -57,7 +58,7 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
         <div class="absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-[120%] sm:right-40 md:right-20 sm:translate-x-0 flex flex-col md:gap-4 w-40 md:w-64">
           <div class="relative w-fit">
             <div class="-rotate-6 transform transition-transform hover:rotate-0">
-              <a id="memberLink" href="" target="_blank">
+              <a class="memberLink" href="" target="_blank">
                 <img 
                   id="memberPhoto" 
                   src="" 
@@ -72,8 +73,12 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
           </div>
 
           <div class="flex flex-col gap-2 md:gap-3 md:mt-12">
-            <h3 id="memberName" class="text-l sm:text-xl md:text-4xl font-bold text-gold drop-shadow-lg text-left lg:whitespace-nowrap">
-            </h3>
+            <a class="memberLink text-l sm:text-xl md:text-4xl w-fit" href="" target="_blank">
+              <h3 class="font-bold text-gold drop-shadow-lg text-left lg:whitespace-nowrap">
+                <span id="memberName"></span>
+                <LinkedInIcon class="inline align-text-bottom -translate-y-[0.25em]" height="1em" width="1em" />
+              </h3>
+            </a>
             <p id="memberInfo" class="text-sm md:text-xl text-white text-left drop-shadow-lg font-bold mt-0 md:mt-4 md:whitespace-nowrap">
             </p>
             <p id="memberTitle" class="text-sm md:text-xl text-white text-left drop-shadow-lg font-bold mt-0 md:mt-4">
@@ -81,7 +86,7 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
           </div>
         </div>
         
-        <button id="nextBtn" class="absolute right-2 md:right-0 lg:right-2 xl:-right-35 2xl:-right-70 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl lg:text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg hover:cursor-pointer">
+        <button id="nextBtn" class="absolute right-2 md:right-0 lg:right-2 xl:-right-35 2xl:-right-70 top-1/2 -translate-y-1/2 text-white text-6xl md:text-7xl lg:text-9xl hover:text-yellow-400 transition z-50 drop-shadow-lg hover:cursor-pointer">
           ›
         </button>
       </div>
@@ -131,7 +136,7 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
     document.getElementById('memberInfo').textContent = `${member.year} | ${member.major}`;
     document.getElementById('memberTitle').textContent = member.title;
     document.getElementById('memberPhoto').src = member.image;
-    document.getElementById('memberLink').href = member.linkedin;
+    document.querySelectorAll('.memberLink').forEach(l => {l.href = member.linkedin;});
     
     const teamPhotoMap = {
       'Director': '/teams/director.JPG',
@@ -234,7 +239,7 @@ import FilmReel from '../assets/team/new_set/film_reel.svg?url';
       filterTeam(team);
     }
     updateDisplay();
-  }, 5000);
+  }, 3500);
   
   teamBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
