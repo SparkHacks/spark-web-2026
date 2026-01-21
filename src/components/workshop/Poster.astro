@@ -1,5 +1,5 @@
 ---
-const { background, index } = Astro.props;
+const { background, index, image } = Astro.props;
 import PosterBulb from "./PosterBulb.astro";
 ---
 <div
@@ -18,8 +18,12 @@ import PosterBulb from "./PosterBulb.astro";
         <PosterBulb />
       ))}
     </div>
-    <div class="flex-1 h-full bg-gray-500 flex justify-center items-center text-center px-2">
-      <p class="text-sm sm:text-base">Coming Soon...</p>
+    <div class="flex-1 h-full bg-gray-500 flex justify-center items-center text-center overflow-hidden">
+      {image ? (
+        <img src={image} alt="Workshop poster" class="w-full h-full object-cover" />
+      ) : (
+        <p class="text-sm sm:text-base px-2">Coming Soon...</p>
+      )}
     </div>
     <div class="w-10 sm:w-12 h-full flex flex-col items-center justify-center gap-2 sm:gap-4">
       {Array.from({ length: 6 }).map(() => (

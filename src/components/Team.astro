@@ -1,33 +1,35 @@
 ---
 import { teamMembers } from "../data/teamMembers";
+
+import Board from '../assets/team/new_set/board.svg?url';
+import FilmCircle from '../assets/team/new_set/film_reel_circle.svg?url';
+import FilmReel from '../assets/team/new_set/film_reel.svg?url';
+import LinkedInIcon from '../../public/socialIcons/linkedin-logo.svg';
 ---
-<div class="w-full relative md:pt-10 lg:pt-20 xl:pt-30 overflow-x-hidden bg-linear-to-b from-[#1A2766] to-[#1A2766]">
-  <h1 class="text-3xl md:text-6xl font-bold text-white py-5 md:py-10 lg:py-16 text-center px-4">
-    MEET THE TEAM
-  </h1>
-  <!-- <div class="relative w-full sm:mb-4 sm:pb-8 lg:mb-32 lg:pb-25">
-    <div class="relative w-full flex justify-center items-center min-h-[300px]">
+<div id="team" class="w-full relative md:pt-10 lg:pt-20 xl:pt-30 overflow-x-hidden bg-linear-to-b from-[#1A2766] to-[#1A2766]">
+  <div class="relative w-full sm:mb-4 sm:pb-8 lg:mb-32 lg:pb-25">
+    <div class="relative w-full flex justify-center items-center min-h-[25vh] md:min-h-[300px] mt-10">
       
       <img 
-        src="src/assets/team/new_set/board.svg" 
-        class="absolute -left-12 top-1/2 -translate-y-1/2 w-[25vw] max-w-[500px] h-auto z-10" 
+        src={Board}
+        class="absolute -left-12 top-1/2 -translate-y-1/2 w-[50vw] md:w-[25vw] max-w-[750px] md:max-w-[500px] h-auto z-10" 
       />
       
       <img 
-        src="src/assets/team/new_set/film_reel_circle.svg" 
-        class="absolute -right-12 top-1/2 -translate-y-1/2 w-[24vw] max-w-[350px] h-auto z-10" 
+        src={FilmCircle} 
+        class="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 w-[30vw] md:w-[24vw] max-w-[350px] h-auto z-10" 
       />
 
       <img 
-        src="src/assets/team/new_set/film_reel.svg" 
-        class="absolute left-1/2 transform -translate-x-1/2 w-full h-auto scale-105 opacity-70"
+        src={FilmReel} 
+        class="absolute left-1/2 transform -translate-x-1/2 w-full h-auto scale-300 sm:scale-105 md:scale-105 opacity-70"
       />
       
-      <div class="relative z-20 text-center py-8 max-w-7xl mx-auto">
+      <div class="relative z-20 text-center py-8 max-w-7xl mx-auto px-50 md:px-0 lg:px-0">
         <h2 class="text-3xl md:text-5xl lg:text-7xl font-bold text-gold">Meet the Team</h2>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <div class="max-w-6xl mx-auto my-16 md:my-32 lg:mg-32 relative z-30">
     <div class="relative">
@@ -39,7 +41,7 @@ import { teamMembers } from "../data/teamMembers";
       <!-- class="w-full h-auto scale-165 left-1/2" -->
       
       <div id="memberContainer" class="absolute inset-0">
-        <button id="prevBtn" class="absolute left-2 md:left-0 lg:left-2 xl:-left-35 2xl:-left-70 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl lg:text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg hover:cursor-pointer">
+        <button id="prevBtn" class="absolute left-2 md:left-0 lg:left-2 xl:-left-35 2xl:-left-70 top-1/2 -translate-y-1/2 text-white text-6xl md:text-7xl lg:text-9xl hover:text-yellow-400 transition z-50 drop-shadow-lg hover:cursor-pointer">
           ‹
         </button>
         
@@ -54,23 +56,29 @@ import { teamMembers } from "../data/teamMembers";
         </div>
         
         <div class="absolute top-1/2 -translate-y-1/2 right-1/2 translate-x-[120%] sm:right-40 md:right-20 sm:translate-x-0 flex flex-col md:gap-4 w-40 md:w-64">
-          <div class="-rotate-6 transform transition-transform hover:rotate-0 w-fit">
-            <a id="memberLink" href="" target="_blank">
-              <img 
-                id="memberPhoto" 
-                src="" 
-                class="relative w-16 h-16 sm:w-32 sm:h-32 md:w-48 md:h-48 object-cover z-10"
-              />
-              <div class="absolute -top-2 right-0 sm:right-0 text-3xl md:text-5xl z-20">
-                📎
-              </div>
-              <!-- <span class="absolute -top-4 md:-top-2 -right-3 md:right-0 w-[150%] h-[150%] md:w-full md:h-full animate-pulse rounded-full bg-vanilla blur-xl md:blur-3xl opacity-75 z-0" /> -->
-            </a>
+          <div class="relative w-fit">
+            <div class="-rotate-6 transform transition-transform hover:rotate-0">
+              <a class="memberLink" href="" target="_blank">
+                <img 
+                  id="memberPhoto" 
+                  src="" 
+                  class="relative w-16 h-16 sm:w-32 sm:h-32 md:w-48 md:h-48 object-cover z-10"
+                />
+                <!-- <span class="absolute -top-4 md:-top-2 -right-3 md:right-0 w-[150%] h-[150%] md:w-full md:h-full animate-pulse rounded-full bg-vanilla blur-xl md:blur-3xl opacity-75 z-0" /> -->
+              </a>
+            </div>
+            <div class="absolute -top-4 right-0 sm:right-0 text-3xl md:text-5xl z-20 pointer-events-none">
+              📎
+            </div>
           </div>
 
           <div class="flex flex-col gap-2 md:gap-3 md:mt-12">
-            <h3 id="memberName" class="text-l sm:text-xl md:text-4xl font-bold text-gold drop-shadow-lg text-left lg:whitespace-nowrap">
-            </h3>
+            <a class="memberLink text-l sm:text-xl md:text-4xl w-fit" href="" target="_blank">
+              <h3 class="font-bold text-gold drop-shadow-lg text-left lg:whitespace-nowrap">
+                <span id="memberName"></span>
+                <LinkedInIcon class="inline align-text-bottom -translate-y-[0.25em]" height="1em" width="1em" />
+              </h3>
+            </a>
             <p id="memberInfo" class="text-sm md:text-xl text-white text-left drop-shadow-lg font-bold mt-0 md:mt-4 md:whitespace-nowrap">
             </p>
             <p id="memberTitle" class="text-sm md:text-xl text-white text-left drop-shadow-lg font-bold mt-0 md:mt-4">
@@ -78,7 +86,7 @@ import { teamMembers } from "../data/teamMembers";
           </div>
         </div>
         
-        <button id="nextBtn" class="absolute right-2 md:right-0 lg:right-2 xl:-right-35 2xl:-right-70 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl lg:text-7xl hover:text-yellow-400 transition z-50 drop-shadow-lg hover:cursor-pointer">
+        <button id="nextBtn" class="absolute right-2 md:right-0 lg:right-2 xl:-right-35 2xl:-right-70 top-1/2 -translate-y-1/2 text-white text-6xl md:text-7xl lg:text-9xl hover:text-yellow-400 transition z-50 drop-shadow-lg hover:cursor-pointer">
           ›
         </button>
       </div>
@@ -113,7 +121,9 @@ import { teamMembers } from "../data/teamMembers";
 
 <script define:vars={{ teamMembers }}>
   let currentIndex = 0;
+  let teamIndex = 0;
   let filteredMembers = teamMembers.filter(member => member.title.includes('Director'));
+  let teamBtns = document.querySelectorAll('.team-filter');
   
   function updateDisplay() {
     const paginationDiv = document.getElementById('pagination');
@@ -126,7 +136,7 @@ import { teamMembers } from "../data/teamMembers";
     document.getElementById('memberInfo').textContent = `${member.year} | ${member.major}`;
     document.getElementById('memberTitle').textContent = member.title;
     document.getElementById('memberPhoto').src = member.image;
-    document.getElementById('memberLink').href = member.linkedin;
+    document.querySelectorAll('.memberLink').forEach(l => {l.href = member.linkedin;});
     
     const teamPhotoMap = {
       'Director': '/teams/director.JPG',
@@ -167,10 +177,19 @@ import { teamMembers } from "../data/teamMembers";
     
     paginationDiv.innerHTML = '';
     
-    filteredMembers.forEach((_, index) => {
+    filteredMembers.forEach((member, index) => {
       const dot = document.createElement('span');
-      dot.className = `w-3 h-3 rounded-full ${index === currentIndex ? 'bg-white' : 'bg-gray-500'} cursor-pointer`;
+      dot.className = `w-3 h-3 rounded-full ${index === currentIndex ? 'bg-white text-black' : 'bg-gray-500'} cursor-pointer`;
+      if (window.matchMedia("(width >= 48rem)").matches) { // lg and up, show full name
+        dot.className += ' h-fit w-fit text-sm px-2 whitespace-nowrap';
+        dot.innerHTML = member.name;
+      } else if (window.matchMedia("(width >= 26rem)").matches) { // sm and up, show first name only
+        dot.className += ' h-fit w-fit text-sm px-2 whitespace-nowrap';
+        dot.innerHTML = member.name.split(' ')[0];
+      } // else screen is really small, keep it as dot only
+
       dot.addEventListener('click', () => {
+        clearInterval(autoScroll);
         currentIndex = index;
         updateDisplay();
       });
@@ -188,6 +207,7 @@ import { teamMembers } from "../data/teamMembers";
   
   document.getElementById('prevBtn').addEventListener('click', () => {
     if (!document.getElementById('prevBtn').disabled) {
+      clearInterval(autoScroll);
       currentIndex = currentIndex - 1;
       updateDisplay();
     }
@@ -195,15 +215,37 @@ import { teamMembers } from "../data/teamMembers";
   
   document.getElementById('nextBtn').addEventListener('click', () => {
     if (!document.getElementById('nextBtn').disabled) {
+      clearInterval(autoScroll);
       currentIndex = currentIndex + 1;
       updateDisplay();
     }
   });
-  
-  document.querySelectorAll('.team-filter').forEach(btn => {
-    btn.addEventListener('click', (e) => {
 
-      document.querySelectorAll('.team-filter').forEach(b => {
+  let autoScroll = setInterval(() => {
+    if (!document.getElementById('nextBtn').disabled) {
+      currentIndex = currentIndex + 1;
+    } else {
+      teamIndex = (teamIndex + 1) % teamBtns.length;
+
+      teamBtns.forEach(b => {
+        b.classList.remove('bg-white', 'text-black');
+        b.classList.add('text-white');
+      });
+
+      teamBtns[teamIndex].classList.remove('text-white');
+      teamBtns[teamIndex].classList.add('bg-white', 'text-black');
+
+      const team = teamBtns[teamIndex].dataset.team;
+      filterTeam(team);
+    }
+    updateDisplay();
+  }, 3500);
+  
+  teamBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      clearInterval(autoScroll);
+
+      teamBtns.forEach(b => {
         b.classList.remove('bg-white', 'text-black');
         b.classList.add('text-white');
       });
@@ -235,6 +277,7 @@ import { teamMembers } from "../data/teamMembers";
     
     if (touchEndX < touchStartX - swipeThreshold) {
       if (!document.getElementById('nextBtn').disabled) {
+        clearInterval(autoScroll);
         currentIndex = currentIndex + 1;
         updateDisplay();
       }
@@ -242,6 +285,7 @@ import { teamMembers } from "../data/teamMembers";
     
     if (touchEndX > touchStartX + swipeThreshold) {
       if (!document.getElementById('prevBtn').disabled) {
+        clearInterval(autoScroll);
         currentIndex = currentIndex - 1;
         updateDisplay();
       }

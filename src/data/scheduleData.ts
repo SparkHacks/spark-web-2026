@@ -46,7 +46,7 @@ export const scheduleData = [
             },
             {
                 "title": "Dinner 🍿",
-                "time": "8:15 PM - 9:30 PM",
+                "time": "8:15 PM - 9:00 PM",
                 "description": "Enjoy some top tier food! Vegetarian options available.",
                 "tags": ["Food", "Location: TBD"],
                 "utc_start": "2026-02-06T20:15:00.000-06:00",
@@ -92,6 +92,7 @@ export const scheduleData = [
             },
             {
                 "title": "De-Stress: Charades!",
+                "title": "De-Stress: Charades!",
                 "time": "4:00 PM - 6:30 PM",
                 "description": "Unwind and enjoy a game of charades with your fellow hackers!",
                 "tags": ["Social", "Location: TBD"],
@@ -100,6 +101,7 @@ export const scheduleData = [
             },
             {
                 "title": "‼️ Hacking Over",
+                "time": "6:00 PM",
                 "time": "6:00 PM",
                 "description": "YOU DID IT! FINAL SUBMISSIONS! NO LATE POSTS ALLOWED.",
                 "tags": ["❗ Mandatory"],

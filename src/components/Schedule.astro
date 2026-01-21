@@ -10,10 +10,10 @@ import { scheduleData } from "../data/scheduleData";
         <h1 class="text-4xl md:text-6xl font-bold text-center leading-relaxed">Schedule</h1>
         <br />
         <div class="flex flex-row flex-wrap place-content-center items-start text-white gap-15 md:gap-25 pb-30"> 
-            <!-- {
+            {
                 scheduleData.map((d) => (
                     <div>
-                        <h1><span class="text-3xl font-bold text-center leading-relaxed">{d.day}</h1>
+                        <h1 class="text-3xl font-bold text-center leading-relaxed">{d.day}</h1>
                         <div class="flex flex-col gap-8">
                             {
                                 d.events.map((event) => (
@@ -23,15 +23,15 @@ import { scheduleData } from "../data/scheduleData";
                         </div>
                     </div>
                 ))
-            } -->
+            }
 
-            <div class="cursor-pointer inline-block bg-[#FCA129] max-w-100 min-w-75 md:max-w-160 md:min-w-100 rounded-lg overflow-hidden hover:scale-101 transition-all duration-500 hover:shadow-[0_0_20px_rgba(252,161,41,0.8)]">
+            <!-- <div class="cursor-pointer inline-block bg-[#FCA129] max-w-100 min-w-75 md:max-w-160 md:min-w-100 rounded-lg overflow-hidden hover:scale-101 transition-all duration-500 hover:shadow-[0_0_20px_rgba(252,161,41,0.8)]">
                 <div class="w-full h-24 text-black flex items-center justify-center font-semibold relative font-thin">
                 <div class="absolute inset-0 bg-[#FFC77E80]" 
                     style="clip-path: polygon(25% 0, 55% 0, 75% 100%, 45% 100%);"></div>
                 <span class="relative z-10 font-bebas text-5xl md:text-6xl">Coming Soon!</span>
                 </div>
-            </div> 
+            </div>  -->
             
         </div>
     </div>
