@@ -7,14 +7,23 @@ interface Props {
         time: string;
         description: string;
         tags: string[];
+        utc_start: string,
+        utc_end: string
     };
 }
 
 const { eventData } = Astro.props;
 
+const curr_time = new Date()
+const start_time = new Date(eventData.utc_start)
+const end_time = new Date(eventData.utc_end)
+const isCurr = (start_time < curr_time) && (curr_time < end_time)
+
+
 const rotDeg = Math.random() * 360
 ---
 <div class="flex flex-col gap-3 bg-[#ffffff0F] rounded-2xl p-5 sm:min-w-82 max-w-108 sm:h-64 relative">
+    <!-- stars -->
     {
         eventData.tags.includes("❗ Mandatory") &&
         <div class="w-5 h-5 absolute right-115 bottom-160 md:right-110 lg:right-110 lg:bottom-155">
@@ -29,6 +38,7 @@ const rotDeg = Math.random() * 360
         </div>
     }
 
+    <!-- card info -->
     <h2 class="text-2xl font-bold text-left leading-relaxed">{eventData.title}</h2>
     <h2 class="text-xl font-bold text-left leading-relaxed">{eventData.time}</h2>
     <p>{eventData.description}</p>
