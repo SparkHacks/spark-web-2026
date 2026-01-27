@@ -1,4 +1,3 @@
-// no spoilers! subject to change
 export const scheduleData = [
     {
         date: "February 6th",
