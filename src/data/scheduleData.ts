@@ -5,27 +5,27 @@ export const scheduleData = [
         events: [
             {
                 "title": "Check-In",
-                "time": "4:30 PM - 6:30  PM",
+                "time": "4:00 PM - 7:30  PM",
                 "description": "Have your QR code ready and get your teammates together for check-in.",
                 "tags": ["❗ Mandatory", "Location: TBD"],
-                "utc_start": "2026-02-06T16:30:00.000-06:00",
-                "utc_end": "2026-02-06T18:30:00.000-06:00"
+                "utc_start": "2026-02-06T16:00:00.000-06:00",
+                "utc_end": "2026-02-06T19:30:00.000-06:00"
             },
             {
                 "title": "Opening Ceremony",
-                "time": "5:45 PM - 6:15 PM",
+                "time": "5:30 PM - 6:00 PM",
                 "description": "Join us for the big night! We'll introduce our sponsors, reveal the tracks and prizes.",
                 "tags": ["❗ Mandatory", "Location: TBD"],
-                "utc_start": "2026-02-06T17:45:00.000-06:00",
-                "utc_end": "2026-02-06T18:15:00.000-06:00"
+                "utc_start": "2026-02-06T17:30:00.000-06:00",
+                "utc_end": "2026-02-06T18:0:00.000-06:00"
             },
             {
                 "title": "Sponsor Tabling",
-                "time": "6:30 PM - 8:30 PM",
+                "time": "4:30 PM - 7:30 PM",
                 "description": "This is your chance to network with our AWESOME sponsors in a casual environment.",
                 "tags": ["Social", "Career", "Location: TBD"],
-                "utc_start": "2026-02-06T18:30:00.000-06:00",
-                "utc_end": "2026-02-06T20:30:00.000-06:00"
+                "utc_start": "2026-02-06T16:30:00.000-06:00",
+                "utc_end": "2026-02-06T19:30:00.000-06:00"
             },
             {
                 "title": "Workshop: Aedify",
@@ -86,48 +86,48 @@ export const scheduleData = [
                 "time": "⭐ 2:30 PM ⭐",
                 "description": "Make sure drafts for DevPosts have been made and teams have been submitted!",
                 "tags": ["❗ Mandatory"],
-                "utc_start": "2026-02-07T14:30:00.000-06:00",
-                "utc_end": "2026-02-07T14:45:00.000-06:00"
+                "utc_start": "2026-02-07T14:15:00.000-06:00",
+                "utc_end": "2026-02-07T14:30:00.000-06:00"
             },
             {
                 "title": "De-Stress: Charades!",
-                "time": "4:00 PM - 6:00 PM",
+                "time": "3:00 PM - 5:00 PM",
                 "description": "Unwind and enjoy a game of charades with your fellow hackers!",
                 "tags": ["Social", "Location: TBD"],
-                "utc_start": "2026-02-07T16:00:00.000-06:00",
-                "utc_end": "2026-02-07T18:00:00.000-06:00"
+                "utc_start": "2026-02-07T15:00:00.000-06:00",
+                "utc_end": "2026-02-07T17:00:00.000-06:00"
             },
             {
                 "title": "‼️ Hacking Over",
-                "time": "⭐ 6:00 PM ⭐",
+                "time": "⭐ 5:30 PM ⭐",
                 "description": "YOU DID IT! FINAL SUBMISSIONS! NO LATE POSTS ALLOWED.",
                 "tags": ["❗ Mandatory"],
-                "utc_start": "2026-02-07T18:00:00.000-06:00",
-                "utc_end": "2026-02-07T18:15:00.000-06:00"
+                "utc_start": "2026-02-07T17:15:00.000-06:00",
+                "utc_end": "2026-02-07T17:30:00.000-06:00"
             },
             {
                 "title": "Project Expo",
-                "time": "6:30 PM - 7:30 PM",
+                "time": "6:00 PM - 7:00 PM",
                 "description": "Showcase your projects to our sponsors while judging takes place.",
                 "tags": ["Social", "Career", "Location: TBD"],
-                "utc_start": "2026-02-07T18:30:00.000-06:00",
-                "utc_end": "2026-02-07T19:30:00.000-06:00"
+                "utc_start": "2026-02-07T18:00:00.000-06:00",
+                "utc_end": "2026-02-07T19:00:00.000-06:00"
             },
             {
                 "title": "Dinner & Meet the Team! 🍿",
-                "time": "7:30 PM - 8:15 PM",
+                "time": "7:00 PM - 8:00 PM",
                 "description": "Enjoy your well-earned dinner and meet the SparkHacks team!",
                 "tags": ["Food", "Location: TBD"],
-                "utc_start": "2026-02-07T19:30:00.000-06:00",
-                "utc_end": "2026-02-07T20:15:00.000-06:00"
+                "utc_start": "2026-02-07T19:00:00.000-06:00",
+                "utc_end": "2026-02-07T20:00:00.000-06:00"
             },
             {
                 "title": "Closing Ceremony & Awards",
-                "time": "8:30 PM - 9:00 PM",
+                "time": "8:15 PM - 8:30 PM",
                 "description": "Winner announcements and closing remarks!",
                 "tags": ["❗ Mandatory", "Location: TBD"],
-                "utc_start": "2026-02-07T20:30:00.000-06:00",
-                "utc_end": "2026-02-07T21:00:00.000-06:00"
+                "utc_start": "2026-02-07T20:15:00.000-06:00",
+                "utc_end": "2026-02-07T20:30:00.000-06:00"
             },
         ],
     }
