@@ -139,5 +139,10 @@ export const faqData: FAQItem[] = [
     "question": "Who do I contact if I have more questions?",
     "answer": "You can email us at sparkhacks@uic.edu or message us on social media! You can find our social links in the bottom right corner of our website.",
     "category": "General"
+  },
+  {
+    "question": "I missed the application deadline, is there a way I can still apply?",
+    "answer": "Due to limitations, we are unable to accept applications late. However, pre-hack workshops are open to everyone if you are interested in attending. If you are interested in participating in next year's SparkHacks, be sure follow our social media to keep up to date.",
+    "category": "General"
   }
 ];
