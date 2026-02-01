@@ -136,13 +136,33 @@ export const faqData: FAQItem[] = [
     "category": "Logistics"
   },
   {
+    "question": "I missed the application deadline, is there a way I can still apply?",
+    "answer": "Due to limitations, we are unable to accept applications late. However, pre-hack workshops are open to everyone if you are interested in attending. If you are interested in participating in next year's SparkHacks, be sure follow our social media to keep up to date.",
+    "category": "General"
+  },
+  {
+    "question": "I missed my opportunity to accept my invitation to SparkHacks 2026 on time and now I'm on the waitlist. What can I do?",
+    "answer": "Your application has been moved to waitlist. Waitlist registration will be open after 6:30pm on the day of SparkHacks and will be on a first-come first-serve basis. However, this is not guaranteed, and there will be no walk-ins accepted after 7:30pm or until the limit has been reached.",
+    "category": "General"
+  },
+  {
+    "question": "My application has been put on waitlist, can I still participate in SparkHacks 2026?",
+    "answer": "Waitlist registration will open after 6:30pm on the day of SparkHacks to waitlisted applicants and will be on a first-come first-serve basis. Please note that this does not guarantee you a spot and there will be no registration after 7:30pm.",
+    "category": "General"
+  },
+  {
+    "question": "I have been accepted, but I have a teammate who is on the waitlist/rejected. Can they participate?",
+    "answer": "Teammates who have been put on waitlist will need to check their email on the next steps regarding waitlist options. Unfortunately, teammates who are rejected will be unable to participate and there is no reconsideration.",
+    "category": "General"
+  },
+  {
+    "question": "My application was rejected, can I still participate in SparkHacks 2026?",
+    "answer": "Unfortunately, due to limitations and the high number of applications, this decision is final. Please consider reapplying next year and follow our social media to keep up to date.",
+    "category": "General"
+  },
+  {
     "question": "Who do I contact if I have more questions?",
     "answer": "You can email us at sparkhacks@uic.edu or message us on social media! You can find our social links in the bottom right corner of our website.",
     "category": "General"
   },
-  {
-    "question": "I missed the application deadline, is there a way I can still apply?",
-    "answer": "Due to limitations, we are unable to accept applications late. However, pre-hack workshops are open to everyone if you are interested in attending. If you are interested in participating in next year's SparkHacks, be sure follow our social media to keep up to date.",
-    "category": "General"
-  }
 ];
