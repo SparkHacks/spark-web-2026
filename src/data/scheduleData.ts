@@ -47,7 +47,7 @@ export const scheduleData = [
                 "title": "Dinner 🍿",
                 "time": "8:00 PM - 9:00 PM",
                 "description": "Enjoy some top tier food! Vegetarian options available.",
-                "tags": ["Food", "CDRLC 1413 & Atrium"],
+                "tags": ["Food", "Location: CDRLC 1413 & Atrium"],
                 "utc_start": "2026-02-06T20:00:00.000-06:00",
                 "utc_end": "2026-02-06T21:00:00.000-06:00"
             },
