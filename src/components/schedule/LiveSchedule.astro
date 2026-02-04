@@ -1,3 +1,33 @@
-<div class="">
+---
+import LiveSchedCard from "../schedule/LiveSchedCard.astro"
+import { scheduleData } from "../../data/scheduleData";
 
-</div>
+const now = new Date();
+const start = new Date("2026-02-06T15:45:00.000-06:00");
+const end = new Date("2026-02-07T20:30:00.000-06:00");
+---
+{ ( start < now && now < end ) ?
+    <div class="flex flex-col place-content-center items-center bg-[#10042A] overflow-hidden pt-[20vh]">
+        <div class="flex flex-col w-[75%] p-7 place-content-center bg-[#1F0303] items-center border-32 border-bright-red " style="border-style: outset">    
+            <span class="relative z-10 font-bebas text-center text-6xl md:text-8xl my-10">Happening Now!</span>
+            <div class="flex flex-row flex-wrap place-content-center justify-center items-center text-white gap-15 pb-10"> 
+                {
+                    scheduleData.map((d) => (
+                        d.events.map((event) => (
+                            <LiveSchedCard eventData={event} />
+                        ))
+                    ))
+                }
+            </div>
+
+            <a href="#schedule" class="cursor-pointer inline-block bg-[#FCA129] max-w-80 min-w-50 rounded-lg overflow-hidden hover:scale-101 transition-all duration-500 hover:shadow-[0_0_20px_rgba(252,161,41,0.8)]">
+                <div class="w-full h-16 text-black flex items-center justify-center font-semibold relative font-thin px-10">
+                    <div class="absolute inset-0 bg-[#FFC77E80]" 
+                        style="clip-path: polygon(25% 0, 55% 0, 75% 100%, 45% 100%);"></div>
+                    <span class="relative z-10 font-bebas text-2xl md:text-3xl">View full schedule</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    : null
+}

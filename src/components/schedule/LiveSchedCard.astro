@@ -1,0 +1,86 @@
+---
+import ImportantStar from "../../assets/schedule/star.svg";
+
+interface Props {
+    eventData: {
+        title: string;
+        time: string;
+        description: string;
+        tags: string[];
+        utc_start: string,
+        utc_end: string
+    };
+}
+
+const { eventData } = Astro.props;
+
+const curr_time = new Date()
+const start_time = new Date(eventData.utc_start)
+const end_time = new Date(eventData.utc_end)
+const isCurr = (start_time < curr_time) && (curr_time < end_time)
+
+const rotDeg = Math.random() * 360
+---
+
+{ isCurr ?
+    <div class="flex flex-col gap-3 bg-[#10042A] mix-blend-screen rounded-2xl p-5 mx-5 w-64 md:w-88 sm:min-h-50 h-full relative"
+         style="box-shadow: 0px 0px 15px 7px #FCA129;">
+        {
+            eventData.tags.includes("❗ Mandatory") &&
+            <div class="w-5 h-5 absolute right-115 bottom-160 md:right-110 lg:right-110 lg:bottom-155">
+                <ImportantStar class="scale-10 md:scale-15 lg:scale-15" style={`transform: rotate(${rotDeg}deg)`} />
+            </div>
+        }
+
+        {
+            eventData.tags.includes("❗ Mandatory") &&
+            <div class="w-5 h-5 absolute right-115 bottom-160 md:right-110 lg:right-110 lg:bottom-155">
+                <ImportantStar class="important-star scale-10 md:scale-15 lg:scale-15" style={`animation: star-animation ${Math.random() * (5-2+1) + 2}s ease-in-out infinite; transform: rotate(${rotDeg}deg)`} />
+            </div>
+        }
+
+        <h2 class="text-2xl font-bold text-left leading-relaxed">{eventData.title}</h2>
+        <h2 class="text-xl font-bold text-left leading-relaxed">{eventData.time}</h2>
+        <div class="flex-grow"></div>
+        <div class="flex flex-row gap-3 items-end w-full">
+            {
+                eventData.tags.map((tag) => {
+                    return (
+                        (tag.includes("Location") || tag.includes("Mandatory") )?
+                        <div class={`border-1 border-white rounded-full p-3 font-bold text-center`}>
+                            <h2>{tag}</h2>
+                        </div> 
+                        : null
+                    )
+            })
+            }
+        </div>
+    </div>
+    : null
+}
+
+<style>
+    @keyframes star-animation
+    {
+        0%
+        {
+            opacity: 0%;
+        }
+
+        50%
+        {
+            opacity: 100%;
+        }
+
+        100%
+        {
+            opacity: 0%;
+        }
+    }
+
+    .important-star
+    {
+        filter: blur(100px);
+        mix-blend-mode: hard-light;
+    }
+</style>

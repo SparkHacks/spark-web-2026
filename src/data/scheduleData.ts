@@ -8,7 +8,7 @@ export const scheduleData = [
                 "time": "4:00 PM - 7:30  PM",
                 "description": "Have your QR code ready and get your teammates together for check-in.",
                 "tags": ["❗ Mandatory", "Location: CDRLC 1413"],
-                "utc_start": "2026-02-06T16:00:00.000-06:00",
+                "utc_start": "2026-02-06T15:45:00.000-06:00",
                 "utc_end": "2026-02-06T19:30:00.000-06:00"
             },
             {
@@ -17,7 +17,7 @@ export const scheduleData = [
                 "description": "Join us for the big night! We'll introduce our sponsors, reveal the tracks and prizes.",
                 "tags": ["❗ Mandatory", "Location: SES 250"],
                 "utc_start": "2026-02-06T17:30:00.000-06:00",
-                "utc_end": "2026-02-06T18:0:00.000-06:00"
+                "utc_end": "2026-02-06T18:00:00.000-06:00"
             },
             {
                 "title": "Sponsor Tabling",
@@ -48,7 +48,7 @@ export const scheduleData = [
                 "time": "8:00 PM - 9:00 PM",
                 "description": "Enjoy some top tier food! Vegetarian options available.",
                 "tags": ["Food", "Location: CDRLC 1413 & Atrium"],
-                "utc_start": "2026-02-06T20:00:00.000-06:00",
+                "utc_start": "2026-02-06T19:15:00.000-06:00",
                 "utc_end": "2026-02-06T21:00:00.000-06:00"
             },
             {
@@ -70,7 +70,7 @@ export const scheduleData = [
                 "time": "9:00am - 10:00am",
                 "description": "Check in for Day 2 and re-fuel with breakfast! Vegetarian options available.",
                 "tags": ["❗ Mandatory", "Food", "Location: CDRLC 1413 & Atrium"],
-                "utc_start": "2026-02-07T09:00:00.000-06:00",
+                "utc_start": "2026-02-07T08:45:00.000-06:00",
                 "utc_end": "2026-02-07T10:00:00.000-06:00"
             },
             {
@@ -78,7 +78,7 @@ export const scheduleData = [
                 "time": "1:00 PM - 2:00 PM",
                 "description": "It's the final stretch! Make sure to grab food with your team before your final submission.",
                 "tags": ["Food", "Location: CDRLC 1413 & Atrium"],
-                "utc_start": "2026-02-07T13:00:00.000-06:00",
+                "utc_start": "2026-02-07T12:45:00.000-06:00",
                 "utc_end": "2026-02-07T14:00:00.000-06:00"
             },
             {
@@ -86,7 +86,7 @@ export const scheduleData = [
                 "time": "⭐ 2:30 PM ⭐",
                 "description": "Make sure drafts for DevPosts have been made and teams have been submitted!",
                 "tags": ["❗ Mandatory"],
-                "utc_start": "2026-02-07T14:15:00.000-06:00",
+                "utc_start": "2026-02-07T14:00:00.000-06:00",
                 "utc_end": "2026-02-07T14:30:00.000-06:00"
             },
             {
@@ -102,7 +102,7 @@ export const scheduleData = [
                 "time": "⭐ 5:30 PM ⭐",
                 "description": "YOU DID IT! FINAL SUBMISSIONS! NO LATE POSTS ALLOWED.",
                 "tags": ["❗ Mandatory"],
-                "utc_start": "2026-02-07T17:15:00.000-06:00",
+                "utc_start": "2026-02-07T17:00:00.000-06:00",
                 "utc_end": "2026-02-07T17:30:00.000-06:00"
             },
             {
@@ -110,7 +110,7 @@ export const scheduleData = [
                 "time": "6:00 PM - 7:00 PM",
                 "description": "Showcase your projects to our sponsors while judging takes place.",
                 "tags": ["Social", "Career", "Location: CDRLC"],
-                "utc_start": "2026-02-07T18:00:00.000-06:00",
+                "utc_start": "2026-02-07T17:45:00.000-06:00",
                 "utc_end": "2026-02-07T19:00:00.000-06:00"
             },
             {
