@@ -22,7 +22,8 @@ const isCurr = (start_time < curr_time) && (curr_time < end_time)
 
 const rotDeg = Math.random() * 360
 ---
-<div class="flex flex-col gap-3 bg-[#ffffff0F] rounded-2xl p-5 sm:min-w-82 max-w-111 sm:h-70 relative">
+<div class={`${isCurr ? "animate-[wiggle_5s_ease-in-out_infinite]" : ""} flex flex-col gap-3 bg-[#ffffff0F] rounded-2xl p-5 sm:min-w-82 max-w-111 sm:h-70 relative`}
+     style={`${isCurr ? "box-shadow: 0px 0px 15px 7px #FCA129;" : ""}`}>
     <!-- stars -->
     {
         eventData.tags.includes("❗ Mandatory") &&
@@ -62,6 +63,25 @@ const rotDeg = Math.random() * 360
 </div>
 
 <style>
+    @keyframes wiggle
+    {
+        0%
+        {
+            transform: scale(1.05);
+        }
+
+        50%
+        {
+            transform: scale(1);
+        }
+
+        100%
+        {
+            transform: scale(1.05);
+        }
+    }
+
+
     @keyframes star-animation
     {
         0%
