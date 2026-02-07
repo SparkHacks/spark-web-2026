@@ -5,7 +5,7 @@ export const scheduleData = [
         events: [
             {
                 "title": "Check-In",
-                "time": "4:00 PM - 7:30  PM",
+                "time": "4:00 PM - 7:30 PM",
                 "description": "Have your QR code ready and get your teammates together for check-in.",
                 "tags": ["❗ Mandatory", "Location: CDRLC 1413"],
                 "utc_start": "2026-02-06T15:45:00.000-06:00",
@@ -16,7 +16,7 @@ export const scheduleData = [
                 "time": "5:30 PM - 6:00 PM",
                 "description": "Join us for the big night! We'll introduce our sponsors, reveal the tracks and prizes.",
                 "tags": ["❗ Mandatory", "Location: SES 250"],
-                "utc_start": "2026-02-06T17:30:00.000-06:00",
+                "utc_start": "2026-02-06T17:15:00.000-06:00",
                 "utc_end": "2026-02-06T18:00:00.000-06:00"
             },
             {
@@ -48,7 +48,7 @@ export const scheduleData = [
                 "time": "8:00 PM - 9:00 PM",
                 "description": "Enjoy some top tier food! Vegetarian options available.",
                 "tags": ["Food", "Location: CDRLC 1413 & Atrium"],
-                "utc_start": "2026-02-06T19:15:00.000-06:00",
+                "utc_start": "2026-02-06T19:45:00.000-06:00",
                 "utc_end": "2026-02-06T21:00:00.000-06:00"
             },
             {
@@ -126,7 +126,7 @@ export const scheduleData = [
                 "time": "8:15 PM - 8:30 PM",
                 "description": "Winner announcements and closing remarks!",
                 "tags": ["❗ Mandatory", "Location: SES 250"],
-                "utc_start": "2026-02-07T20:15:00.000-06:00",
+                "utc_start": "2026-02-07T20:00:00.000-06:00",
                 "utc_end": "2026-02-07T20:30:00.000-06:00"
             },
         ],
