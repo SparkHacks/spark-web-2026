@@ -6,6 +6,14 @@ import { scheduleData } from "../../data/scheduleData";
 const now = new Date();
 const start = new Date("2026-02-06T15:45:00.000-06:00");
 const end = new Date("2026-02-07T20:30:00.000-06:00");
+const options = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  timeZone: "CST",
+  timeZoneName: "short",
+};
 ---
 { ( start < now && now < end ) ?
     <div class="flex flex-col place-content-center items-center bg-[#10042A] overflow-hidden pt-[20vh]">
@@ -15,7 +23,7 @@ const end = new Date("2026-02-07T20:30:00.000-06:00");
                 {
                     scheduleData.map((d) => (
                         d.events.map((event) => (
-                            <LiveSchedCard eventData={event} />
+                            <LiveSchedCard client:load eventData={event} />
                         ))
                     ))
                 }
@@ -29,7 +37,7 @@ const end = new Date("2026-02-07T20:30:00.000-06:00");
                 </div>
             </a>
             <div class="flex flex-row pt-3 gap-2 align-center place-items-center">
-                <span class="text-white">Last updated: {now.toLocaleTimeString("en-US")}</p>
+                <span class="text-white">Last updated: {now.toLocaleTimeString("en-US", { timeZone: "CST"})}</p>
                 <button onclick="location.reload()" class="cursor-pointer w-8 h-8 md:w-10 md:h-10">
                     <Refresh class="w-full h-full"/>
                 </button>
