@@ -34,7 +34,7 @@ import LinkedInIcon from '../../public/socialIcons/linkedin-logo.svg';
   <div class="max-w-6xl mx-auto my-16 md:my-32 lg:mg-32 relative z-30">
     <div class="relative">
       <img 
-        src="teams/film_reel_large.svg" 
+        src={import.meta.env.BASE_URL + "/teams/film_reel_large.svg"} 
         class="w-full h-auto scale-x-150 scale-y-160 sm:scale-y-130 md:scale-x-200 md:scale-y-135 xl:scale-x-260 xl:scale-y-165 left-1/2" 
       />
 
@@ -137,16 +137,16 @@ import LinkedInIcon from '../../public/socialIcons/linkedin-logo.svg';
     document.getElementById('memberName').textContent = member.name;
     document.getElementById('memberInfo').textContent = `${member.year} | ${member.major}`;
     document.getElementById('memberTitle').textContent = member.title;
-    document.getElementById('memberPhoto').src = member.image;
+    document.getElementById('memberPhoto').src = "/spark-web-2026/" + member.image;
     document.querySelectorAll('.memberLink').forEach(l => {l.href = member.linkedin;});
 
     const teamPhotoMap = {
-      'Director': '/teams/director.webp',
-      'Logistics': '/teams/logistics.webp',
-      'Experience': '/teams/experience.webp',
-      'Web Development': '/teams/web_dev.webp',
-      'Communications': '/teams/communications.webp',
-      'Outreach': '/teams/outreach.webp'
+      'Director': '/spark-web-2026/teams/director.webp',
+      'Logistics': '/spark-web-2026/teams/logistics.webp',
+      'Experience': '/spark-web-2026/teams/experience.webp',
+      'Web Development': '/spark-web-2026/teams/web_dev.webp',
+      'Communications': '/spark-web-2026/teams/communications.webp',
+      'Outreach': '/spark-web-2026/teams/outreach.webp'
     };
 
     const teamPhotoElement = document.querySelector('#memberContainer #teamPhoto');

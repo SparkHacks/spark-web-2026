@@ -20,7 +20,7 @@ import PosterBulb from "./PosterBulb.astro";
     </div>
     <div class="flex-1 h-full bg-gray-500 flex justify-center items-center text-center overflow-hidden">
       {image ? (
-        <img src={image} alt="Workshop poster" class="w-full h-full object-cover" />
+        <img src={import.meta.env.BASE_URL + image} alt="Workshop poster" class="w-full h-full object-cover" />
       ) : (
         <p class="text-sm sm:text-base px-2">Coming Soon...</p>
       )}

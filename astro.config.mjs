@@ -7,4 +7,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: 'https://sparkhacks.github.io',
+  base: '/spark-web-2026'
 });
